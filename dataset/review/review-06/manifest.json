@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "sample_id": "review-06",
+  "track": "review",
+  "status": "draft",
+  "language": "ko",
+  "synthetic_github_artifacts": true,
+  "repository": {
+    "name": "BrainWash",
+    "base_branch": "main",
+    "base_commit": "8291841b976624af414c2dfd96d7e2b596115ea8",
+    "head_branch": "review/review-06-lifecycle-audit",
+    "initial_review_head": "8c56c1e1ede80fc856da17e742f1a7a2aeb69683",
+    "final_head_commit": "d99d2237975ffa3586eeb73bf2962f366746c487",
+    "integrated_main_commit": "d99d2237975ffa3586eeb73bf2962f366746c487",
+    "commits": [
+      {
+        "role": "initial_review_pr",
+        "sha": "8c56c1e1ede80fc856da17e742f1a7a2aeb69683",
+        "subject": "feat(review-06): import memory lifecycle audits"
+      },
+      {
+        "role": "review_regression_tests",
+        "sha": "3369f647c0c5a548e9badc7aa33a89bf8253c8b6",
+        "subject": "test(review-06): specify lifecycle audit import contracts"
+      },
+      {
+        "role": "review_response",
+        "sha": "d99d2237975ffa3586eeb73bf2962f366746c487",
+        "subject": "fix(review-06): normalize lifecycle audit imports"
+      }
+    ]
+  },
+  "perspective": {
+    "primary_actor": "reviewer",
+    "counterpart": "author"
+  },
+  "change_budget": {
+    "initial_additions": 57,
+    "initial_deletions": 0,
+    "initial_measured_changed_lines": 57,
+    "counting_rule": "initial review snapshot only; additions plus deletions",
+    "reviewability_note": "외부 lifecycle artifact import의 타입 계약과 결과 report를 다루는 단일 기능입니다."
+  },
+  "paths_changed": {
+    "initial": [
+      "brainwash/memory/schema.sql",
+      "brainwash/memory/update_db.py"
+    ],
+    "review_response": [
+      "brainwash/memory/update_db.py",
+      "tests/test_update_db.py"
+    ]
+  },
+  "verification": {
+    "initial_review_head": "전체 test 120건 통과",
+    "review_response": "lifecycle regression test를 추가한 뒤 update DB test 10건 및 전체 test 122건 통과"
+  },
+  "review": {
+    "thread_count": 5,
+    "change_request_count": 2,
+    "final_state": "approved"
+  },
+  "artifacts": [
+    "00_task.md",
+    "01_prompt_history.md",
+    "02_pr_description.md",
+    "04_pr_conversation.md",
+    "05_final_report.md",
+    "06_capture_list.md",
+    "07_checklist.md"
+  ]
+}
