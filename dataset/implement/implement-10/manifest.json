@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "sample_id": "implement-10",
+  "track": "implement",
+  "status": "draft",
+  "language": "ko",
+  "synthetic_github_artifacts": true,
+  "repository": {
+    "name": "BrainWash",
+    "base_branch": "main",
+    "base_commit": "1fe0233c8be14d36b847804b5e820d98b9ef2ebf",
+    "head_branch": "main",
+    "initial_review_head": "8291841b976624af414c2dfd96d7e2b596115ea8",
+    "final_head_commit": "8291841b976624af414c2dfd96d7e2b596115ea8",
+    "integrated_main_commit": "8291841b976624af414c2dfd96d7e2b596115ea8",
+    "commits": [
+      {
+        "role": "red_tests",
+        "sha": "700d61c4516730c30c57d1f0b5a402f2d66b9917",
+        "subject": "test(implement-10): specify memory lifecycle policy"
+      },
+      {
+        "role": "implementation",
+        "sha": "8291841b976624af414c2dfd96d7e2b596115ea8",
+        "subject": "refactor(implement-10): centralize memory lifecycle policy"
+      }
+    ]
+  },
+  "perspective": {
+    "primary_actor": "implementer",
+    "counterpart": "reviewer"
+  },
+  "change_budget": {
+    "minimum_changed_lines": 200,
+    "preferred_upper_bound": 300,
+    "additions": 206,
+    "deletions": 3,
+    "measured_changed_lines": 209,
+    "counting_rule": "product code and tests; additions plus deletions",
+    "reviewability_note": "lifecycle Policy, Decision Value Object, active filtering, audit artifact, deterministic temporal test를 함께 완료한 단일 refactor입니다."
+  },
+  "paths_changed": [
+    "brainwash/memory/ledger.py",
+    "tests/test_memory_ledger.py"
+  ],
+  "verification": {
+    "red": "tests.test_memory_ledger: MemoryLifecyclePolicy import 실패",
+    "initial_review_head": "Memory Ledger 테스트 10건, Update DB 테스트 8건, 전체 테스트 120건 통과",
+    "final": "Memory Ledger 테스트 10건, Update DB 테스트 8건, 전체 테스트 120건 통과"
+  },
+  "review": {
+    "thread_count": 3,
+    "change_request_count": 0,
+    "final_state": "approved"
+  },
+  "artifacts": [
+    "00_task.md",
+    "01_prompt_history.md",
+    "02_pr_description.md",
+    "04_pr_conversation.md",
+    "05_final_report.md",
+    "06_capture_list.md",
+    "07_checklist.md"
+  ]
+}

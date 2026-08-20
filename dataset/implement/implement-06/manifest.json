@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "sample_id": "implement-06",
+  "track": "implement",
+  "status": "draft",
+  "language": "ko",
+  "synthetic_github_artifacts": true,
+  "repository": {
+    "name": "BrainWash",
+    "base_branch": "main",
+    "base_commit": "10a7f021c24f860fe599ed9d2040965aaf64bd02",
+    "head_branch": "main",
+    "initial_review_head": "af2dcc0413e9fc7eff020052c6aaacd112e659d5",
+    "final_head_commit": "af2dcc0413e9fc7eff020052c6aaacd112e659d5",
+    "integrated_main_commit": "af2dcc0413e9fc7eff020052c6aaacd112e659d5",
+    "commits": [
+      {
+        "role": "red_tests",
+        "sha": "706b6e86af284d99068c0949f0ec542e9d3d7661",
+        "subject": "test(implement-06): specify memory promotion policy"
+      },
+      {
+        "role": "implementation",
+        "sha": "af2dcc0413e9fc7eff020052c6aaacd112e659d5",
+        "subject": "refactor(implement-06): separate memory promotion policy"
+      }
+    ]
+  },
+  "perspective": {
+    "primary_actor": "implementer",
+    "counterpart": "reviewer"
+  },
+  "change_budget": {
+    "minimum_changed_lines": 200,
+    "preferred_upper_bound": 300,
+    "additions": 297,
+    "deletions": 17,
+    "measured_changed_lines": 314,
+    "counting_rule": "product code and tests; additions plus deletions",
+    "reviewability_note": "training promotion Policy·Rule Strategy, Decision Value Object, ledger delegation, 정책별 regression test를 함께 완결한 단일 refactor입니다."
+  },
+  "paths_changed": [
+    "brainwash/memory/ledger.py",
+    "brainwash/memory/promotion.py",
+    "tests/test_memory_ledger.py"
+  ],
+  "verification": {
+    "red": "tests.test_memory_ledger: PromotionPolicy module import 실패",
+    "initial_review_head": "memory ledger 테스트 7건, Update DB 테스트 4건, 전체 테스트 106건 통과",
+    "final": "memory ledger 테스트 7건, Update DB 테스트 4건, 전체 테스트 106건 통과"
+  },
+  "review": {
+    "thread_count": 3,
+    "change_request_count": 0,
+    "final_state": "approved"
+  },
+  "artifacts": [
+    "00_task.md",
+    "01_prompt_history.md",
+    "02_pr_description.md",
+    "04_pr_conversation.md",
+    "05_final_report.md",
+    "06_capture_list.md",
+    "07_checklist.md"
+  ]
+}

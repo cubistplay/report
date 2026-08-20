@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "sample_id": "implement-08",
+  "track": "implement",
+  "status": "draft",
+  "language": "ko",
+  "synthetic_github_artifacts": true,
+  "repository": {
+    "name": "BrainWash",
+    "base_branch": "main",
+    "base_commit": "26174af19d247a57a1876e023bd4727142c307fb",
+    "head_branch": "main",
+    "initial_review_head": "ec723b789b0df00ee92ccf3dff053650442f9a96",
+    "final_head_commit": "ec723b789b0df00ee92ccf3dff053650442f9a96",
+    "integrated_main_commit": "ec723b789b0df00ee92ccf3dff053650442f9a96",
+    "commits": [
+      {
+        "role": "red_tests",
+        "sha": "43a7afc7c2c4e38d53f7b2156a0d0c4fec449e63",
+        "subject": "test(implement-08): specify routing policy precedence"
+      },
+      {
+        "role": "implementation",
+        "sha": "ec723b789b0df00ee92ccf3dff053650442f9a96",
+        "subject": "refactor(implement-08): decompose routing policies"
+      }
+    ]
+  },
+  "perspective": {
+    "primary_actor": "implementer",
+    "counterpart": "reviewer"
+  },
+  "change_budget": {
+    "minimum_changed_lines": 200,
+    "preferred_upper_bound": 300,
+    "additions": 267,
+    "deletions": 138,
+    "measured_changed_lines": 405,
+    "counting_rule": "product code and tests; additions plus deletions",
+    "reviewability_note": "네 routing lane의 Chain of Responsibility, common plan Factory, custom Policy injection, precedence test를 함께 완료한 단일 refactor입니다."
+  },
+  "paths_changed": [
+    "brainwash/router.py",
+    "tests/test_router.py"
+  ],
+  "verification": {
+    "red": "tests.test_router: routing Policy import 실패",
+    "initial_review_head": "Router 테스트 9건, Update DB 테스트 8건, 전체 테스트 113건 통과",
+    "final": "Router 테스트 9건, Update DB 테스트 8건, 전체 테스트 113건 통과"
+  },
+  "review": {
+    "thread_count": 3,
+    "change_request_count": 0,
+    "final_state": "approved"
+  },
+  "artifacts": [
+    "00_task.md",
+    "01_prompt_history.md",
+    "02_pr_description.md",
+    "04_pr_conversation.md",
+    "05_final_report.md",
+    "06_capture_list.md",
+    "07_checklist.md"
+  ]
+}

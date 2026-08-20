@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "sample_id": "implement-07",
+  "track": "implement",
+  "status": "draft",
+  "language": "ko",
+  "synthetic_github_artifacts": true,
+  "repository": {
+    "name": "BrainWash",
+    "base_branch": "main",
+    "base_commit": "af2dcc0413e9fc7eff020052c6aaacd112e659d5",
+    "head_branch": "main",
+    "initial_review_head": "26174af19d247a57a1876e023bd4727142c307fb",
+    "final_head_commit": "26174af19d247a57a1876e023bd4727142c307fb",
+    "integrated_main_commit": "26174af19d247a57a1876e023bd4727142c307fb",
+    "commits": [
+      {
+        "role": "red_tests",
+        "sha": "a52d254ecec32c251ea005b8c46232c34bce7b1e",
+        "subject": "test(implement-07): specify memory retrieval strategies"
+      },
+      {
+        "role": "implementation",
+        "sha": "26174af19d247a57a1876e023bd4727142c307fb",
+        "subject": "refactor(implement-07): extract memory retrieval strategies"
+      }
+    ]
+  },
+  "perspective": {
+    "primary_actor": "implementer",
+    "counterpart": "reviewer"
+  },
+  "change_budget": {
+    "minimum_changed_lines": 200,
+    "preferred_upper_bound": 300,
+    "additions": 276,
+    "deletions": 95,
+    "measured_changed_lines": 371,
+    "counting_rule": "product code and tests; additions plus deletions",
+    "reviewability_note": "네 retrieval route의 Strategy 추출, Candidate Value Object, constructor injection, rerank delegation, contract test를 함께 완료한 단일 refactor입니다."
+  },
+  "paths_changed": [
+    "brainwash/memory/update_db.py",
+    "tests/test_update_db.py"
+  ],
+  "verification": {
+    "red": "tests.test_update_db: retrieval Strategy import 실패",
+    "initial_review_head": "Update DB 테스트 8건, Memory Ledger 테스트 7건, 전체 테스트 110건 통과",
+    "final": "Update DB 테스트 8건, Memory Ledger 테스트 7건, 전체 테스트 110건 통과"
+  },
+  "review": {
+    "thread_count": 3,
+    "change_request_count": 0,
+    "final_state": "approved"
+  },
+  "artifacts": [
+    "00_task.md",
+    "01_prompt_history.md",
+    "02_pr_description.md",
+    "04_pr_conversation.md",
+    "05_final_report.md",
+    "06_capture_list.md",
+    "07_checklist.md"
+  ]
+}
