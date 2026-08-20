@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "sample_id": "implement-02",
+  "track": "implement",
+  "status": "draft",
+  "language": "ko",
+  "synthetic_github_artifacts": true,
+  "repository": {
+    "name": "BrainWash",
+    "base_branch": "main",
+    "base_commit": "dcd46fd68822ac3041daa94afe53c80043e2a903",
+    "head_branch": "main",
+    "initial_review_head": "29bb11e491889c22f93e01e1f9a344669d860aae",
+    "final_head_commit": "29bb11e491889c22f93e01e1f9a344669d860aae",
+    "integrated_main_commit": "29bb11e491889c22f93e01e1f9a344669d860aae",
+    "commits": [
+      {
+        "role": "red_tests",
+        "sha": "ae1de36f9993076bcefd278a09063740e22c8419",
+        "subject": "test(implement-02): specify benchmark request factory"
+      },
+      {
+        "role": "implementation",
+        "sha": "29bb11e491889c22f93e01e1f9a344669d860aae",
+        "subject": "refactor(implement-02): centralize benchmark request construction"
+      }
+    ]
+  },
+  "perspective": {
+    "primary_actor": "implementer",
+    "counterpart": "reviewer"
+  },
+  "change_budget": {
+    "minimum_changed_lines": 200,
+    "preferred_upper_bound": 300,
+    "additions": 186,
+    "deletions": 43,
+    "measured_changed_lines": 229,
+    "counting_rule": "product code and tests; additions plus deletions",
+    "reviewability_note": "공통 request 생성 규칙을 Factory로 모으고 네 adapter의 입력 해석은 유지한 단일 refactor입니다."
+  },
+  "paths_changed": [
+    "brainwash/benchmarks.py",
+    "tests/test_benchmark_adapters_factory.py"
+  ],
+  "verification": {
+    "red": "tests.test_benchmark_adapters_factory: Factory import 실패",
+    "initial_review_head": "Factory 테스트 3건 통과; adapter 테스트 6건 통과; 전체 테스트 77건 통과; JSON diff 없음",
+    "final": "Factory 테스트 3건 통과; adapter 테스트 6건 통과; 전체 테스트 77건 통과; JSON diff 없음"
+  },
+  "review": {
+    "thread_count": 4,
+    "change_request_count": 0,
+    "final_state": "approved"
+  },
+  "artifacts": [
+    "00_task.md",
+    "01_prompt_history.md",
+    "02_pr_description.md",
+    "04_pr_conversation.md",
+    "05_final_report.md",
+    "06_capture_list.md",
+    "07_checklist.md"
+  ]
+}

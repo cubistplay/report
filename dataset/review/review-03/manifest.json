@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "sample_id": "review-03",
+  "track": "review",
+  "status": "draft",
+  "language": "ko",
+  "synthetic_github_artifacts": true,
+  "repository": {
+    "name": "BrainWash",
+    "base_branch": "main",
+    "base_commit": "ef03ac98e2baed67d4bbf21dd7fcbf6eba224239",
+    "head_branch": "review/review-03-benchmark-provenance",
+    "initial_review_head": "7d612cd5bcc8874116887c444c8f25df0bee31bd",
+    "final_head_commit": "5a6f568472c4f95ba5eb1d12105a17c5c0a888da",
+    "integrated_main_commit": "5a6f568472c4f95ba5eb1d12105a17c5c0a888da",
+    "commits": [
+      {
+        "role": "initial_review_pr",
+        "sha": "7d612cd5bcc8874116887c444c8f25df0bee31bd",
+        "subject": "feat(review-03): record benchmark request provenance"
+      },
+      {
+        "role": "review_regression_tests",
+        "sha": "d39e2548e1629c5d44f18cd5e48eef88807341f1",
+        "subject": "test(review-03): specify benchmark provenance contracts"
+      },
+      {
+        "role": "review_response",
+        "sha": "5a6f568472c4f95ba5eb1d12105a17c5c0a888da",
+        "subject": "fix(review-03): preserve benchmark provenance"
+      }
+    ]
+  },
+  "perspective": {
+    "primary_actor": "reviewer",
+    "counterpart": "author"
+  },
+  "change_budget": {
+    "initial_additions": 49,
+    "initial_deletions": 1,
+    "initial_measured_changed_lines": 50,
+    "counting_rule": "initial review snapshot only; additions plus deletions",
+    "reviewability_note": "benchmark source coordinate Value Object와 Factory metadata ownership을 다루는 단일 기능입니다."
+  },
+  "paths_changed": {
+    "initial": [
+      "brainwash/benchmarks.py"
+    ],
+    "review_response": [
+      "brainwash/benchmarks.py",
+      "tests/test_benchmark_adapters.py"
+    ]
+  },
+  "verification": {
+    "initial_review_head": "전체 test 96건 통과",
+    "review_response": "provenance regression test를 추가한 뒤 benchmark adapter 11건 및 전체 98건 통과"
+  },
+  "review": {
+    "thread_count": 5,
+    "change_request_count": 2,
+    "final_state": "approved"
+  },
+  "artifacts": [
+    "00_task.md",
+    "01_prompt_history.md",
+    "02_pr_description.md",
+    "04_pr_conversation.md",
+    "05_final_report.md",
+    "06_capture_list.md",
+    "07_checklist.md"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "sample_id": "implement-03",
+  "track": "implement",
+  "status": "draft",
+  "language": "ko",
+  "synthetic_github_artifacts": true,
+  "repository": {
+    "name": "BrainWash",
+    "base_branch": "main",
+    "base_commit": "29bb11e491889c22f93e01e1f9a344669d860aae",
+    "head_branch": "main",
+    "initial_review_head": "3cb00d9d558281c241fdd0ed387df5c71fe86bc1",
+    "final_head_commit": "3c11c0234491b57001cd620ba284071c4ad4957b",
+    "integrated_main_commit": "3c11c0234491b57001cd620ba284071c4ad4957b",
+    "commits": [
+      {
+        "role": "red_tests",
+        "sha": "5655dde4cdca26cf542bb74b96c3cd1e4410fd7d",
+        "subject": "test(implement-03): specify algorithm registry contracts"
+      },
+      {
+        "role": "implementation",
+        "sha": "3cb00d9d558281c241fdd0ed387df5c71fe86bc1",
+        "subject": "refactor(implement-03): encapsulate algorithm registry"
+      },
+      {
+        "role": "review_response",
+        "sha": "3c11c0234491b57001cd620ba284071c4ad4957b",
+        "subject": "test(implement-03): cover rag adapter registration"
+      }
+    ]
+  },
+  "perspective": {
+    "primary_actor": "implementer",
+    "counterpart": "reviewer"
+  },
+  "change_budget": {
+    "minimum_changed_lines": 200,
+    "preferred_upper_bound": 300,
+    "additions": 203,
+    "deletions": 39,
+    "measured_changed_lines": 242,
+    "counting_rule": "product code and tests; additions plus deletions",
+    "reviewability_note": "Registry 패턴으로 adapter 등록 정책을 분리하고 plan override의 수동 복사를 제거했으며, RAG adapter identity 회귀 테스트를 리뷰 반영으로 추가했습니다."
+  },
+  "paths_changed": [
+    "brainwash/algorithms/registry.py",
+    "brainwash/pipeline.py",
+    "tests/test_pipeline_registry.py"
+  ],
+  "verification": {
+    "red": "tests.test_pipeline_registry: AlgorithmRegistry import 실패",
+    "initial_review_head": "registry/pipeline 테스트 5건 통과; 기존 pipeline 테스트 5건 통과; 전체 테스트 82건 통과; 계획 JSON diff 없음",
+    "final": "registry/pipeline 테스트 6건 통과; 기존 pipeline 테스트 5건 통과; 전체 테스트 83건 통과; 최초 계획 JSON diff 없음; RAG identity regression test 통과"
+  },
+  "review": {
+    "thread_count": 5,
+    "change_request_count": 1,
+    "final_state": "approved"
+  },
+  "artifacts": [
+    "00_task.md",
+    "01_prompt_history.md",
+    "02_pr_description.md",
+    "04_pr_conversation.md",
+    "05_final_report.md",
+    "06_capture_list.md",
+    "07_checklist.md"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "sample_id": "implement-01",
+  "track": "implement",
+  "status": "draft",
+  "language": "ko",
+  "synthetic_github_artifacts": true,
+  "repository": {
+    "name": "BrainWash",
+    "base_branch": "main",
+    "base_commit": "87abaa3d5398bff678408da82e7544fe3175122b",
+    "head_branch": "main",
+    "initial_review_head": "dcd46fd68822ac3041daa94afe53c80043e2a903",
+    "final_head_commit": "dcd46fd68822ac3041daa94afe53c80043e2a903",
+    "integrated_main_commit": "dcd46fd68822ac3041daa94afe53c80043e2a903",
+    "commits": [
+      {
+        "role": "red_tests",
+        "sha": "dda9a7c12a81e5a518b932e0b89acdc4adb56b0e",
+        "subject": "test(implement-01): specify evaluator registry contracts"
+      },
+      {
+        "role": "implementation",
+        "sha": "dcd46fd68822ac3041daa94afe53c80043e2a903",
+        "subject": "feat(implement-01): preserve locality with evaluation strategies"
+      }
+    ]
+  },
+  "perspective": {
+    "primary_actor": "implementer",
+    "counterpart": "reviewer"
+  },
+  "change_budget": {
+    "minimum_changed_lines": 200,
+    "preferred_upper_bound": 300,
+    "additions": 253,
+    "deletions": 46,
+    "measured_changed_lines": 299,
+    "counting_rule": "product code and tests; additions plus deletions",
+    "reviewability_note": "Strategy, Registry, Report Builder와 집중된 계약 테스트가 하나의 평가 기능을 이룹니다."
+  },
+  "paths_changed": [
+    "brainwash/eval/harness.py",
+    "brainwash/eval/metrics.py",
+    "tests/test_pipeline.py",
+    "tests/test_pipeline_eval_harness.py"
+  ],
+  "verification": {
+    "red": "tests.test_pipeline_eval_harness: 아직 없는 evaluator 경계의 ImportError",
+    "initial_review_head": "계약 테스트 6건 통과; pipeline 테스트 5건 통과; 전체 테스트 74건 통과",
+    "final": "계약 테스트 6건 통과; pipeline 테스트 5건 통과; 전체 테스트 74건 통과"
+  },
+  "review": {
+    "thread_count": 5,
+    "change_request_count": 0,
+    "final_state": "approved"
+  },
+  "artifacts": [
+    "00_task.md",
+    "01_prompt_history.md",
+    "02_pr_description.md",
+    "04_pr_conversation.md",
+    "05_final_report.md",
+    "06_capture_list.md",
+    "07_checklist.md"
+  ]
+}

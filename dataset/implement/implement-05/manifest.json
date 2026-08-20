@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "sample_id": "implement-05",
+  "track": "implement",
+  "status": "draft",
+  "language": "ko",
+  "synthetic_github_artifacts": true,
+  "repository": {
+    "name": "BrainWash",
+    "base_branch": "main",
+    "base_commit": "f3795e270ace457f28a5a04caf9a1d47a4e989b7",
+    "head_branch": "main",
+    "initial_review_head": "3819dbe96debb7d32d11c87ab92c0ba215dea5cf",
+    "final_head_commit": "3819dbe96debb7d32d11c87ab92c0ba215dea5cf",
+    "integrated_main_commit": "3819dbe96debb7d32d11c87ab92c0ba215dea5cf",
+    "commits": [
+      {
+        "role": "red_tests",
+        "sha": "4fa7b66016cf0ced1697fc649d1cf299d4ae7c25",
+        "subject": "test(implement-05): specify preference record strategies"
+      },
+      {
+        "role": "implementation",
+        "sha": "3819dbe96debb7d32d11c87ab92c0ba215dea5cf",
+        "subject": "refactor(implement-05): separate preference export strategies"
+      }
+    ]
+  },
+  "perspective": {
+    "primary_actor": "implementer",
+    "counterpart": "reviewer"
+  },
+  "change_budget": {
+    "minimum_changed_lines": 200,
+    "preferred_upper_bound": 300,
+    "additions": 239,
+    "deletions": 43,
+    "measured_changed_lines": 282,
+    "counting_rule": "product code and tests; additions plus deletions",
+    "reviewability_note": "preference 행 변환 Strategy와 공통 export Template Method를 도입하고 세 adapter의 artifact 동등성을 검증한 단일 refactor입니다."
+  },
+  "paths_changed": [
+    "brainwash/algorithms/preference.py",
+    "tests/test_pipeline_preference_export.py"
+  ],
+  "verification": {
+    "red": "tests.test_pipeline_preference_export: record Strategy import 실패",
+    "initial_review_head": "preference export 테스트 4건 통과; 기존 pipeline 테스트 5건 통과; 전체 테스트 90건 통과; artifact diff 없음",
+    "final": "preference export 테스트 4건 통과; 기존 pipeline 테스트 5건 통과; 전체 테스트 90건 통과; artifact diff 없음"
+  },
+  "review": {
+    "thread_count": 3,
+    "change_request_count": 0,
+    "final_state": "approved"
+  },
+  "artifacts": [
+    "00_task.md",
+    "01_prompt_history.md",
+    "02_pr_description.md",
+    "04_pr_conversation.md",
+    "05_final_report.md",
+    "06_capture_list.md",
+    "07_checklist.md"
+  ]
+}
