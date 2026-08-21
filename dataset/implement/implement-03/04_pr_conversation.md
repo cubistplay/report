@@ -92,7 +92,7 @@ algorithm과 reason만 다르지만, router가 만든 list나 stats 같은 값�
 
 ## 스레드 4 — mapping 호환성과 adapter 이름 계약
 
-**위치** `brainwash/algorithms/registry.py` (`AlgorithmRegistry.from_mapping` 30-41행, `default_registry` 67-83행)
+**위치** `brainwash/algorithms/registry.py` (`AlgorithmRegistry.from_mapping`, 초기 PR 30-41행)
 
 **리뷰어 · 질문 🔎**
 

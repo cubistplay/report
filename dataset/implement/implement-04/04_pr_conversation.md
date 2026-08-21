@@ -65,7 +65,7 @@ rendering에 쓸 answer도 생기고, memory dependency가 추가되면 결과 m
 
 ## 스레드 3 — 결과 보존 범위
 
-**위치** `brainwash/decomposition.py` (`DynamicEvidenceExecutor.answer` 983-1013행, `AnswerActionStage` 247-255행, `AskActionStage` 258-266행)
+**위치** `brainwash/decomposition.py` (`DynamicEvidenceExecutor.answer`, 초기 PR 983-1013행)
 
 **리뷰어 · 질문 🔎**
 

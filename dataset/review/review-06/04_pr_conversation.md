@@ -99,7 +99,7 @@ record 없이 event만 있는 artifact는 데이터 불완전으로 보고 DB �
 
 ## 스레드 4 — 같은 artifact 재실행의 의미
 
-**위치** `brainwash/memory/schema.sql` (`memory_lifecycle_events` 70-80행, unique key 78행)
+**위치** `brainwash/memory/schema.sql` (`memory_lifecycle_events`, 초기 PR 70-80행)
 **심각도** `question`
 
 **리뷰어 · 질문 :repeat:**

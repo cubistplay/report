@@ -95,7 +95,7 @@ loader는 schema 해석을 계속 소유하고, Factory는 해석이 끝난 값�
 
 ## 스레드 4 — 변환 순서와 기존 출력 보존
 
-**위치** `brainwash/benchmarks.py` (`load_counterfact_requests` 121-169행, `load_knowedit_requests` 172-214행, `load_mquake_requests` 217-265행, `load_ripple_requests` 268-320행)
+**위치** `brainwash/benchmarks.py` (`load_counterfact_requests`, 초기 PR 121-169행)
 
 **리뷰어 · 질문 🔎**
 

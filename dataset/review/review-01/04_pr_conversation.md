@@ -101,7 +101,7 @@ Red 상태였고, 다음 `c82fa23`에서 함께 Green으로 만들었습니다.
 
 ## 스레드 3 — 기본 model 값의 두 출처
 
-**위치** `brainwash/semantic.py` (`EmbeddingMatcher.__init__` 66-74행, `MatcherSettings.from_environment` 197-205행)
+**위치** `brainwash/semantic.py` (`MatcherSettings.from_environment`, 초기 PR 197-205행)
 **심각도** `important`
 
 **리뷰어 · 댓글 :warning:**
@@ -154,7 +154,7 @@ fallback을 유지하는 것이 호환성 측면에서 더 안전합니다. 변�
 
 ## 스레드 5 — explicit matcher와 cached backend의 우선순위
 
-**위치** `brainwash/semantic.py` (`get_matcher` 232-236행, `set_matcher` 226-229행)
+**위치** `brainwash/semantic.py` (`get_matcher`, 초기 PR 232-236행)
 **심각도** `question`
 
 **리뷰어 · 질문 :eyes:**

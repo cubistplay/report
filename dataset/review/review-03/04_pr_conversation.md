@@ -84,7 +84,7 @@ string으로 정규화하면 `mquake:17#1` format도 안정적입니다.
 
 ## 스레드 3 — provenance contract test 부재
 
-**위치** `brainwash/benchmarks.py` (`BenchmarkProvenance` 78-110행, `BenchmarkRequestFactory` 128-157행)
+**위치** `brainwash/benchmarks.py` (`BenchmarkProvenance`, 초기 PR 78-110행)
 **심각도** `important`
 
 **리뷰어 · 댓글 :test_tube:**

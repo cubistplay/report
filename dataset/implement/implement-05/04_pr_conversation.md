@@ -5,7 +5,7 @@
 
 ## 스레드 1 — pair와 binary 행의 의미
 
-**위치** `brainwash/algorithms/preference.py` (`PairedPreferenceRecords` 162-181행, `BinaryPreferenceRecords` 184-207행)
+**위치** `brainwash/algorithms/preference.py` (`PairedPreferenceRecords.build`, 초기 PR 164-181행)
 
 **리뷰어 · 질문 🔎**
 

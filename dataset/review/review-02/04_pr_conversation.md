@@ -82,7 +82,7 @@ JSON-compatible list를 반환합니다.
 
 ## 스레드 3 — history 계약의 회귀 테스트
 
-**위치** `brainwash/conversation.py` (`ConversationResolutionRecord` 25-57행, `history` 71-73행, `clear_history` 75-77행)
+**위치** `brainwash/conversation.py` (`ConversationResolver.history`, 초기 PR 71-73행)
 **심각도** `important` · **Change Request**
 
 **리뷰어 · 댓글 :test_tube:**

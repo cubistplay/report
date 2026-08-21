@@ -5,7 +5,7 @@
 
 ## 스레드 1 — routing precedence와 Chain of Responsibility
 
-**위치** `brainwash/router.py` (`default_routing_policies` 254-261행, `BrainwashRouter.route` 276-283행)
+**위치** `brainwash/router.py` (`default_routing_policies`, 초기 PR 254-261행)
 
 **리뷰어 · 질문 🔎**
 
@@ -61,7 +61,7 @@ custom lane도 `context.plan()`을 사용하면 default lane과 같은 warnings�
 
 ## 스레드 3 — custom Policy injection과 empty batch 보호
 
-**위치** `brainwash/router.py` (`BrainwashRouter.__init__` 265-274행, `RoutingPolicy` 103-107행)
+**위치** `brainwash/router.py` (`BrainwashRouter.route`, 초기 PR 276-283행)
 
 **리뷰어 · 질문 🔎**
 

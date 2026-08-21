@@ -151,7 +151,7 @@ numeric schema를 유지하면서 empty 상태를 별도 field/note로 설명하
 
 ## 스레드 5 — QLoRA와 LoRA의 summary 공유
 
-**위치** `brainwash/algorithms/finetune.py` (`QLoRASFTAdapter` 145-216행, `LoRASFTAdapter` 219-223행)
+**위치** `brainwash/algorithms/finetune.py` (`LoRASFTAdapter`, 초기 PR 219-223행)
 **심각도** `question`
 
 **리뷰어 · 질문 :eyes:**
