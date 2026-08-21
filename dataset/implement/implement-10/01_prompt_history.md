@@ -36,7 +36,7 @@ python3 -m unittest tests.test_memory_ledger -q
 # ImportError: MemoryLifecyclePolicy가 아직 없습니다.
 ```
 
-Commit: `700d61c test(implement-10): specify memory lifecycle policy`
+Commit: `f930e71 test(implement-10): specify memory lifecycle policy`
 
 ## Prompt 3 — 기존 operational 흐름 검증
 
@@ -62,4 +62,4 @@ python3 -m unittest discover -s tests -q
 `memory_lifecycle.jsonl`에 active 여부와 reason을 기록했습니다. full suite는 기존 sqlite connection
 `ResourceWarning` 2건을 출력했으나 실패는 없었습니다.
 
-Commit: `8291841 refactor(implement-10): centralize memory lifecycle policy`
+Commit: `6fcf422 refactor(implement-10): centralize memory lifecycle policy`

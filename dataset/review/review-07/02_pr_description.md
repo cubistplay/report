@@ -51,6 +51,10 @@ flowchart LR
 
 기존 전체 test 122건이 통과했습니다. 최초 PR에는 candidate result의 순서와 target 정규화를 직접 검증하는 test는 포함하지 않았습니다.
 
+## Formatting
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 변경된 Python 파일의 comment token과 module/class/function docstring은 제거했으며, SQL·script template·test fixture 같은 실행용 multiline string 값은 보존했습니다. 최초 PR snapshot을 포함한 최종 변경 파일은 `black --check`를 통과했고, 원본과 재작성본의 실행 AST도 동일합니다.
+
 ## Todos
 
 - [ ] 리뷰 의견 반영

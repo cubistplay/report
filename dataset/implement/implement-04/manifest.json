@@ -8,20 +8,20 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "3c11c0234491b57001cd620ba284071c4ad4957b",
+    "base_commit": "f60cd2f957f009481c89d51cfea339b937e2867b",
     "head_branch": "main",
-    "initial_review_head": "f3795e270ace457f28a5a04caf9a1d47a4e989b7",
-    "final_head_commit": "f3795e270ace457f28a5a04caf9a1d47a4e989b7",
-    "integrated_main_commit": "f3795e270ace457f28a5a04caf9a1d47a4e989b7",
+    "initial_review_head": "067cbce8b321fb13593ce38de54ea3125e301a83",
+    "final_head_commit": "067cbce8b321fb13593ce38de54ea3125e301a83",
+    "integrated_main_commit": "067cbce8b321fb13593ce38de54ea3125e301a83",
     "commits": [
       {
         "role": "red_tests",
-        "sha": "5e08fba28c3a741e1901c3c9c5b2b7945f8367cf",
+        "sha": "b0e7fe8543d17099a7863de5f38ef4191970e469",
         "subject": "test(implement-04): specify dynamic evidence stages"
       },
       {
         "role": "implementation",
-        "sha": "f3795e270ace457f28a5a04caf9a1d47a4e989b7",
+        "sha": "067cbce8b321fb13593ce38de54ea3125e301a83",
         "subject": "refactor(implement-04): decompose dynamic evidence actions"
       }
     ]
@@ -33,10 +33,10 @@
   "change_budget": {
     "minimum_changed_lines": 200,
     "preferred_upper_bound": 300,
-    "additions": 329,
-    "deletions": 162,
-    "measured_changed_lines": 491,
-    "counting_rule": "product code and tests; additions plus deletions",
+    "additions": 486,
+    "deletions": 264,
+    "measured_changed_lines": 750,
+    "counting_rule": "actual Git additions plus deletions after Black formatting, comment removal, and docstring removal",
     "reviewability_note": "Dynamic action loop의 Strategy 분리와 실행 state object 도입, 기존 결과 보존 검증을 함께 완료한 단일 refactor입니다."
   },
   "paths_changed": [
@@ -46,7 +46,8 @@
   "verification": {
     "red": "tests.test_decomposition_stages: stage/state import 실패",
     "initial_review_head": "stage/state 테스트 3건 통과; decomposition 테스트 22건 통과; 전체 테스트 86건 통과; representative dynamic JSON diff 없음",
-    "final": "stage/state 테스트 3건 통과; decomposition 테스트 22건 통과; 전체 테스트 86건 통과; representative dynamic JSON diff 없음"
+    "final": "stage/state 테스트 3건 통과; decomposition 테스트 22건 통과; 전체 테스트 86건 통과; representative dynamic JSON diff 없음",
+    "black": "Black 26.5.1 was applied before each code commit; all changed Python blobs contain no comments or module/class/function docstrings; executable multiline string values were preserved; final Black --check passed."
   },
   "review": {
     "thread_count": 3,

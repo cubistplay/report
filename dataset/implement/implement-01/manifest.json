@@ -10,18 +10,18 @@
     "base_branch": "main",
     "base_commit": "87abaa3d5398bff678408da82e7544fe3175122b",
     "head_branch": "main",
-    "initial_review_head": "dcd46fd68822ac3041daa94afe53c80043e2a903",
-    "final_head_commit": "dcd46fd68822ac3041daa94afe53c80043e2a903",
-    "integrated_main_commit": "dcd46fd68822ac3041daa94afe53c80043e2a903",
+    "initial_review_head": "78c27ec4f3fba00bd0aeefa56392d6cc74173188",
+    "final_head_commit": "78c27ec4f3fba00bd0aeefa56392d6cc74173188",
+    "integrated_main_commit": "78c27ec4f3fba00bd0aeefa56392d6cc74173188",
     "commits": [
       {
         "role": "red_tests",
-        "sha": "dda9a7c12a81e5a518b932e0b89acdc4adb56b0e",
+        "sha": "c704ecc3f38234fd3a2e422f1785db116fa1586a",
         "subject": "test(implement-01): specify evaluator registry contracts"
       },
       {
         "role": "implementation",
-        "sha": "dcd46fd68822ac3041daa94afe53c80043e2a903",
+        "sha": "78c27ec4f3fba00bd0aeefa56392d6cc74173188",
         "subject": "feat(implement-01): preserve locality with evaluation strategies"
       }
     ]
@@ -33,10 +33,10 @@
   "change_budget": {
     "minimum_changed_lines": 200,
     "preferred_upper_bound": 300,
-    "additions": 253,
-    "deletions": 46,
-    "measured_changed_lines": 299,
-    "counting_rule": "product code and tests; additions plus deletions",
+    "additions": 321,
+    "deletions": 56,
+    "measured_changed_lines": 377,
+    "counting_rule": "actual Git additions plus deletions after Black formatting, comment removal, and docstring removal",
     "reviewability_note": "Strategy, Registry, Report Builder와 집중된 계약 테스트가 하나의 평가 기능을 이룹니다."
   },
   "paths_changed": [
@@ -48,7 +48,8 @@
   "verification": {
     "red": "tests.test_pipeline_eval_harness: 아직 없는 evaluator 경계의 ImportError",
     "initial_review_head": "계약 테스트 6건 통과; pipeline 테스트 5건 통과; 전체 테스트 74건 통과",
-    "final": "계약 테스트 6건 통과; pipeline 테스트 5건 통과; 전체 테스트 74건 통과"
+    "final": "계약 테스트 6건 통과; pipeline 테스트 5건 통과; 전체 테스트 74건 통과",
+    "black": "Black 26.5.1 was applied before each code commit; all changed Python blobs contain no comments or module/class/function docstrings; executable multiline string values were preserved; final Black --check passed."
   },
   "review": {
     "thread_count": 5,

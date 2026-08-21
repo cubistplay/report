@@ -8,8 +8,8 @@ review/review-07-promotion-candidates 브랜치의 promotion candidate 조회 PR
 
 - 초기 PR: brainwash/memory/update_db.py
 - 리뷰 반영: brainwash/memory/update_db.py, tests/test_update_db.py
-- 기준 commit: d99d223
-- 최초 검토 commit: 5be9d0c
+- 기준 commit: 8e32f99
+- 최초 검토 commit: 58a5609
 
 ## 기대 산출물
 

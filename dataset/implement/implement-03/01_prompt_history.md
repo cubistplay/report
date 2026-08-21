@@ -35,7 +35,7 @@ python3 -m unittest tests.test_pipeline_registry -q
 # ImportError: 아직 AlgorithmRegistry가 없습니다.
 ```
 
-Commit: `5655dde test(implement-03): specify algorithm registry contracts`
+Commit: `f6796aa test(implement-03): specify algorithm registry contracts`
 
 ## Prompt 3 — 기존 설정과 책임 경계
 
@@ -70,10 +70,10 @@ python3 -m unittest discover -s tests -q
 # Ran 82 tests — OK
 ```
 
-fact request의 기본 계획과 DPO override 계획을 변경 전 `29bb11e`와 비교했고,
+fact request의 기본 계획과 DPO override 계획을 변경 전 `559a294`와 비교했고,
 `diff` 출력은 없었습니다.
 
-Commit: `3cb00d9 refactor(implement-03): encapsulate algorithm registry`
+Commit: `b6391f6 refactor(implement-03): encapsulate algorithm registry`
 
 ## Prompt 5 — 리뷰 반영
 
@@ -93,4 +93,4 @@ python3 -m unittest discover -s tests -q
 # Ran 83 tests — OK
 ```
 
-Commit: `3c11c02 test(implement-03): cover rag adapter registration`
+Commit: `f60cd2f test(implement-03): cover rag adapter registration`

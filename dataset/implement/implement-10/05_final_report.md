@@ -12,12 +12,12 @@ conflict, index, promotion report에 포함될 수 있어 DB와 operational arti
 
 ## 2. Commit 및 PR 경계
 
-- base: `main` / `1fe0233c8be14d36b847804b5e820d98b9ef2ebf`
-- Red 테스트: `700d61c4516730c30c57d1f0b5a402f2d66b9917`
+- base: `main` / `365a6a66b7f44dc81a537dd5531aace966e4b388`
+- Red 테스트: `f930e71b9b08bb62b2565f091fb48a444815e92a`
   `test(implement-10): specify memory lifecycle policy`
-- 최초 PR 및 최종 head: `8291841b976624af414c2dfd96d7e2b596115ea8`
+- 최초 PR 및 최종 head: `6fcf422241c92467db2d0636affc4c8f82e1f9e8`
   `refactor(implement-10): centralize memory lifecycle policy`
-- 최종 `main`: `8291841b976624af414c2dfd96d7e2b596115ea8`
+- 최종 `main`: `6fcf422241c92467db2d0636affc4c8f82e1f9e8`
 
 최초 head에서 DB/in-memory window semantics, invalid timestamp의 안전한 처리, lifecycle audit과
 existing ingestion boundary를 검토했습니다. 코드 결함은 발견되지 않아 Change Request나 후속 commit은
@@ -61,13 +61,13 @@ optional `as_of`와 constructor-level Policy injection은 test·backfill·histor
 
 | 항목 | 결과 |
 | --- | ---: |
-| 추가 | 206줄 |
+| 추가 | 220줄 |
 | 삭제 | 3줄 |
-| 합계 | 209줄 |
+| 합계 | 223줄 |
 | 파일 | 2개 |
 | 허용 목록 외 변경 | 없음 |
 
-변경 파일은 `brainwash/memory/ledger.py`, `tests/test_memory_ledger.py`입니다. 209줄 안에서 lifecycle
+변경 파일은 `brainwash/memory/ledger.py`, `tests/test_memory_ledger.py`입니다. 223줄 안에서 lifecycle
 Policy, Decision Value Object, active filtering, audit artifact, deterministic temporal test를 하나의
 coherent refactor로 완료했습니다.
 
@@ -76,3 +76,7 @@ coherent refactor로 완료했습니다.
 리뷰에서는 DB view와 in-memory active window semantics, inactive reason/audit 책임, injected time과
 existing Update DB ingestion 보존을 확인했습니다. 세 material thread와 ledger·Update DB·전체 suite
 검증을 근거로 승인했습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 변경된 Python 파일의 comment token과 module/class/function docstring은 제거했으며, SQL·script template·test fixture 같은 실행용 multiline string 값은 보존했습니다. 전체 51개 커밋의 변경 Python blob 57개가 `black --check`를 통과했고, 원본과 재작성본의 실행 AST도 동일합니다.

@@ -1,7 +1,7 @@
 # I-A6 PR 대화 — memory promotion Policy 분리
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 head: `af2dcc0` · Change Request 없음
+> 최초 검토 head: `2749f66` · Change Request 없음
 
 ## 스레드 1 — ledger와 promotion 판단의 책임 경계
 

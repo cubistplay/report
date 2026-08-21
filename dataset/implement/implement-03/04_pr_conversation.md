@@ -1,7 +1,7 @@
 # I-A3 PR 대화 — algorithm registry 캡슐화
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 head: `3cb00d9` · 리뷰 반영 head: `3c11c02`
+> 최초 검토 head: `b6391f6` · 리뷰 반영 head: `f60cd2f`
 
 ## 스레드 1 — 빈 주입과 기본값의 구분
 
@@ -124,7 +124,7 @@ adapter 이름을 바로잡는 초기 구현을 회귀로부터 보호합니다.
 
 **작업자 · 리뷰 반영 commit**
 
-`3c11c02 test(implement-03): cover rag adapter registration`
+`f60cd2f test(implement-03): cover rag adapter registration`
 
 `test_default_registry_preserves_rag_adapter_identity`를 추가했습니다.
 

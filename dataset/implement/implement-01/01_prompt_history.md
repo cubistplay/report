@@ -38,7 +38,7 @@ python3 -m unittest tests.test_pipeline_eval_harness -q
 # ImportError: 아직 CaseVerdict가 없습니다.
 ```
 
-Commit: `dda9a7c test(implement-01): specify evaluator registry contracts`
+Commit: `c704ecc test(implement-01): specify evaluator registry contracts`
 
 ## Prompt 3 — evaluator 확장 경계
 
@@ -75,4 +75,4 @@ python3 -m unittest discover -s tests -q
 # Ran 74 tests — OK
 ```
 
-Commit: `dcd46fd feat(implement-01): preserve locality with evaluation strategies`
+Commit: `78c27ec feat(implement-01): preserve locality with evaluation strategies`

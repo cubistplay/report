@@ -11,7 +11,7 @@
 
 ## AI 판단 요약
 
-- 기준 commit은 f8993d9, 최초 검토 대상은 9a9d26d입니다.
+- 기준 commit은 cf3f29b, 최초 검토 대상은 5ae605a입니다.
 - evaluate_many가 prompt를 dict key로 사용해 같은 prompt가 반복되면 한 result로 합쳐집니다.
 - triggered_count가 실제 memory_triggered 여부 대신 trigger mapping 길이를 반환합니다.
 - retrieve_many도 동일 mapping을 사용하므로 입력 cardinality를 보장하지 못합니다.

@@ -1,11 +1,11 @@
 # R-A8 PR 대화 — memory snapshot export 검토
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 branch: review/review-08-memory-snapshots (852b497) · 최종 head: f8993d9
+> 최초 검토 branch: review/review-08-memory-snapshots (d49ba6b) · 최종 head: cf3f29b
 
 ## 스레드 1 — 한 snapshot 안에서 artifact별 as_of가 달라짐
 
-**위치** brainwash/memory/ledger.py (write_artifacts, 초기 PR 350-363행)  
+**위치** brainwash/memory/ledger.py (write_artifacts, 초기 PR 353-390행)
 **심각도** blocking · **Change Request**
 
 **리뷰어 · 댓글 :thinking:**
@@ -30,7 +30,7 @@ active_memory와 memory_lifecycle에는 as_of를 전달했는데, memory_conflic
 
 **작업자 · 반영 :white_check_mark:**
 
-f8993d9 fix(review-08): align snapshot artifact boundaries에서 conflicts, exact_index, promotion_report에 as_of를 추가했습니다. snapshot 당시 inactive이고 현재 active인 record로 active memory, index, promotion clusters가 모두 비어 있는 test를 추가했습니다.
+cf3f29b fix(review-08): align snapshot artifact boundaries에서 conflicts, exact_index, promotion_report에 as_of를 추가했습니다. snapshot 당시 inactive이고 현재 active인 record로 active memory, index, promotion clusters가 모두 비어 있는 test를 추가했습니다.
 
 **리뷰어 · 확인 :tada:**
 
@@ -38,7 +38,7 @@ f8993d9 fix(review-08): align snapshot artifact boundaries에서 conflicts, exac
 
 ## 스레드 2 — naive datetime을 시스템 timezone으로 해석함
 
-**위치** brainwash/memory/ledger.py (write_artifacts, 초기 PR 346행)  
+**위치** brainwash/memory/ledger.py (write_artifacts, 초기 PR 353-359행)
 **심각도** important · **Change Request**
 
 **리뷰어 · 댓글 :clock1:**
@@ -62,7 +62,7 @@ write_artifacts의 as_of가 timezone-aware가 아니면 ValueError로 실패하�
 
 **작업자 · 반영 :+1:**
 
-같은 f8993d9에서 _validated_snapshot_as_of()를 추가했습니다. tzinfo 또는 utcoffset이 없는 값은 snapshot as_of must be timezone-aware ValueError로 거절합니다. naive datetime export test가 통과합니다.
+같은 cf3f29b에서 _validated_snapshot_as_of()를 추가했습니다. tzinfo 또는 utcoffset이 없는 값은 snapshot as_of must be timezone-aware ValueError로 거절합니다. naive datetime export test가 통과합니다.
 
 **리뷰어 · 확인 :white_check_mark:**
 

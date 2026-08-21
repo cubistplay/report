@@ -36,7 +36,7 @@ python3 -m unittest tests.test_router -q
 # ImportError: BehaviorRoutingPolicy 등이 아직 없습니다.
 ```
 
-Commit: `43a7afc test(implement-08): specify routing policy precedence`
+Commit: `d280562 test(implement-08): specify routing policy precedence`
 
 ## Prompt 3 — route 결과 보존
 
@@ -62,4 +62,4 @@ Policy는 `None`으로 다음 lane에 위임하고, 마지막 `MixedRoutingPolic
 제공하도록 구현했습니다. full suite는 기존 sqlite connection `ResourceWarning` 2건을 출력했으나
 실패는 없었습니다.
 
-Commit: `ec723b7 refactor(implement-08): decompose routing policies`
+Commit: `f590e3d refactor(implement-08): decompose routing policies`

@@ -8,20 +8,20 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "ec723b789b0df00ee92ccf3dff053650442f9a96",
+    "base_commit": "f590e3d52352574742b686886b7f10d8cebcb306",
     "head_branch": "main",
-    "initial_review_head": "1fe0233c8be14d36b847804b5e820d98b9ef2ebf",
-    "final_head_commit": "1fe0233c8be14d36b847804b5e820d98b9ef2ebf",
-    "integrated_main_commit": "1fe0233c8be14d36b847804b5e820d98b9ef2ebf",
+    "initial_review_head": "365a6a66b7f44dc81a537dd5531aace966e4b388",
+    "final_head_commit": "365a6a66b7f44dc81a537dd5531aace966e4b388",
+    "integrated_main_commit": "365a6a66b7f44dc81a537dd5531aace966e4b388",
     "commits": [
       {
         "role": "red_tests",
-        "sha": "975afcab3e9a5380595d906f3d077f3c9a58da63",
+        "sha": "8774fb17c72d5472da92233f36a305ec80c40103",
         "subject": "test(implement-09): specify memory match strategies"
       },
       {
         "role": "implementation",
-        "sha": "1fe0233c8be14d36b847804b5e820d98b9ef2ebf",
+        "sha": "365a6a66b7f44dc81a537dd5531aace966e4b388",
         "subject": "refactor(implement-09): separate memory match strategies"
       }
     ]
@@ -33,10 +33,10 @@
   "change_budget": {
     "minimum_changed_lines": 200,
     "preferred_upper_bound": 300,
-    "additions": 176,
-    "deletions": 33,
-    "measured_changed_lines": 209,
-    "counting_rule": "product code and tests; additions plus deletions",
+    "additions": 271,
+    "deletions": 64,
+    "measured_changed_lines": 335,
+    "counting_rule": "actual Git additions plus deletions after Black formatting, comment removal, and docstring removal",
     "reviewability_note": "match Strategy, Selection Policy, Candidate Value Object, common safety gate, extension contract test를 함께 완료한 단일 refactor입니다."
   },
   "paths_changed": [
@@ -46,7 +46,8 @@
   "verification": {
     "red": "tests.test_memory_edit_runtime: match Strategy import 실패",
     "initial_review_head": "memory runtime 테스트 13건, Update DB 테스트 8건, 전체 테스트 117건 통과",
-    "final": "memory runtime 테스트 13건, Update DB 테스트 8건, 전체 테스트 117건 통과"
+    "final": "memory runtime 테스트 13건, Update DB 테스트 8건, 전체 테스트 117건 통과",
+    "black": "Black 26.5.1 was applied before each code commit; all changed Python blobs contain no comments or module/class/function docstrings; executable multiline string values were preserved; final Black --check passed."
   },
   "review": {
     "thread_count": 3,

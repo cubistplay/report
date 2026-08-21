@@ -8,8 +8,8 @@ review/review-10-routing-lanes 브랜치의 mixed correction routing lane PR을 
 
 - 초기 PR: brainwash/router.py
 - 리뷰 반영: brainwash/router.py, tests/test_router.py
-- 기준 commit: 85b6b66
-- 최초 검토 commit: 933f823
+- 기준 commit: 6b169f2
+- 최초 검토 commit: 46f99d5
 
 ## 기대 산출물
 

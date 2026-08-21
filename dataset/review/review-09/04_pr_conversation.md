@@ -1,11 +1,11 @@
 # R-A9 PR 대화 — memory trigger batch 검토
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 branch: review/review-09-memory-trigger-batch (9a9d26d) · 최종 head: 85b6b66
+> 최초 검토 branch: review/review-09-memory-trigger-batch (5ae605a) · 최종 head: 6b169f2
 
 ## 스레드 1 — dict result가 duplicate prompt를 지움
 
-**위치** brainwash/algorithms/memory_edit.py (evaluate_many, 초기 PR 298-302행)  
+**위치** brainwash/algorithms/memory_edit.py (evaluate_many, 초기 PR 296-300행)
 **심각도** blocking · **Change Request**
 
 **리뷰어 · 댓글 :thinking:**
@@ -29,7 +29,7 @@ result container를 prompt-keyed dict가 아니라 trigger tuple/list로 바꾸�
 
 **작업자 · 반영 :white_check_mark:**
 
-85b6b66 fix(review-09): preserve batch trigger results에서 MemoryTriggerBatch.triggers를 tuple로 바꿨습니다. matched, unmatched, matched input이 같은 순서의 세 trigger와 세 retrieve_many result로 돌아오는 test를 추가했습니다.
+6b169f2 fix(review-09): preserve batch trigger results에서 MemoryTriggerBatch.triggers를 tuple로 바꿨습니다. matched, unmatched, matched input이 같은 순서의 세 trigger와 세 retrieve_many result로 돌아오는 test를 추가했습니다.
 
 **리뷰어 · 확인 :tada:**
 
@@ -37,7 +37,7 @@ result container를 prompt-keyed dict가 아니라 trigger tuple/list로 바꾸�
 
 ## 스레드 2 — triggered_count가 result count를 반환함
 
-**위치** brainwash/algorithms/memory_edit.py (MemoryTriggerBatch.triggered_count, 초기 PR 158-159행)  
+**위치** brainwash/algorithms/memory_edit.py (MemoryTriggerBatch.triggered_count, 초기 PR 159-160행)  
 **심각도** important · **Change Request**
 
 **리뷰어 · 댓글 :eyes:**
@@ -60,7 +60,7 @@ memory_triggered를 기준으로 count하고, unmatched input 하나의 summary�
 
 **작업자 · 반영 :+1:**
 
-같은 85b6b66에서 triggered_count를 sum(trigger.memory_triggered for trigger in triggers)로 변경했습니다. no-match batch test가 triggered_count=0과 blocked_count=1을 확인합니다.
+같은 6b169f2에서 triggered_count를 sum(trigger.memory_triggered for trigger in triggers)로 변경했습니다. no-match batch test가 triggered_count=0과 blocked_count=1을 확인합니다.
 
 **리뷰어 · 확인 :white_check_mark:**
 

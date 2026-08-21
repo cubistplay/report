@@ -8,20 +8,20 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "10a7f021c24f860fe599ed9d2040965aaf64bd02",
+    "base_commit": "6536ec48b18442604972f6b5e83aba8ea53f7684",
     "head_branch": "main",
-    "initial_review_head": "af2dcc0413e9fc7eff020052c6aaacd112e659d5",
-    "final_head_commit": "af2dcc0413e9fc7eff020052c6aaacd112e659d5",
-    "integrated_main_commit": "af2dcc0413e9fc7eff020052c6aaacd112e659d5",
+    "initial_review_head": "2749f66ecb6830e1d77228e8dc34d75718bd8d3b",
+    "final_head_commit": "2749f66ecb6830e1d77228e8dc34d75718bd8d3b",
+    "integrated_main_commit": "2749f66ecb6830e1d77228e8dc34d75718bd8d3b",
     "commits": [
       {
         "role": "red_tests",
-        "sha": "706b6e86af284d99068c0949f0ec542e9d3d7661",
+        "sha": "be806c97c136c4d61c6796d9f675ccbf168262d4",
         "subject": "test(implement-06): specify memory promotion policy"
       },
       {
         "role": "implementation",
-        "sha": "af2dcc0413e9fc7eff020052c6aaacd112e659d5",
+        "sha": "2749f66ecb6830e1d77228e8dc34d75718bd8d3b",
         "subject": "refactor(implement-06): separate memory promotion policy"
       }
     ]
@@ -33,10 +33,10 @@
   "change_budget": {
     "minimum_changed_lines": 200,
     "preferred_upper_bound": 300,
-    "additions": 297,
-    "deletions": 17,
-    "measured_changed_lines": 314,
-    "counting_rule": "product code and tests; additions plus deletions",
+    "additions": 316,
+    "deletions": 38,
+    "measured_changed_lines": 354,
+    "counting_rule": "actual Git additions plus deletions after Black formatting, comment removal, and docstring removal",
     "reviewability_note": "training promotion Policy·Rule Strategy, Decision Value Object, ledger delegation, 정책별 regression test를 함께 완결한 단일 refactor입니다."
   },
   "paths_changed": [
@@ -47,7 +47,8 @@
   "verification": {
     "red": "tests.test_memory_ledger: PromotionPolicy module import 실패",
     "initial_review_head": "memory ledger 테스트 7건, Update DB 테스트 4건, 전체 테스트 106건 통과",
-    "final": "memory ledger 테스트 7건, Update DB 테스트 4건, 전체 테스트 106건 통과"
+    "final": "memory ledger 테스트 7건, Update DB 테스트 4건, 전체 테스트 106건 통과",
+    "black": "Black 26.5.1 was applied before each code commit; all changed Python blobs contain no comments or module/class/function docstrings; executable multiline string values were preserved; final Black --check passed."
   },
   "review": {
     "thread_count": 3,

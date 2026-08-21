@@ -8,8 +8,8 @@ review/review-09-memory-trigger-batch 브랜치의 memory trigger batch API를 �
 
 - 초기 PR: brainwash/algorithms/memory_edit.py
 - 리뷰 반영: brainwash/algorithms/memory_edit.py, tests/test_memory_edit_runtime.py
-- 기준 commit: f8993d9
-- 최초 검토 commit: 9a9d26d
+- 기준 commit: cf3f29b
+- 최초 검토 commit: 5ae605a
 
 ## 기대 산출물
 

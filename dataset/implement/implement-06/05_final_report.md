@@ -13,12 +13,12 @@ ledger는 active record 수집과 artifact export를 유지하고, Policy는 tar
 
 ## 2. Commit 및 PR 경계
 
-- base: `main` / `10a7f021c24f860fe599ed9d2040965aaf64bd02`
-- Red 테스트: `706b6e86af284d99068c0949f0ec542e9d3d7661`
+- base: `main` / `6536ec48b18442604972f6b5e83aba8ea53f7684`
+- Red 테스트: `be806c97c136c4d61c6796d9f675ccbf168262d4`
   `test(implement-06): specify memory promotion policy`
-- 최초 PR 및 최종 head: `af2dcc0413e9fc7eff020052c6aaacd112e659d5`
+- 최초 PR 및 최종 head: `2749f66ecb6830e1d77228e8dc34d75718bd8d3b`
   `refactor(implement-06): separate memory promotion policy`
-- 최종 `main`: `af2dcc0413e9fc7eff020052c6aaacd112e659d5`
+- 최종 `main`: `2749f66ecb6830e1d77228e8dc34d75718bd8d3b`
 
 최초 head에서 책임 경계, high-risk override의 안전성, 기존 ledger/Update DB 계약을 검토했습니다.
 코드 결함은 발견되지 않아 Change Request나 후속 commit은 만들지 않았습니다.
@@ -62,9 +62,9 @@ reviewed workflow는 별도 `PromotionPolicy`를 명시적으로 전달할 때�
 
 | 항목 | 결과 |
 | --- | ---: |
-| 추가 | 297줄 |
-| 삭제 | 17줄 |
-| 합계 | 314줄 |
+| 추가 | 316줄 |
+| 삭제 | 38줄 |
+| 합계 | 354줄 |
 | 파일 | 3개 |
 | 허용 목록 외 변경 | 없음 |
 
@@ -78,3 +78,7 @@ ledger delegation, 다섯 policy boundary test를 한 coherent unit으로 완결
 리뷰에서는 ledger와 promotion의 책임 경계, conflict/high-risk가 automatic training에 미치는 영향,
 기존 `promotion_report(many_min)` 및 Update DB ingestion 보존을 확인했습니다. 세 개의 설계·동작
 스레드에서 정책의 이유와 override 범위를 검토했고, test와 전체 suite 검증 결과를 근거로 승인했습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 변경된 Python 파일의 comment token과 module/class/function docstring은 제거했으며, SQL·script template·test fixture 같은 실행용 multiline string 값은 보존했습니다. 전체 51개 커밋의 변경 Python blob 57개가 `black --check`를 통과했고, 원본과 재작성본의 실행 AST도 동일합니다.

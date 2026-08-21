@@ -40,7 +40,7 @@ python3 -m unittest tests.test_decomposition -q
 # Ran 22 tests — OK
 ```
 
-Commit: `5e08fba test(implement-04): specify dynamic evidence stages`
+Commit: `b0e7fe8 test(implement-04): specify dynamic evidence stages`
 
 ## Prompt 3 — 행동 보존
 
@@ -65,4 +65,4 @@ python3 -m unittest discover -s tests -q
 동일한 scripted planner와 memory를 Implement-03 head와 현재 commit에서 실행해 JSON을
 비교했고 `diff` 출력은 없었습니다.
 
-Commit: `f3795e2 refactor(implement-04): decompose dynamic evidence actions`
+Commit: `067cbce refactor(implement-04): decompose dynamic evidence actions`

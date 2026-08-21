@@ -77,6 +77,10 @@ python3 -m unittest discover -s tests -q
 새 preference export 테스트 4건, 기존 pipeline 테스트 5건, 전체 테스트 90건이
 통과했습니다. 세 adapter의 정규화된 manifest와 JSON/JSONL artifact는 변경 전과 같습니다.
 
+## Formatting
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 변경된 Python 파일의 comment token과 module/class/function docstring은 제거했으며, SQL·script template·test fixture 같은 실행용 multiline string 값은 보존했습니다. 최초 PR snapshot을 포함한 최종 변경 파일은 `black --check`를 통과했고, 원본과 재작성본의 실행 AST도 동일합니다.
+
 ## Todos
 
 - [ ] 리뷰 의견 반영

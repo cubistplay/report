@@ -8,25 +8,25 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "8291841b976624af414c2dfd96d7e2b596115ea8",
+    "base_commit": "6fcf422241c92467db2d0636affc4c8f82e1f9e8",
     "head_branch": "review/review-06-lifecycle-audit",
-    "initial_review_head": "8c56c1e1ede80fc856da17e742f1a7a2aeb69683",
-    "final_head_commit": "d99d2237975ffa3586eeb73bf2962f366746c487",
-    "integrated_main_commit": "d99d2237975ffa3586eeb73bf2962f366746c487",
+    "initial_review_head": "b61a2d0d5ce3de2b367a82a132ca8920b93503dd",
+    "final_head_commit": "8e32f995061591f854a4ce61d211a638a10a04e1",
+    "integrated_main_commit": "8e32f995061591f854a4ce61d211a638a10a04e1",
     "commits": [
       {
         "role": "initial_review_pr",
-        "sha": "8c56c1e1ede80fc856da17e742f1a7a2aeb69683",
+        "sha": "b61a2d0d5ce3de2b367a82a132ca8920b93503dd",
         "subject": "feat(review-06): import memory lifecycle audits"
       },
       {
         "role": "review_regression_tests",
-        "sha": "3369f647c0c5a548e9badc7aa33a89bf8253c8b6",
+        "sha": "ab61715b2f9ad3eb8093efb0df4bf5ef6fc5826a",
         "subject": "test(review-06): specify lifecycle audit import contracts"
       },
       {
         "role": "review_response",
-        "sha": "d99d2237975ffa3586eeb73bf2962f366746c487",
+        "sha": "8e32f995061591f854a4ce61d211a638a10a04e1",
         "subject": "fix(review-06): normalize lifecycle audit imports"
       }
     ]
@@ -36,10 +36,10 @@
     "counterpart": "author"
   },
   "change_budget": {
-    "initial_additions": 57,
+    "initial_additions": 56,
     "initial_deletions": 0,
-    "initial_measured_changed_lines": 57,
-    "counting_rule": "initial review snapshot only; additions plus deletions",
+    "initial_measured_changed_lines": 56,
+    "counting_rule": "actual Git additions plus deletions after Black formatting, comment removal, and docstring removal",
     "reviewability_note": "외부 lifecycle artifact import의 타입 계약과 결과 report를 다루는 단일 기능입니다."
   },
   "paths_changed": {
@@ -54,7 +54,8 @@
   },
   "verification": {
     "initial_review_head": "전체 test 120건 통과",
-    "review_response": "lifecycle regression test를 추가한 뒤 update DB test 10건 및 전체 test 122건 통과"
+    "review_response": "lifecycle regression test를 추가한 뒤 update DB test 10건 및 전체 test 122건 통과",
+    "black": "Black 26.5.1 was applied before each code commit; all changed Python blobs contain no comments or module/class/function docstrings; executable multiline string values were preserved; final Black --check passed."
   },
   "review": {
     "thread_count": 5,

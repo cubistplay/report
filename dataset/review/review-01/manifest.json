@@ -8,25 +8,25 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "3819dbe96debb7d32d11c87ab92c0ba215dea5cf",
+    "base_commit": "cd8199fed9ea342109640a3e71c51de6c8a842b6",
     "head_branch": "review/review-01-matcher-settings",
-    "initial_review_head": "c5797e484fd7dddb7e8743adb105eae7c45ab423",
-    "final_head_commit": "63f8afb985c15e8a947f00072b45f9fd99703eba",
-    "integrated_main_commit": "63f8afb985c15e8a947f00072b45f9fd99703eba",
+    "initial_review_head": "7e62a0570a10a137e0baca2a4d0ef37f867571ee",
+    "final_head_commit": "c82fa2342fb4b121d3a26fec89201e8898a20a5c",
+    "integrated_main_commit": "c82fa2342fb4b121d3a26fec89201e8898a20a5c",
     "commits": [
       {
         "role": "initial_review_pr",
-        "sha": "c5797e484fd7dddb7e8743adb105eae7c45ab423",
+        "sha": "7e62a0570a10a137e0baca2a4d0ef37f867571ee",
         "subject": "refactor(review-01): centralize matcher settings"
       },
       {
         "role": "review_regression_tests",
-        "sha": "743003bd9c5c02874ed9702e3cf62629d1f577da",
+        "sha": "58354caa63263b84c6c2d7fd93ca3154f8a059fd",
         "subject": "test(review-01): cover matcher setting isolation"
       },
       {
         "role": "review_response",
-        "sha": "63f8afb985c15e8a947f00072b45f9fd99703eba",
+        "sha": "c82fa2342fb4b121d3a26fec89201e8898a20a5c",
         "subject": "fix(review-01): isolate matcher setting cache"
       }
     ]
@@ -36,10 +36,10 @@
     "counterpart": "author"
   },
   "change_budget": {
-    "initial_additions": 48,
-    "initial_deletions": 19,
-    "initial_measured_changed_lines": 67,
-    "counting_rule": "initial review snapshot only; additions plus deletions",
+    "initial_additions": 58,
+    "initial_deletions": 129,
+    "initial_measured_changed_lines": 187,
+    "counting_rule": "actual Git additions plus deletions after Black formatting, comment removal, and docstring removal",
     "reviewability_note": "환경 설정 Value Object와 matcher resolution 경계라는 하나의 검토 단위입니다."
   },
   "paths_changed": {
@@ -53,7 +53,8 @@
   },
   "verification": {
     "initial_review_head": "전체 테스트 90건 통과",
-    "review_response": "cache/default regression test를 추가한 뒤 semantic 15건 및 전체 93건 통과"
+    "review_response": "cache/default regression test를 추가한 뒤 semantic 15건 및 전체 93건 통과",
+    "black": "Black 26.5.1 was applied before each code commit; all changed Python blobs contain no comments or module/class/function docstrings; executable multiline string values were preserved; final Black --check passed."
   },
   "review": {
     "thread_count": 5,

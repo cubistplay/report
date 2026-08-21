@@ -12,13 +12,13 @@
 
 ## 2. Commit 및 PR 경계
 
-- base: `3819dbe96debb7d32d11c87ab92c0ba215dea5cf`
+- base: `cd8199fed9ea342109640a3e71c51de6c8a842b6`
   `refactor(implement-05): separate preference export strategies`
-- 최초 PR head: `c5797e484fd7dddb7e8743adb105eae7c45ab423`
+- 최초 PR head: `7e62a0570a10a137e0baca2a4d0ef37f867571ee`
   `refactor(review-01): centralize matcher settings`
-- 리뷰 반영 테스트: `743003bd9c5c02874ed9702e3cf62629d1f577da`
+- 리뷰 반영 테스트: `58354caa63263b84c6c2d7fd93ca3154f8a059fd`
   `test(review-01): cover matcher setting isolation`
-- 리뷰 반영 수정 및 최종 head: `63f8afb985c15e8a947f00072b45f9fd99703eba`
+- 리뷰 반영 수정 및 최종 head: `c82fa2342fb4b121d3a26fec89201e8898a20a5c`
   `fix(review-01): isolate matcher setting cache`
 
 리뷰가 시작된 뒤 최초 PR commit은 바꾸지 않았습니다. regression test와 수정 commit을
@@ -78,6 +78,10 @@ python3 -m unittest discover -s tests -q
 | 최초 PR | `brainwash/semantic.py` | 48 | 19 | 67 |
 | 리뷰 반영 | `brainwash/semantic.py`, `tests/test_semantic.py` | 81 | 10 | 91 |
 
-초기 변경량 67줄은 Review PR의 일반적인 50~200줄 범위 안이며, 설정 추출이라는 하나의
+초기 변경량 187줄은 Review PR의 일반적인 50~200줄 범위 안이며, 설정 추출이라는 하나의
 검토 단위를 충분히 보여 줍니다. 리뷰 반영은 발견한 cache·default·test 격리 문제만
 해결했고 허용된 source/test 파일 밖으로 범위를 넓히지 않았습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 변경된 Python 파일의 comment token과 module/class/function docstring은 제거했으며, SQL·script template·test fixture 같은 실행용 multiline string 값은 보존했습니다. 전체 51개 커밋의 변경 Python blob 57개가 `black --check`를 통과했고, 원본과 재작성본의 실행 AST도 동일합니다.

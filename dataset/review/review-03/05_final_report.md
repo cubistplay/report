@@ -11,12 +11,12 @@ provenance 기능을 추가했습니다. 초기 head는 전체 test 96건을 통
 
 ## 2. Commit 및 PR 경계
 
-- base: `ef03ac98e2baed67d4bbf21dd7fcbf6eba224239`
+- base: `9e19a339f4408c79c1d1b526fafac5a95990af45`
 - 최초 PR branch/head: `review/review-03-benchmark-provenance` /
-  `7d612cd5bcc8874116887c444c8f25df0bee31bd`
-- 리뷰 반영 테스트: `d39e2548e1629c5d44f18cd5e48eef88807341f1`
+  `fff5b1ac07b0a0237d3fb2125bd264ca0cee679f`
+- 리뷰 반영 테스트: `7e5963dc43a665369f5174d6f5f1376afe63f35d`
   `test(review-03): specify benchmark provenance contracts`
-- 리뷰 반영 수정 및 최종 head: `5a6f568472c4f95ba5eb1d12105a17c5c0a888da`
+- 리뷰 반영 수정 및 최종 head: `5fdd5640568e3a4fc146ab0ddcb2b38b9ce35ab1`
   `fix(review-03): preserve benchmark provenance`
 
 리뷰 시작 뒤 최초 PR commit은 바꾸지 않았습니다. test와 fix를 새 commit으로 누적해 `main`의
@@ -85,6 +85,10 @@ python3 -m unittest discover -s tests -q
 | 최초 PR | `brainwash/benchmarks.py` | 49 | 1 | 50 |
 | 리뷰 반영 | `brainwash/benchmarks.py`, `tests/test_benchmark_adapters.py` | 55 | 5 | 60 |
 
-초기 변경량 50줄은 Review PR의 일반적인 50~200줄 범위 안입니다. provenance Value Object와
+초기 변경량 51줄은 Review PR의 일반적인 50~200줄 범위 안입니다. provenance Value Object와
 Factory metadata 경계라는 하나의 기능을 검토했고, 반영 범위도 발견한 ownership·source coordinate·test
 문제에만 한정했습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 변경된 Python 파일의 comment token과 module/class/function docstring은 제거했으며, SQL·script template·test fixture 같은 실행용 multiline string 값은 보존했습니다. 전체 51개 커밋의 변경 Python blob 57개가 `black --check`를 통과했고, 원본과 재작성본의 실행 AST도 동일합니다.

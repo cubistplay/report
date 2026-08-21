@@ -37,7 +37,7 @@ python3 -m unittest tests.test_memory_edit_runtime -q
 # ImportError: ExactMemoryMatchStrategy 등이 아직 없습니다.
 ```
 
-Commit: `975afca test(implement-09): specify memory match strategies`
+Commit: `8774fb1 test(implement-09): specify memory match strategies`
 
 ## Prompt 3 — verifier 흐름 보존
 
@@ -64,4 +64,4 @@ exact/paraphrase Strategy가 먼저 candidate를 만들고, overlap Strategy는 
 fallback으로 candidate를 만듭니다. full suite는 기존 sqlite connection `ResourceWarning` 2건을
 출력했으나 실패는 없었습니다.
 
-Commit: `1fe0233 refactor(implement-09): separate memory match strategies`
+Commit: `365a6a6 refactor(implement-09): separate memory match strategies`

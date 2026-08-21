@@ -1,7 +1,7 @@
 # R-A3 게시 전 체크리스트
 
 - [x] task와 review scope를 기록했습니다.
-- [x] 초기 PR은 `brainwash/benchmarks.py` 한 파일, 50줄 변경입니다.
+- [x] 초기 PR은 `brainwash/benchmarks.py` 한 파일, 51줄 변경입니다.
 - [x] 초기 PR head에서 기존 전체 test 96건을 통과했습니다.
 - [x] 최초 PR 설명에는 최초 snapshot만 기록했습니다.
 - [x] dictionary unpacking의 overwrite 규칙을 코드 예시와 공식 문서 근거로 정보 제공했습니다.

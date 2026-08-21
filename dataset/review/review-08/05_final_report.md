@@ -4,7 +4,7 @@
 
 ## 1. 검토 대상
 
-feat(review-08): export memory snapshots는 lifecycle as_of를 받아 memory artifact bundle과 memory_snapshot.json manifest를 생성합니다. 최초 PR 852b497은 brainwash/memory/ledger.py에 52줄을 추가하고 5줄을 수정했으며, 기존 전체 test 124건을 통과했습니다.
+feat(review-08): export memory snapshots는 lifecycle as_of를 받아 memory artifact bundle과 memory_snapshot.json manifest를 생성합니다. 최초 PR d49ba6b은 brainwash/memory/ledger.py에 51줄을 추가하고 5줄을 수정했으며, 기존 전체 test 124건을 통과했습니다.
 
 ## 2. 주요 검토 및 반영
 
@@ -27,12 +27,16 @@ snapshot artifact는 audit 재현에 쓰이므로 naive as_of를 ValueError로 �
 
 | 단계 | Commit | 내용 | 검증 |
 | --- | --- | --- | --- |
-| 최초 PR | 852b497 | snapshot manifest 및 as_of export | 전체 124건 통과 |
-| 리뷰 명세 | 5fc50ae | bundle boundary·naive datetime test | 초기 구현에서 2 failures 확인 |
-| 리뷰 반영 | f8993d9 | shared as_of와 timezone validation | memory ledger 12건, 전체 126건 통과 |
+| 최초 PR | d49ba6b | snapshot manifest 및 as_of export | 전체 124건 통과 |
+| 리뷰 명세 | 604d638 | bundle boundary·naive datetime test | 초기 구현에서 2 failures 확인 |
+| 리뷰 반영 | cf3f29b | shared as_of와 timezone validation | memory ledger 12건, 전체 126건 통과 |
 
 최초 PR 이후에는 test commit과 fix commit을 순서대로 누적했고, rebase나 force push를 사용하지 않았습니다.
 
 ## 4. 결론
 
 Snapshot Manifest Value Object 구조를 유지하면서, bundle 내부의 시간 일관성과 재현 가능한 timezone contract를 보완했습니다. 원본 ledger는 audit 입력으로 유지하고, filtered artifact는 같은 snapshot boundary를 공유합니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 변경된 Python 파일의 comment token과 module/class/function docstring은 제거했으며, SQL·script template·test fixture 같은 실행용 multiline string 값은 보존했습니다. 전체 51개 커밋의 변경 Python blob 57개가 `black --check`를 통과했고, 원본과 재작성본의 실행 AST도 동일합니다.

@@ -2,12 +2,12 @@
 
 > Synthetic GitHub artifact: true
 
-- [x] 초기 PR은 9a9d26d의 변경만 설명합니다.
+- [x] 초기 PR은 5ae605a의 변경만 설명합니다.
 - [x] 전체 코드 범위는 허용된 brainwash/algorithms/memory_edit.py, tests/test_memory_edit_runtime.py입니다.
-- [x] 최초 PR 변경량은 50줄이며 batch trigger API 한 가지 기능에 집중합니다.
+- [x] 최초 PR 변경량은 49줄이며 batch trigger API 한 가지 기능에 집중합니다.
 - [x] 최초 PR 시점 전체 test 126건을 통과했습니다.
 - [x] 리뷰는 실제 batch contract 5개를 다루며, 필요한 2개만 Change Request로 분류합니다.
-- [x] Change Request는 0258b13 test commit과 85b6b66 fix commit으로 별도 누적했습니다.
+- [x] Change Request는 c1405d9 test commit과 6b169f2 fix commit으로 별도 누적했습니다.
 - [x] 리뷰 시작 후 rebase, squash, force push를 사용하지 않았습니다.
 - [x] Review 1은 [Python mapping types 공식 문서](https://docs.python.org/3/library/stdtypes.html#mapping-types-dict)를 링크하고 duplicate dict key 예시로 cardinality 문제를 설명합니다.
 - [x] duplicate input order와 triggered count를 regression test로 고정했습니다.

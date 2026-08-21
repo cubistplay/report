@@ -8,20 +8,20 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "f3795e270ace457f28a5a04caf9a1d47a4e989b7",
+    "base_commit": "067cbce8b321fb13593ce38de54ea3125e301a83",
     "head_branch": "main",
-    "initial_review_head": "3819dbe96debb7d32d11c87ab92c0ba215dea5cf",
-    "final_head_commit": "3819dbe96debb7d32d11c87ab92c0ba215dea5cf",
-    "integrated_main_commit": "3819dbe96debb7d32d11c87ab92c0ba215dea5cf",
+    "initial_review_head": "cd8199fed9ea342109640a3e71c51de6c8a842b6",
+    "final_head_commit": "cd8199fed9ea342109640a3e71c51de6c8a842b6",
+    "integrated_main_commit": "cd8199fed9ea342109640a3e71c51de6c8a842b6",
     "commits": [
       {
         "role": "red_tests",
-        "sha": "4fa7b66016cf0ced1697fc649d1cf299d4ae7c25",
+        "sha": "414878049cd049d26e04277c824da0998fafa9dd",
         "subject": "test(implement-05): specify preference record strategies"
       },
       {
         "role": "implementation",
-        "sha": "3819dbe96debb7d32d11c87ab92c0ba215dea5cf",
+        "sha": "cd8199fed9ea342109640a3e71c51de6c8a842b6",
         "subject": "refactor(implement-05): separate preference export strategies"
       }
     ]
@@ -33,10 +33,10 @@
   "change_budget": {
     "minimum_changed_lines": 200,
     "preferred_upper_bound": 300,
-    "additions": 239,
-    "deletions": 43,
-    "measured_changed_lines": 282,
-    "counting_rule": "product code and tests; additions plus deletions",
+    "additions": 272,
+    "deletions": 47,
+    "measured_changed_lines": 319,
+    "counting_rule": "actual Git additions plus deletions after Black formatting, comment removal, and docstring removal",
     "reviewability_note": "preference 행 변환 Strategy와 공통 export Template Method를 도입하고 세 adapter의 artifact 동등성을 검증한 단일 refactor입니다."
   },
   "paths_changed": [
@@ -46,7 +46,8 @@
   "verification": {
     "red": "tests.test_pipeline_preference_export: record Strategy import 실패",
     "initial_review_head": "preference export 테스트 4건 통과; 기존 pipeline 테스트 5건 통과; 전체 테스트 90건 통과; artifact diff 없음",
-    "final": "preference export 테스트 4건 통과; 기존 pipeline 테스트 5건 통과; 전체 테스트 90건 통과; artifact diff 없음"
+    "final": "preference export 테스트 4건 통과; 기존 pipeline 테스트 5건 통과; 전체 테스트 90건 통과; artifact diff 없음",
+    "black": "Black 26.5.1 was applied before each code commit; all changed Python blobs contain no comments or module/class/function docstrings; executable multiline string values were preserved; final Black --check passed."
   },
   "review": {
     "thread_count": 3,

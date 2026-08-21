@@ -12,11 +12,11 @@
 ## 2. Commit 및 PR 경계
 
 - base: `main` / `87abaa3d5398bff678408da82e7544fe3175122b`
-- Red 테스트: `dda9a7c12a81e5a518b932e0b89acdc4adb56b0e`
+- Red 테스트: `c704ecc3f38234fd3a2e422f1785db116fa1586a`
   `test(implement-01): specify evaluator registry contracts`
-- 최초 PR 및 최종 head: `dcd46fd68822ac3041daa94afe53c80043e2a903`
+- 최초 PR 및 최종 head: `78c27ec4f3fba00bd0aeefa56392d6cc74173188`
   `feat(implement-01): preserve locality with evaluation strategies`
-- 최종 `main`: `dcd46fd68822ac3041daa94afe53c80043e2a903`
+- 최종 `main`: `78c27ec4f3fba00bd0aeefa56392d6cc74173188`
 
 최초 head에서 다섯 가지 설계·평가 경계를 검토했습니다. 코드 결함은 발견되지 않았으므로
 불필요한 Change Request나 후속 commit을 만들지 않고 최초 head를 최종 mainline으로
@@ -63,15 +63,15 @@ behavior kind 생성을 다룹니다. 전체 테스트에서는 기존 SQLite co
 
 | 항목 | 결과 |
 | --- | ---: |
-| 추가 | 253줄 |
-| 삭제 | 46줄 |
-| 합계 | 299줄 |
+| 추가 | 321줄 |
+| 삭제 | 56줄 |
+| 합계 | 377줄 |
 | 파일 | 4개 |
 | 허용 목록 외 변경 | 없음 |
 
 변경 파일은 `brainwash/eval/harness.py`, `brainwash/eval/metrics.py`,
 `tests/test_pipeline.py`, `tests/test_pipeline_eval_harness.py`입니다. 생성 파일과
-formatting만 한 변경은 포함하지 않았습니다. 299줄 안에서 동작 변경, Strategy 도입,
+formatting만 한 변경은 포함하지 않았습니다. 377줄 안에서 동작 변경, Strategy 도입,
 Registry/Builder 분리, 회귀 테스트를 하나의 검토 가능한 기능으로 완결했습니다.
 
 ## 6. 리뷰 결과
@@ -80,3 +80,7 @@ Registry/Builder 분리, 회귀 테스트를 하나의 검토 가능한 기능�
 `EvaluationReportBuilder`의 책임을 검토했습니다. 사용자 지정 evaluator 테스트,
 generator 미호출 테스트, 결과 보고 테스트로 확인됐고 추가 코드 변경 없이
 승인되었습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 변경된 Python 파일의 comment token과 module/class/function docstring은 제거했으며, SQL·script template·test fixture 같은 실행용 multiline string 값은 보존했습니다. 전체 51개 커밋의 변경 Python blob 57개가 `black --check`를 통과했고, 원본과 재작성본의 실행 AST도 동일합니다.

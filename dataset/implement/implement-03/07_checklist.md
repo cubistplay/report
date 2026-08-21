@@ -12,7 +12,7 @@
 - [x] RAG identity Change Request를 test commit으로 반영했습니다.
 - [x] 리뷰 반영 후 registry/pipeline 테스트 6건 및 전체 테스트 83건을 통과했습니다.
 - [x] I-02 head → test → refactor 선형 이력을 유지했습니다.
-- [x] 변경량 242줄, 파일 3개를 기록했습니다.
+- [x] 변경량 260줄, 파일 3개를 기록했습니다.
 - [ ] 원격 PR 생성 및 일반 push (요청되지 않음).
 - [ ] 실제 화면 캡처 생성 (요청되지 않음).
 - [ ] 원격 승인/merge (요청되지 않음).

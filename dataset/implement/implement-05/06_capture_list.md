@@ -6,7 +6,7 @@
 | 캡처명 | 대상 | 근거 |
 | --- | --- | --- |
 | `I-A5-01-red-record-strategy-test.png` | Red 테스트 | record Strategy import 실패 |
-| `I-A5-02-initial-pr.png` | 최초 PR 설명 | `3819dbe` 시점 |
+| `I-A5-02-initial-pr.png` | 최초 PR 설명 | `cd8199f` 시점 |
 | `I-A5-03-export-boundary.png` | Strategy·Template Method 경계 | 전후 Mermaid |
 | `I-A5-04-review-threads.png` | 설계 검토 세 스레드 | Change Request 0 |
 | `I-A5-05-artifact-parity.png` | artifact 동등성·테스트 | diff 없음, 4/4·5/5·90/90 |

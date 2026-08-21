@@ -1,7 +1,7 @@
 # R-A2 게시 전 체크리스트
 
 - [x] task와 review scope를 기록했습니다.
-- [x] 초기 PR은 `brainwash/conversation.py` 한 파일, 69줄 변경입니다.
+- [x] 초기 PR은 `brainwash/conversation.py` 한 파일, 81줄 변경입니다.
 - [x] 초기 PR head에서 기존 전체 test 93건을 통과했습니다.
 - [x] 최초 PR 설명에는 최초 snapshot만 기록했습니다.
 - [x] mutable history container를 재현 code·영향·수정 방향과 함께 지적했습니다.

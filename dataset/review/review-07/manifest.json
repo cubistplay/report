@@ -8,25 +8,25 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "d99d2237975ffa3586eeb73bf2962f366746c487",
+    "base_commit": "8e32f995061591f854a4ce61d211a638a10a04e1",
     "head_branch": "review/review-07-promotion-candidates",
-    "initial_review_head": "5be9d0c06a8ef4f835250ed32ae68dba2a51fe9b",
-    "final_head_commit": "9aae5395f2cb59007f1b88dcbc0e67d1b4692c94",
-    "integrated_main_commit": "9aae5395f2cb59007f1b88dcbc0e67d1b4692c94",
+    "initial_review_head": "58a5609545b2578726f257be6b5ebbb71a57690e",
+    "final_head_commit": "e071fe40352c26eb8e2d0f2f84911fd689a93a66",
+    "integrated_main_commit": "e071fe40352c26eb8e2d0f2f84911fd689a93a66",
     "commits": [
       {
         "role": "initial_review_pr",
-        "sha": "5be9d0c06a8ef4f835250ed32ae68dba2a51fe9b",
+        "sha": "58a5609545b2578726f257be6b5ebbb71a57690e",
         "subject": "feat(review-07): list promotion candidates"
       },
       {
         "role": "review_regression_tests",
-        "sha": "b9db88cda0c23946018b9267867e0f755fab8dc8",
+        "sha": "932c7888ee1228d4f74b767009f54b9aac5525a7",
         "subject": "test(review-07): specify promotion candidate contracts"
       },
       {
         "role": "review_response",
-        "sha": "9aae5395f2cb59007f1b88dcbc0e67d1b4692c94",
+        "sha": "e071fe40352c26eb8e2d0f2f84911fd689a93a66",
         "subject": "fix(review-07): stabilize promotion candidates"
       }
     ]
@@ -36,10 +36,10 @@
     "counterpart": "author"
   },
   "change_budget": {
-    "initial_additions": 61,
+    "initial_additions": 59,
     "initial_deletions": 0,
-    "initial_measured_changed_lines": 61,
-    "counting_rule": "initial review snapshot only; additions plus deletions",
+    "initial_measured_changed_lines": 59,
+    "counting_rule": "actual Git additions plus deletions after Black formatting, comment removal, and docstring removal",
     "reviewability_note": "promotion candidate 결과의 결정성과 기존 policy의 target 의미를 다루는 단일 read-model 기능입니다."
   },
   "paths_changed": {
@@ -53,7 +53,8 @@
   },
   "verification": {
     "initial_review_head": "전체 test 122건 통과",
-    "review_response": "promotion candidate regression test를 추가한 뒤 update DB test 12건 및 전체 test 124건 통과"
+    "review_response": "promotion candidate regression test를 추가한 뒤 update DB test 12건 및 전체 test 124건 통과",
+    "black": "Black 26.5.1 was applied before each code commit; all changed Python blobs contain no comments or module/class/function docstrings; executable multiline string values were preserved; final Black --check passed."
   },
   "review": {
     "thread_count": 5,

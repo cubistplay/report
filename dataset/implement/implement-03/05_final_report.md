@@ -14,14 +14,14 @@ adapter별 artifact 생성 방식은 유지하되, RAG adapter가 상속받은 �
 
 ## 2. Commit 및 PR 경계
 
-- base: `main` / `29bb11e491889c22f93e01e1f9a344669d860aae`
-- Red 테스트: `5655dde4cdca26cf542bb74b96c3cd1e4410fd7d`
+- base: `main` / `559a29432f22f5717bdf891f395339c1609d6899`
+- Red 테스트: `f6796aaa13877a6dd21badec545b1adbbb3aefde`
   `test(implement-03): specify algorithm registry contracts`
-- 최초 PR head: `3cb00d9d558281c241fdd0ed387df5c71fe86bc1`
+- 최초 PR head: `b6391f63f3368aefed291ab274dd24b0ac492efa`
   `refactor(implement-03): encapsulate algorithm registry`
-- 리뷰 반영: `3c11c0234491b57001cd620ba284071c4ad4957b`
+- 리뷰 반영: `f60cd2f957f009481c89d51cfea339b937e2867b`
   `test(implement-03): cover rag adapter registration`
-- 최종 `main`: `3c11c0234491b57001cd620ba284071c4ad4957b`
+- 최종 `main`: `f60cd2f957f009481c89d51cfea339b937e2867b`
 
 최초 head에서 다섯 가지 설계·동작 경계를 검토했습니다. RAG adapter 이름이 상속
 기본값으로 다시 어긋나지 않도록 회귀 테스트가 필요하다는 Change Request 1건을 받고,
@@ -71,14 +71,14 @@ adapter 추가는 `register()`로만 수행하므로 중복 등록은 기본적�
 
 | 항목 | 결과 |
 | --- | ---: |
-| 추가 | 203줄 |
-| 삭제 | 39줄 |
-| 합계 | 242줄 |
+| 추가 | 218줄 |
+| 삭제 | 42줄 |
+| 합계 | 260줄 |
 | 파일 | 3개 |
 | 허용 목록 외 변경 | 없음 |
 
 변경 파일은 `brainwash/algorithms/registry.py`, `brainwash/pipeline.py`,
-`tests/test_pipeline_registry.py`입니다. 242줄 안에서 Registry 패턴 도입,
+`tests/test_pipeline_registry.py`입니다. 260줄 안에서 Registry 패턴 도입,
 수동 plan 복사 제거, RAG identity regression 테스트, 변경 전후 출력 비교를 하나의
 검토 단위로 완결했습니다.
 
@@ -87,3 +87,7 @@ adapter 추가는 `register()`로만 수행하므로 중복 등록은 기본적�
 리뷰에서는 빈 registry와 기본값의 구분, `replace()`가 보존하는 plan 필드의 범위,
 중복 등록 정책, mapping 이름 계약, 읽기·변경 API 경계를 확인했습니다. RAG identity
 회귀 테스트를 Change Request로 추가한 뒤 전체 테스트를 다시 통과했고 최종 승인되었습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 변경된 Python 파일의 comment token과 module/class/function docstring은 제거했으며, SQL·script template·test fixture 같은 실행용 multiline string 값은 보존했습니다. 전체 51개 커밋의 변경 Python blob 57개가 `black --check`를 통과했고, 원본과 재작성본의 실행 AST도 동일합니다.

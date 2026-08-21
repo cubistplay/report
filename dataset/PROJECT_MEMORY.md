@@ -760,3 +760,21 @@ and whether existing samples require migration.
 - User-supplied spellings `memroy`, `schmea.sql`, and `schema.ph` refer to the
   repository paths `memory`, `schema.sql`, and `schema.py`. Treat the actual
   paths above as the strict list; no other code or test file may be affected.
+
+### 2026-08-21 — Black formatting and comment-cleanup reconstruction
+
+- The user requested that Implement and Review 01–10 code history be rebuilt
+  from the oldest active code commit, rather than adding a final formatting
+  commit.
+- Every rewritten code commit must apply Black before it is recorded. Do not
+  commit a pre-Black source snapshot.
+- Remove every comment token and every module/class/function docstring from the
+  Python files changed by the 01–10 code history. Do not introduce comments or
+  docstrings of any kind.
+- Preserve triple-quoted SQL, script templates, test fixtures, and any other
+  executable multiline string values. The prohibition applies only when the
+  string is used as module/class/function documentation.
+- Because each commit SHA, line anchor, raw change count, initial review head,
+  and final head changes during such a rewrite, synchronize every affected
+  sample manifest and readable artifact, then repoint local review branches to
+  their rewritten initial review heads.
