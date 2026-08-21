@@ -79,7 +79,7 @@ import test에서 count와 저장 event를 같이 확인하면 좋겠습니다. 
 
 ## 스레드 3 — ledger와 event의 foreign key 순서
 
-**위치** `brainwash/memory/update_db.py` (`ingest_run_artifacts`)
+**위치** `brainwash/memory/update_db.py` (`UpdateDb.ingest_run_artifacts`, 초기 PR 287-336행)
 **심각도** `question`
 
 **리뷰어 · 질문 :thinking:**
@@ -99,7 +99,7 @@ record 없이 event만 있는 artifact는 데이터 불완전으로 보고 DB �
 
 ## 스레드 4 — 같은 artifact 재실행의 의미
 
-**위치** `brainwash/memory/schema.sql` (`memory_lifecycle_events` unique key)
+**위치** `brainwash/memory/schema.sql` (`memory_lifecycle_events` 70-80행, unique key 78행)
 **심각도** `question`
 
 **리뷰어 · 질문 :repeat:**
@@ -119,7 +119,7 @@ unique key가 재실행 단위와 맞고, timestamp가 새 평가의 identity라
 
 ## 스레드 5 — 최신 event 정렬의 입력 형식
 
-**위치** `brainwash/memory/update_db.py` (`lifecycle_events`)
+**위치** `brainwash/memory/update_db.py` (`UpdateDb.lifecycle_events`, 초기 PR 372-382행)
 **심각도** `question`
 
 **리뷰어 · 질문 :clock1:**

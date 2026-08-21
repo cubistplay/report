@@ -5,7 +5,7 @@
 
 ## 스레드 1 — Strategy와 final selection의 경계
 
-**위치** `brainwash/memory/update_db.py` (`RetrievalStrategy`, `retrieve_memory_edit`)
+**위치** `brainwash/memory/update_db.py` (`RetrievalStrategy` 75-86행, `UpdateDb.retrieve_memory_edit` 477-550행)
 
 **리뷰어 · 질문 🔎**
 
@@ -34,7 +34,7 @@ candidate가 근거 metadata를 제공하고 별도 selection Policy를 도입�
 
 ## 스레드 2 — default order와 빈 목록의 의미
 
-**위치** `default_retrieval_strategies`, `UpdateDb.__init__`
+**위치** `brainwash/memory/update_db.py` (`default_retrieval_strategies` 201-208행, `UpdateDb.__init__` 213-228행)
 
 **리뷰어 · 질문 🔎**
 
@@ -63,7 +63,7 @@ default, explicit disable, custom extension의 의미가 겹치지 않고 test�
 
 ## 스레드 3 — 기존 FTS와 audit contract 보존
 
-**위치** `FullTextRetrievalStrategy`, `UpdateDb.log_retrieval`
+**위치** `brainwash/memory/update_db.py` (`FullTextRetrievalStrategy` 168-198행, `UpdateDb.log_retrieval` 614-634행)
 
 **리뷰어 · 질문 🔎**
 

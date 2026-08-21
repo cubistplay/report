@@ -5,7 +5,7 @@
 
 ## 스레드 1 — Factory의 metadata 우선순위
 
-**위치** `brainwash/benchmarks.py` (`BenchmarkRequestFactory.create`)
+**위치** `brainwash/benchmarks.py` (`BenchmarkRequestFactory.create`, 초기 PR 99-118행)
 
 **리뷰어 · 질문 🔎**
 
@@ -35,7 +35,7 @@ loader마다 다른 값이 들어가면 retrieval과 report 해석이 달라질 
 
 ## 스레드 2 — answer type의 조회 시점과 부재 처리
 
-**위치** `brainwash/benchmarks.py` (`BenchmarkRequestFactory.__init__`)
+**위치** `brainwash/benchmarks.py` (`BenchmarkRequestFactory.__init__`, 초기 PR 93-97행)
 
 **리뷰어 · 질문 🔎**
 
@@ -66,7 +66,7 @@ matcher 상태를 고정하지 않고, 알 수 없는 분류를 만들어 내지
 
 ## 스레드 3 — raw schema를 Factory에 넣지 않은 이유
 
-**위치** `brainwash/benchmarks.py` (`BenchmarkRequestSpec`)
+**위치** `brainwash/benchmarks.py` (`BenchmarkRequestSpec`, 초기 PR 78-88행)
 
 **리뷰어 · 질문 🔎**
 
@@ -95,7 +95,7 @@ loader는 schema 해석을 계속 소유하고, Factory는 해석이 끝난 값�
 
 ## 스레드 4 — 변환 순서와 기존 출력 보존
 
-**위치** `brainwash/benchmarks.py` (각 `load_*_requests`)
+**위치** `brainwash/benchmarks.py` (`load_counterfact_requests` 121-169행, `load_knowedit_requests` 172-214행, `load_mquake_requests` 217-265행, `load_ripple_requests` 268-320행)
 
 **리뷰어 · 질문 🔎**
 

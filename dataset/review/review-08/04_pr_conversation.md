@@ -70,7 +70,7 @@ write_artifacts의 as_of가 timezone-aware가 아니면 ValueError로 실패하�
 
 ## 스레드 3 — 원본 ledger가 snapshot filter를 받지 않는 이유
 
-**위치** write_artifacts의 memory_ledger.jsonl  
+**위치** `brainwash/memory/ledger.py` (`MemoryLedger.write_artifacts`의 `memory_ledger.jsonl`, 초기 PR 361-364행)
 **심각도** question
 
 **리뷰어 · 질문 :eyes:**
@@ -87,7 +87,7 @@ active_memory는 snapshot view인데 memory_ledger는 모든 record를 그대로
 
 ## 스레드 4 — 빈 ledger의 snapshot manifest
 
-**위치** snapshot_manifest  
+**위치** `brainwash/memory/ledger.py` (`MemoryLedger.snapshot_manifest`, 초기 PR 334-351행)
 **심각도** question
 
 **리뷰어 · 질문 :thinking:**
@@ -104,7 +104,7 @@ record가 하나도 없으면 decisions에서 as_of를 얻을 수 없습니다. 
 
 ## 스레드 5 — conflict artifact의 역할
 
-**위치** memory_conflicts.json  
+**위치** `brainwash/memory/ledger.py` (`MemoryLedger.write_artifacts`의 `memory_conflicts.json`, 초기 PR 373행)
 **심각도** question
 
 **리뷰어 · 질문 :shield:**

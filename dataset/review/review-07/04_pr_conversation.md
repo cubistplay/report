@@ -70,7 +70,7 @@ candidate API와 PromotionPolicy가 같은 conflict 의미를 사용하게 됐�
 
 ## 스레드 3 — threshold 0의 처리
 
-**위치** brainwash/memory/update_db.py (promotion_candidates)  
+**위치** `brainwash/memory/update_db.py` (`UpdateDb.promotion_candidates`, 초기 PR 436-462행)
 **심각도** question
 
 **리뷰어 · 질문 :thinking:**
@@ -87,7 +87,7 @@ read model도 policy가 허용하는 threshold domain을 그대로 쓰는 점을
 
 ## 스레드 4 — high-risk candidate의 의미
 
-**위치** PromotionCandidate.requires_manual_review  
+**위치** `brainwash/memory/update_db.py` (`PromotionCandidate.requires_manual_review`, 초기 PR 93-94행)
 **심각도** question
 
 **리뷰어 · 질문 :shield:**
@@ -104,7 +104,7 @@ high-risk record가 하나라도 있으면 candidate 전체가 requires_manual_r
 
 ## 스레드 5 — lifecycle audit와 persisted status의 책임
 
-**위치** promotion_candidates의 WHERE status = active  
+**위치** `brainwash/memory/update_db.py` (`UpdateDb.promotion_candidates`의 `WHERE status = 'active'`, 초기 PR 447행)
 **심각도** question
 
 **리뷰어 · 질문 :clock1:**

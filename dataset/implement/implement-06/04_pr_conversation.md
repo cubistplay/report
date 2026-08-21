@@ -5,7 +5,7 @@
 
 ## 스레드 1 — ledger와 promotion 판단의 책임 경계
 
-**위치** `brainwash/memory/promotion.py` (`PromotionPolicy`), `brainwash/memory/ledger.py`
+**위치** `brainwash/memory/promotion.py` (`PromotionPolicy` 113-168행), `brainwash/memory/ledger.py` (`MemoryLedger.promotion_report` 209-219행)
 
 **리뷰어 · 질문 🔎**
 
@@ -34,7 +34,7 @@ persistence와 training eligibility가 분리돼 이후 promotion gate 확장 �
 
 ## 스레드 2 — conflict와 high-risk의 기본 안전 정책
 
-**위치** `ConsistentTargetRule`, `HighRiskReviewRule`
+**위치** `brainwash/memory/promotion.py` (`ConsistentTargetRule` 86-95행, `HighRiskReviewRule` 99-110행)
 
 **리뷰어 · 질문 🔎**
 
@@ -64,7 +64,7 @@ workflow 선택을 확인할 수 있습니다. conflict gate는 override하지 �
 
 ## 스레드 3 — 기존 호출 형식과 deterministic report
 
-**위치** `MemoryLedger.promotion_report`
+**위치** `brainwash/memory/ledger.py` (`MemoryLedger.promotion_report`, 초기 PR 209-219행)
 
 **리뷰어 · 질문 🔎**
 

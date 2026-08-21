@@ -68,7 +68,7 @@ RoutingLane에 request_positions를 추가하고, fact가 0번·behavior가 1번
 
 ## 스레드 3 — empty input 계약
 
-**위치** BrainwashRouter.route_lanes  
+**위치** `brainwash/router.py` (`BrainwashRouter.route_lanes`, 초기 PR 321-339행)
 **심각도** question
 
 **리뷰어 · 질문 :thinking:**
@@ -85,7 +85,7 @@ single route와 lane route의 invalid-input boundary가 같아 caller가 두 API
 
 ## 스레드 4 — style/safety의 behavioral lane 분류
 
-**위치** _lane_name  
+**위치** `brainwash/router.py` (`BrainwashRouter._lane_name`, 반영 commit `88560d5` 348-357행)
 **심각도** question
 
 **리뷰어 · 질문 :shield:**
@@ -102,7 +102,7 @@ schema의 semantic property를 재사용해 routing policy와 lane partition이 
 
 ## 스레드 5 — lane order의 의미
 
-**위치** route_lanes의 lane_requests 순서  
+**위치** `brainwash/router.py` (`BrainwashRouter.route_lanes`의 `lane_requests`, 반영 commit `88560d5` 327-344행)
 **심각도** question
 
 **리뷰어 · 질문 :eyes:**

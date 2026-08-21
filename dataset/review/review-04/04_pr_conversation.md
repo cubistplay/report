@@ -99,7 +99,7 @@ manifest에서 summary artifact를 찾을 수 있고, file 생성과 discovery�
 
 ## 스레드 3 — summary regression test 부재
 
-**위치** `brainwash/algorithms/finetune.py` (`SftDatasetSummary`)  
+**위치** `brainwash/algorithms/finetune.py` (`SftDatasetSummary`, 초기 PR 106-142행)
 **심각도** `important`
 
 **리뷰어 · 댓글 :test_tube:**
@@ -130,7 +130,7 @@ count semantics와 artifact discoverability가 pipeline 수준 regression test�
 
 ## 스레드 4 — empty dataset의 ratio 정책
 
-**위치** `SftDatasetSummary.usable_ratio`  
+**위치** `brainwash/algorithms/finetune.py` (`SftDatasetSummary.usable_ratio`, 초기 PR 122-125행)
 **심각도** `question`
 
 **리뷰어 · 질문 :question:**
@@ -151,7 +151,7 @@ numeric schema를 유지하면서 empty 상태를 별도 field/note로 설명하
 
 ## 스레드 5 — QLoRA와 LoRA의 summary 공유
 
-**위치** `QLoRASFTAdapter`, `LoRASFTAdapter`  
+**위치** `brainwash/algorithms/finetune.py` (`QLoRASFTAdapter` 145-216행, `LoRASFTAdapter` 219-223행)
 **심각도** `question`
 
 **리뷰어 · 질문 :eyes:**

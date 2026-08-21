@@ -5,7 +5,7 @@
 
 ## 스레드 1 — action 종류와 실행 책임
 
-**위치** `brainwash/decomposition.py` (`DynamicActionStageRegistry`)
+**위치** `brainwash/decomposition.py` (`DynamicActionStageRegistry`, 초기 PR 283-299행)
 
 **리뷰어 · 질문 🔎**
 
@@ -35,7 +35,7 @@
 
 ## 스레드 2 — state가 소유하는 기록의 일관성
 
-**위치** `brainwash/decomposition.py` (`DynamicEvidenceState`)
+**위치** `brainwash/decomposition.py` (`DynamicEvidenceState`, 초기 PR 202-233행)
 
 **리뷰어 · 질문 🔎**
 
@@ -65,7 +65,7 @@ rendering에 쓸 answer도 생기고, memory dependency가 추가되면 결과 m
 
 ## 스레드 3 — 결과 보존 범위
 
-**위치** `DynamicEvidenceExecutor.answer`, `AnswerActionStage`, `AskActionStage`
+**위치** `brainwash/decomposition.py` (`DynamicEvidenceExecutor.answer` 983-1013행, `AnswerActionStage` 247-255행, `AskActionStage` 258-266행)
 
 **리뷰어 · 질문 🔎**
 

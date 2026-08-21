@@ -5,7 +5,7 @@
 
 ## 스레드 1 — locality 비교에서 정규화하는 범위
 
-**위치** `brainwash/eval/metrics.py` (`outputs_equivalent`)
+**위치** `brainwash/eval/metrics.py` (`outputs_equivalent`, 초기 PR 23-25행)
 
 **리뷰어 · 질문 🔎**
 
@@ -37,7 +37,7 @@ semantic locality 정책이 필요해지면 별도 evaluator로 추가할 수 �
 
 ## 스레드 2 — baseline이 없을 때의 점수 의미
 
-**위치** `brainwash/eval/harness.py` (`LocalityPreservationEvaluator.evaluate`)
+**위치** `brainwash/eval/harness.py` (`LocalityPreservationEvaluator.evaluate`, 초기 PR 63-68행)
 
 **리뷰어 · 질문 🔎**
 
@@ -68,7 +68,7 @@ baseline이 없으면 수정 전 출력과 비교할 근거가 없으므로 실�
 
 ## 스레드 3 — evaluator 입력 경계
 
-**위치** `brainwash/eval/harness.py` (`EvaluationContext`)
+**위치** `brainwash/eval/harness.py` (`EvaluationContext`, 초기 PR 40-43행)
 
 **리뷰어 · 질문 🔎**
 
@@ -98,7 +98,7 @@ context에 generator 자체를 넣지 않은 것은 evaluator가 재생성하지
 
 ## 스레드 4 — registry 검증 시점
 
-**위치** `brainwash/eval/harness.py` (`EvaluatorRegistry.validate`)
+**위치** `brainwash/eval/harness.py` (`EvaluatorRegistry.validate`, 초기 PR 87-90행)
 
 **리뷰어 · 질문 🔎**
 
@@ -128,7 +128,7 @@ context에 generator 자체를 넣지 않은 것은 evaluator가 재생성하지
 
 ## 스레드 5 — 보고서 조립 책임
 
-**위치** `brainwash/eval/harness.py` (`EvaluationReportBuilder`)
+**위치** `brainwash/eval/harness.py` (`EvaluationReportBuilder`, 초기 PR 96-156행)
 
 **리뷰어 · 질문 🔎**
 

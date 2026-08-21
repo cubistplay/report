@@ -95,7 +95,7 @@ source·observed score·기존 API 호환·batch alignment가 모두 test로 고
 
 ## 스레드 3 — no-match score의 의미
 
-**위치** `SupportKnowledgeStore.retrieve_with_trace` (`no lexical match above threshold`)  
+**위치** `brainwash/decomposition.py` (`SupportKnowledgeStore.retrieve_with_trace`, 초기 PR 745-752행)
 **심각도** `question`
 
 **리뷰어 · 질문 :eyes:**
@@ -117,7 +117,7 @@ reason으로 경로를 구분하니 추가 변경 요청은 없습니다.
 
 ## 스레드 4 — 기존 `retrieve()` caller 호환성
 
-**위치** `SupportKnowledgeStore.retrieve`  
+**위치** `brainwash/decomposition.py` (`SupportKnowledgeStore.retrieve`, 초기 PR 703-704행)
 **심각도** `question`
 
 **리뷰어 · 질문 :speech_balloon:**
@@ -138,7 +138,7 @@ exact → semantic → lexical 순서와 answer-type gating은 기존 helper를 
 
 ## 스레드 5 — batch trace의 입력 정렬
 
-**위치** `SupportKnowledgeStore.retrieve_many_with_trace`  
+**위치** `brainwash/decomposition.py` (`SupportKnowledgeStore.retrieve_many_with_trace`, 초기 PR 757-761행)
 **심각도** `question`
 
 **리뷰어 · 질문 :thinking:**

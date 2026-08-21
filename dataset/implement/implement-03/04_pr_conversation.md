@@ -5,7 +5,7 @@
 
 ## 스레드 1 — 빈 주입과 기본값의 구분
 
-**위치** `brainwash/pipeline.py` (`BrainwashPipeline._resolve_registry`)
+**위치** `brainwash/pipeline.py` (`BrainwashPipeline._resolve_registry`, 초기 PR 26-33행)
 
 **리뷰어 · 질문 🔎**
 
@@ -35,7 +35,7 @@ adapter가 없다는 것을 안 뒤에도 output directory가 생기면 호출�
 
 ## 스레드 2 — override에서 보존하는 값의 범위
 
-**위치** `brainwash/pipeline.py` (`BrainwashPipeline.plan`)
+**위치** `brainwash/pipeline.py` (`BrainwashPipeline.plan`, 초기 PR 35-45행)
 
 **리뷰어 · 질문 🔎**
 
@@ -64,7 +64,7 @@ algorithm과 reason만 다르지만, router가 만든 list나 stats 같은 값�
 
 ## 스레드 3 — 중복 등록과 교체의 명시성
 
-**위치** `brainwash/algorithms/registry.py` (`AlgorithmRegistry.register`)
+**위치** `brainwash/algorithms/registry.py` (`AlgorithmRegistry.register`, 초기 PR 43-48행)
 
 **리뷰어 · 질문 🔎**
 
@@ -92,7 +92,7 @@ algorithm과 reason만 다르지만, router가 만든 list나 stats 같은 값�
 
 ## 스레드 4 — mapping 호환성과 adapter 이름 계약
 
-**위치** `brainwash/algorithms/registry.py` (`AlgorithmRegistry.from_mapping`, `default_registry`)
+**위치** `brainwash/algorithms/registry.py` (`AlgorithmRegistry.from_mapping` 30-41행, `default_registry` 67-83행)
 
 **리뷰어 · 질문 🔎**
 
@@ -146,7 +146,7 @@ python3 -m unittest discover -s tests -q
 
 ## 스레드 5 — Mapping 표면과 mutation 경계
 
-**위치** `brainwash/algorithms/registry.py` (`AlgorithmRegistry`)
+**위치** `brainwash/algorithms/registry.py` (`AlgorithmRegistry`, 초기 PR 22-64행)
 
 **리뷰어 · 질문 🔎**
 

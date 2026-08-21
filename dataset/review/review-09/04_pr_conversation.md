@@ -68,7 +68,7 @@ memory_triggered를 기준으로 count하고, unmatched input 하나의 summary�
 
 ## 스레드 3 — duplicate prompt 계산 비용
 
-**위치** evaluate_many  
+**위치** `brainwash/algorithms/memory_edit.py` (`MemoryEditStore.evaluate_many`, 초기 PR 296-300행)
 **심각도** question
 
 **리뷰어 · 질문 :thinking:**
@@ -85,7 +85,7 @@ memory_triggered를 기준으로 count하고, unmatched input 하나의 summary�
 
 ## 스레드 4 — reason aggregation과 positional result
 
-**위치** MemoryTriggerBatch.reasons  
+**위치** `brainwash/algorithms/memory_edit.py` (`MemoryTriggerBatch.reasons`, 초기 PR 166-170행)
 **심각도** question
 
 **리뷰어 · 질문 :speech_balloon:**
@@ -102,7 +102,7 @@ reasons는 같은 reason을 합쳐 summary로 만듭니다. duplicate prompt도 
 
 ## 스레드 5 — JSON serialization 형태
 
-**위치** MemoryTriggerBatch.to_dict  
+**위치** `brainwash/algorithms/memory_edit.py` (`MemoryTriggerBatch.to_dict`, 초기 PR 172-181행)
 **심각도** question
 
 **리뷰어 · 질문 :eyes:**

@@ -84,7 +84,7 @@ string으로 정규화하면 `mquake:17#1` format도 안정적입니다.
 
 ## 스레드 3 — provenance contract test 부재
 
-**위치** `brainwash/benchmarks.py` (`BenchmarkProvenance`, `BenchmarkRequestFactory`)  
+**위치** `brainwash/benchmarks.py` (`BenchmarkProvenance` 78-110행, `BenchmarkRequestFactory` 128-157행)
 **심각도** `important`
 
 **리뷰어 · 댓글 :test_tube:**
@@ -116,7 +116,7 @@ metadata와 사람이 읽는 reference를 각각 검증해서 provenance contrac
 
 ## 스레드 4 — single-rewrite dataset의 null index
 
-**위치** `BenchmarkProvenance.to_metadata`  
+**위치** `brainwash/benchmarks.py` (`BenchmarkProvenance.to_metadata`, 초기 PR 104-110행)
 **심각도** `question`
 
 **리뷰어 · 질문 :question:**
@@ -136,7 +136,7 @@ CounterFact와 KnowEdit은 `benchmark_rewrite_index=None`을 metadata에 남깁�
 
 ## 스레드 5 — request ID와 provenance reference의 역할 분리
 
-**위치** `BenchmarkProvenance.reference`  
+**위치** `brainwash/benchmarks.py` (`BenchmarkProvenance.reference`, 초기 PR 99-102행)
 **심각도** `question`
 
 **리뷰어 · 질문 :eyes:**

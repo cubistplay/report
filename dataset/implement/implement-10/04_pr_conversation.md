@@ -5,7 +5,7 @@
 
 ## 스레드 1 — DB view와 in-memory lifecycle 계약
 
-**위치** `brainwash/memory/ledger.py` (`MemoryLifecyclePolicy`, `active_records`)
+**위치** `brainwash/memory/ledger.py` (`MemoryLifecyclePolicy` 176-209행, `MemoryLedger.active_records` 258-264행)
 
 **리뷰어 · 질문 🔎**
 
@@ -35,7 +35,7 @@ DB와 ledger의 boundary semantics가 같고, bad timestamp를 숨기지 않는 
 
 ## 스레드 2 — Decision Value Object와 audit artifact
 
-**위치** `MemoryLifecycleDecision`, `MemoryLedger.write_artifacts`
+**위치** `brainwash/memory/ledger.py` (`MemoryLifecycleDecision` 160-173행, `MemoryLedger.write_artifacts` 316-344행)
 
 **리뷰어 · 질문 🔎**
 
@@ -64,7 +64,7 @@ active snapshot에서 빠진 이유를 원본 metadata까지 다시 추적해야
 
 ## 스레드 3 — deterministic clock과 기존 ingestion 보존
 
-**위치** `MemoryLedger.lifecycle_report`, `active_records(as_of=...)`
+**위치** `brainwash/memory/ledger.py` (`MemoryLedger.lifecycle_report` 246-256행, `MemoryLedger.active_records` 258-264행)
 
 **리뷰어 · 질문 🔎**
 

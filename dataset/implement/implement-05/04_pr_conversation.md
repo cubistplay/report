@@ -5,7 +5,7 @@
 
 ## 스레드 1 — pair와 binary 행의 의미
 
-**위치** `brainwash/algorithms/preference.py` (`PairedPreferenceRecords`, `BinaryPreferenceRecords`)
+**위치** `brainwash/algorithms/preference.py` (`PairedPreferenceRecords` 162-181행, `BinaryPreferenceRecords` 184-207행)
 
 **리뷰어 · 질문 🔎**
 
@@ -35,7 +35,7 @@ paired 전략은 chosen/rejected가 모두 있어야 한 행을 만들고, binar
 
 ## 스레드 2 — SimPO와 DPO가 공유하는 asset 범위
 
-**위치** `brainwash/algorithms/preference.py` (`PairedPreferenceExportAdapter`)
+**위치** `brainwash/algorithms/preference.py` (`PairedPreferenceExportAdapter`, 초기 PR 242-266행)
 
 **리뷰어 · 질문 🔎**
 
@@ -65,7 +65,7 @@ DPO가 SimPO script와 `simpo_config.json`을 계속 만들지만 command는 빈
 
 ## 스레드 3 — 공통 export의 변경 범위
 
-**위치** `PreferenceExportAdapter._export_dataset`
+**위치** `brainwash/algorithms/preference.py` (`PreferenceExportAdapter._export_dataset`, 초기 PR 216-224행)
 
 **리뷰어 · 질문 🔎**
 

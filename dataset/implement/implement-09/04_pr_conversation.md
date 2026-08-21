@@ -5,7 +5,7 @@
 
 ## 스레드 1 — match evidence와 final safety policy
 
-**위치** `brainwash/algorithms/memory_edit.py` (`MemoryMatchStrategy`, `MemoryEditStore`)
+**위치** `brainwash/algorithms/memory_edit.py` (`MemoryMatchStrategy` 158-162행, `MemoryEditStore` 234-480행)
 
 **리뷰어 · 질문 🔎**
 
@@ -34,7 +34,7 @@ candidate 탐색의 확장성과 최종 correction safety가 분리돼 책임 �
 
 ## 스레드 2 — exact 우선순위와 subject-aware overlap
 
-**위치** `ExactMemoryMatchStrategy`, `SubjectTokenOverlapStrategy`
+**위치** `brainwash/algorithms/memory_edit.py` (`ExactMemoryMatchStrategy` 165-178행, `SubjectTokenOverlapStrategy` 181-201행)
 
 **리뷰어 · 질문 🔎**
 
@@ -63,7 +63,7 @@ exact correction 우선과 subject guard의 적용 위치, tie behavior가 모�
 
 ## 스레드 3 — custom matcher와 explicit disable
 
-**위치** `MemoryEditStore.__init__`, `MemoryMatchPolicy`
+**위치** `brainwash/algorithms/memory_edit.py` (`MemoryEditStore.__init__` 235-249행, `MemoryMatchPolicy` 209-231행)
 
 **리뷰어 · 질문 🔎**
 

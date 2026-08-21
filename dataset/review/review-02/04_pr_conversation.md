@@ -82,7 +82,7 @@ JSON-compatible list를 반환합니다.
 
 ## 스레드 3 — history 계약의 회귀 테스트
 
-**위치** `brainwash/conversation.py` (`ConversationResolutionRecord`, `history`, `clear_history`)  
+**위치** `brainwash/conversation.py` (`ConversationResolutionRecord` 25-57행, `history` 71-73행, `clear_history` 75-77행)
 **심각도** `important` · **Change Request**
 
 **리뷰어 · 댓글 :test_tube:**
@@ -120,7 +120,7 @@ integration test가 같은 파일에 있으므로, 새 test도 그 경로에 두
 
 ## 스레드 4 — clear는 context reset이 아님
 
-**위치** `brainwash/conversation.py` (`ConversationResolver.clear_history`)  
+**위치** `brainwash/conversation.py` (`ConversationResolver.clear_history`, 초기 PR 75-77행)
 **심각도** `question`
 
 **리뷰어 · 질문 :question:**
@@ -141,7 +141,7 @@ integration test가 같은 파일에 있으므로, 새 test도 그 경로에 두
 
 ## 스레드 5 — 모든 결과 상태를 기록하는 범위
 
-**위치** `brainwash/conversation.py` (`ConversationResolver.resolve`)  
+**위치** `brainwash/conversation.py` (`ConversationResolver.resolve`, 초기 PR 85-119행)
 **심각도** `question`
 
 **리뷰어 · 질문 :eyes:**
