@@ -2,6 +2,14 @@
 
 > Synthetic GitHub artifact: true
 
+## 활동 요약
+
+active memory를 promotion candidate로 집계하는 최초 구현을 검토했습니다. aggregate 순서가 고정되지
+않아 같은 snapshot이 다른 output을 만들 수 있는 문제와 기존 PromotionPolicy와 다른 raw target 비교를
+SQLite 문서와 입력 순서 재현 test로 확인했습니다. 정렬 기반 grouping과 normalized target
+canonicalization을 test→fix 순서로 반영해, audit·export·training consumer가 안정적인 candidate 계약을
+사용하도록 개선했습니다.
+
 ## 1. 현황 및 이슈
 
 `feat(review-07): list promotion candidates`는 active memory를 key별로 묶어 training 후보를 반환합니다.
