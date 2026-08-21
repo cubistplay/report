@@ -2,13 +2,6 @@
 
 > Synthetic GitHub artifact: true
 
-## 활동 요약
-
-mixed correction batch를 routing lane으로 나누는 최초 구현을 검토했습니다. broad/domain request가 factual
-memory correction과 같은 lane에 있어 algorithm 선택을 바꿀 수 있는 문제와 lane 결과가 원래 input 위치를
-잃는 문제를 mixed input test로 확인했습니다. behavior·broad·memory partition과 `request_positions`를
-test→fix 순서로 반영해, 기존 Policy 적용 범위와 consumer의 결과 재연결 계약을 함께 보호했습니다.
-
 ## 1. 현황 및 이슈
 
 `feat(review-10): split routing lanes`는 mixed correction batch를 lane별로 나누고 각 lane에 기존

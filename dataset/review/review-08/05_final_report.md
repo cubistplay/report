@@ -2,13 +2,6 @@
 
 > Synthetic GitHub artifact: true
 
-## 활동 요약
-
-memory snapshot export의 최초 구현을 검토했습니다. 일부 derived artifact만 `as_of`를 받아 동일한
-directory 안에서 서로 다른 시점의 결과가 섞이는 문제와 naive datetime의 timezone 모호성을 확인했습니다.
-공유된 validated timestamp를 모든 view에 전달하고 timezone-aware input을 강제하는 regression test와 fix
-commit을 반영해, snapshot bundle의 시간 일관성과 audit 재현성을 보장했습니다.
-
 ## 1. 현황 및 이슈
 
 `feat(review-08): export memory snapshots`는 `as_of`를 받아 memory artifact bundle과

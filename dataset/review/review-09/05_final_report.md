@@ -2,13 +2,6 @@
 
 > Synthetic GitHub artifact: true
 
-## 활동 요약
-
-batch memory trigger API의 최초 구현을 검토했습니다. prompt-keyed dict가 duplicate input을 잃는 문제와
-result 수를 activation 수로 잘못 집계하는 문제를 Python mapping 규칙과 no-match 사례로 재현했습니다.
-positional result와 signal 기반 count를 test→fix 순서로 반영해, evaluation consumer의 input/result
-alignment와 monitoring metric의 의미를 함께 바로잡았습니다.
-
 ## 1. 현황 및 이슈
 
 `feat(review-09): batch memory trigger decisions`는 여러 prompt의 `MemoryTrigger`와 batch summary를

@@ -2,13 +2,6 @@
 
 > Synthetic GitHub artifact: true
 
-## 활동 요약
-
-외부 lifecycle artifact를 DB event로 적재하는 최초 구현을 검토했습니다. 문자열 boolean이 잘못된
-active 상태로 저장될 수 있는 경로와 lifecycle 처리량이 report에 남지 않는 문제를 Python truth value
-규칙과 재현 test로 확인했습니다. 이후 허용값을 명시적으로 정규화하고 import count를 노출하는 test와
-fix commit을 순서대로 반영해, 외부 데이터의 타입 계약·관찰성·재실행 안전성을 함께 보완했습니다.
-
 ## 1. 현황 및 이슈
 
 `feat(review-06): import memory lifecycle audits`는 외부 `memory_lifecycle.jsonl`을 DB event로
