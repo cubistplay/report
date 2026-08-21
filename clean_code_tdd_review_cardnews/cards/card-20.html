@@ -1,0 +1,7 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>20 · 테스트는 구현 세부보다 계약을 검증합니다</title><link rel="stylesheet" href="../style.css"></head><body><main class="card code" style="--accent:#102a43"><div class="meta"><span>CODE QUALITY FIELD NOTES</span><span>20 / 68</span></div><h1>테스트는 구현 세부보다
+계약을 검증합니다</h1><div class="panel"><div class="body">bad
+  assert policy._rules[0].threshold == 3
+
+good
+  assert decision.eligible is False
+  assert "minimum_records" in decision.reasons</div></div><footer class="footer ">참고: Martin Fowler TDD · Python unittest · 내부 사례<nav class="nav"><a href="card-19.html">← 이전</a><a href="card-21.html">다음 →</a></nav></footer></main><a class="home" href="../index.html">목차</a></body></html>
