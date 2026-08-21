@@ -1,14 +1,15 @@
 # I-A8 개발 활동 보고서 — routing Policy 분해
 
-## 1. 배경
+## 1. 현황 및 이슈
 
-`BrainwashRouter.route()`는 behavior, broad/domain, fact, mixed batch의 route 선택과 각
-`AlgorithmPlan` 공통 field 생성을 한 메서드에서 수행했습니다. 새 lane을 추가하거나 precedence를
-검토할 때 분기와 warnings·stats·verifier field를 함께 추적해야 했습니다.
+`BrainwashRouter.route()`는 behavior, broad/domain, fact, mixed batch의 판정 순서와 각
+`AlgorithmPlan`의 warnings·stats·verifier field 생성을 한 메서드에서 수행했습니다. 새 route 조건을
+읽으려면 앞선 모든 분기와 공통 payload 조립 코드를 함께 따라가야 했습니다.
 
-이번 변경에서는 lane별 선택을 `RoutingPolicy` Strategy로 분리하고, `RoutingContext`가 immutable
-batch facts와 common plan construction을 맡게 했습니다. Router는 precedence orchestration만 수행하며
-기존 algorithm/control mode/fallback 결과는 유지합니다.
+가독성 측면에서는 “어떤 조건이 route를 소유하는지”와 “선택된 plan을 어떻게 직렬화하는지”가 섞여
+precedence를 한눈에 확인하기 어려웠습니다. 유지보수성 측면에서는 lane을 추가할 때 공통 field를
+누락하거나 기존 분기보다 잘못된 위치에 조건을 삽입할 위험이 있었습니다. route 선택 규칙과 plan
+생성을 독립된 책임으로 나누고, precedence를 명시적인 순서로 표현할 필요가 있었습니다.
 
 ## 2. Commit 및 PR 경계
 
@@ -23,12 +24,22 @@ batch facts와 common plan construction을 맡게 했습니다. Router는 preced
 configuration 보호를 검토했습니다. 코드 결함은 발견되지 않아 Change Request나 후속 commit은 만들지
 않았습니다.
 
-## 3. TDD 및 동작 보존 검증
+## 3. 활동 내용
 
-Red 테스트는 존재하지 않는 routing Policy import에서 실패했습니다. default sequence, injected
-Policy의 shared batch stats, abstract selection contract를 먼저 명세로 고정했습니다.
+구현 의도는 기존 if/elif precedence를 Chain of Responsibility 형태의 Policy sequence로 드러내고,
+공통 `AlgorithmPlan` 생성은 `RoutingContext`의 Factory에 모으는 것이었습니다. 먼저 존재하지 않는
+routing Policy를 사용하는 Red 테스트를 작성해 default sequence, injected Policy의 shared batch stats,
+abstract selection contract를 고정했습니다.
 
-구현 후 아래 검증을 완료했습니다.
+`BehaviorRoutingPolicy`, `BroadScopeRoutingPolicy`, `FactRoutingPolicy`는 자신이 담당하는 batch에서만
+plan을 반환하고, 해당하지 않으면 `None`으로 다음 Policy에 위임합니다. `MixedRoutingPolicy`는 terminal
+fallback을 담당합니다. `default_routing_policies()`가 이 순서를 명시하고 `BrainwashRouter`는 첫 plan만
+채택합니다.
+
+`RoutingContext.plan()`은 warnings, thresholds, stats, verifier requirement 등 공통 field를 한 곳에서
+채우므로 각 Policy는 algorithm·reason·scale·control mode만 결정합니다. custom sequence가 모두
+defer하면 `RuntimeError`, empty batch는 기존과 같은 `ValueError`로 처리해 잘못된 구성도 조기에
+드러나게 했습니다. 구현 후 다음 검증을 완료했습니다.
 
 ```bash
 python3 -m unittest tests.test_router -q
@@ -43,19 +54,16 @@ python3 -m unittest discover -s tests -q
 
 전체 suite는 기존 sqlite connection `ResourceWarning` 2건을 출력했으나 test 실패는 없었습니다.
 
-## 4. 구조 개선
+## 4. 기대 효과
 
-`RoutingPolicy`는 한 batch를 소유하면 plan을 반환하고, 소유하지 않으면 `None`으로 다음 lane에
-위임하는 Strategy입니다. `BehaviorRoutingPolicy`, `BroadScopeRoutingPolicy`, `FactRoutingPolicy`가
-focused lane을 처리하고 `MixedRoutingPolicy`가 terminal fallback을 담당합니다.
+route precedence가 class sequence로 보이므로 새 팀원이 긴 조건문을 해석하지 않아도 전체 결정 순서를
+확인할 수 있습니다. 새로운 lane은 Policy 하나와 위치를 추가하는 방식으로 확장할 수 있고, 공통 plan
+field는 Factory가 보장하므로 serialization drift와 field 누락 가능성이 줄어듭니다.
 
-`RoutingContext`는 `BatchStats`, configured thresholds, warnings, stats payload를 한 번 만들고
-`plan()` Factory를 통해 common `AlgorithmPlan` fields를 채웁니다. 따라서 Policy는 algorithm·reason·
-scale·control mode처럼 lane-specific 값만 결정하며, serialization contract가 분기마다 복제되지 않습니다.
-
-`BrainwashRouter`는 default Policy tuple 또는 caller가 준 custom sequence를 순회합니다. empty batch는
-기존처럼 `ValueError`로 거절하고, terminal Policy가 없는 custom sequence는 `RuntimeError`로 드러나게
-했습니다.
+리뷰 과정에서는 routing을 “Policy가 소유권을 판단하고 Context가 공통 결과를 만든다”는 기준으로
+정리했습니다. 팀원은 route 변경을 조건 추가가 아니라 precedence·ownership·terminal fallback의
+문제로 논의할 수 있습니다. 이 공통 인식은 custom Policy 리뷰에서도 default path와 설정 오류를
+구분하게 하며, 특정 lane 수정이 다른 lane의 payload까지 바꾸는 일을 예방합니다.
 
 ## 5. 변경 규모와 범위
 

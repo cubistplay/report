@@ -1,15 +1,16 @@
 # I-A6 개발 활동 보고서 — memory promotion Policy 분리
 
-## 1. 배경
+## 1. 현황 및 이슈
 
-Memory Ledger는 active record를 subject·relation·scope로 묶어 promotion report를 만들었지만,
-기존 판정은 record 수가 `many_min` 이상인지만 확인했습니다. target이 충돌하거나 high-risk record가
-포함돼도 training candidate처럼 보일 수 있었고, 판단 기준이 ledger persistence 로직 안에 섞여
-있었습니다.
+Memory Ledger의 `promotion_report()`는 active record 수집, cluster grouping, training 가능 여부 판단,
+report 직렬화를 한 메서드에서 처리했습니다. 기존 판정은 record 수가 `many_min` 이상인지에 집중해
+target 충돌이나 high-risk record가 포함된 cluster도 training candidate처럼 보일 수 있었습니다.
 
-이번 변경에서는 promotion eligibility를 `PromotionPolicy`와 세 Rule Strategy로 분리했습니다.
-ledger는 active record 수집과 artifact export를 유지하고, Policy는 target 일관성·최소 건수·risk
-검토 필요성을 `PromotionDecision`으로 설명합니다.
+가독성 측면에서는 boolean 결과만으로 “자료가 부족해서 보류됐는지”, “target이 충돌했는지”,
+“사람의 승인이 필요한지”를 구분하기 어려웠습니다. 유지보수성 측면에서는 promotion 기준 하나를
+추가할 때 persistence 책임을 가진 Ledger와 report 형식까지 함께 수정해야 했습니다. 정책 변경이
+저장·조회 코드의 회귀로 이어질 수 있는 구조였기 때문에, 판단 규칙과 record 관리 책임을 분리할
+필요가 있었습니다.
 
 ## 2. Commit 및 PR 경계
 
@@ -23,13 +24,22 @@ ledger는 active record 수집과 artifact export를 유지하고, Policy는 tar
 최초 head에서 책임 경계, high-risk override의 안전성, 기존 ledger/Update DB 계약을 검토했습니다.
 코드 결함은 발견되지 않아 Change Request나 후속 commit은 만들지 않았습니다.
 
-## 3. TDD 및 검증
+## 3. 활동 내용
 
-Red 테스트는 아직 없는 `brainwash.memory.promotion.PromotionPolicy` import에서 실패했습니다.
-일관된 target cluster, minimum record 부족, conflicting target, high-risk review, reviewed workflow의
-explicit override를 먼저 명세로 고정했습니다.
+구현 의도는 Ledger를 persistence 경계로 유지하고, training eligibility를 이름이 드러나는 정책 객체로
+옮기는 것이었습니다. 먼저 아직 존재하지 않는 `PromotionPolicy`를 사용하는 Red 테스트를 작성해
+일관된 target, 최소 record 부족, conflicting target, high-risk review, reviewed workflow override의
+다섯 계약을 고정했습니다.
 
-구현 후 아래 검증을 완료했습니다.
+`PromotionRule` Strategy와 `MinimumRecordsRule`, `ConsistentTargetRule`, `HighRiskReviewRule`을 도입해
+각 차단 사유를 독립된 이름과 구현으로 표현했습니다. `PromotionPolicy`는 Rule finding을 조합하고,
+`PromotionDecision`은 record ID·target·reason·manual review 여부를 함께 직렬화합니다.
+`MemoryLedger.promotion_report(many_min)`는 기존 호출 형식을 유지하면서 default Policy에 active record를
+전달하도록 단순화했습니다. reviewed workflow도 `require_risk_review=False`를 명시한 Policy에서만
+허용해 hidden branch를 만들지 않았습니다.
+
+이 구조는 긴 조건문을 “최소 근거”, “target 일관성”, “risk 검토”라는 읽을 수 있는 단위로 바꾸고,
+새 gate를 추가할 때 Ledger가 아니라 Rule만 확장할 수 있게 합니다. 구현 후 다음 검증을 완료했습니다.
 
 ```bash
 python3 -m unittest tests.test_memory_ledger -q
@@ -44,19 +54,17 @@ python3 -m unittest discover -s tests -q
 
 전체 suite는 기존 sqlite connection `ResourceWarning` 2건을 출력했으나 test 실패는 없었습니다.
 
-## 4. 구조 개선
+## 4. 기대 효과
 
-`PromotionRule`은 cluster를 promotion할 수 없는 사유 하나를 판단하는 Strategy 인터페이스입니다.
-`MinimumRecordsRule`은 evidence 수를, `ConsistentTargetRule`은 conflicting target을,
-`HighRiskReviewRule`은 manual review가 필요한 high-risk record를 확인합니다.
+promotion 기준이 Rule 단위로 분리되어 새로운 품질 gate를 추가하거나 기존 기준을 변경할 때의 수정
+범위가 작아집니다. report에는 boolean뿐 아니라 차단 reason과 manual review 여부가 남으므로 운영자와
+리뷰어가 결과를 다시 코드로 역추적하지 않고도 판단 근거를 이해할 수 있습니다.
 
-`PromotionPolicy`는 세 Rule의 finding을 조합해 stable한 `PromotionDecision`을 만듭니다.
-Decision은 record ID·target·reason·manual review 여부를 함께 직렬화하므로 report consumer가
-`ready_for_training`만 보고 안전하지 않은 cluster를 오해하지 않습니다.
-
-`MemoryLedger.promotion_report(many_min)`는 기존 호출 형식을 보존하며 default Policy로 위임합니다.
-reviewed workflow는 별도 `PromotionPolicy`를 명시적으로 전달할 때만 high-risk 검토 gate를 해제할 수
-있습니다.
+리뷰 과정에서는 Ledger를 “record와 artifact를 관리하는 경계”, PromotionPolicy를 “training 가능성을
+판단하는 경계”로 구분했습니다. 이에 따라 팀원도 promotion 문제를 persistence 결함과 정책 변경으로
+나누어 논의할 수 있고, `Rule → Finding → Decision`이라는 공통 용어로 변경 영향과 테스트 범위를
+설명할 수 있습니다. 이는 코드 리뷰에서 조건문 구현보다 정책의 누락·우선순위·안전한 기본값에
+집중하게 하는 효과가 있습니다.
 
 ## 5. 변경 규모와 범위
 

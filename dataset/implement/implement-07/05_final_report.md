@@ -1,14 +1,15 @@
 # I-A7 개발 활동 보고서 — memory retrieval Strategy 분리
 
-## 1. 배경
+## 1. 현황 및 이슈
 
-`UpdateDb.retrieve_memory_edit()`는 exact, alias, pattern, FTS의 SQL 조회와 score 계산, semantic
-rerank, answer-type validation, threshold 선택, retrieval audit log를 모두 수행했습니다. 조회 route를
-추가하거나 SQL을 변경할 때 final selection 정책까지 함께 검토해야 했습니다.
+`UpdateDb.retrieve_memory_edit()`는 exact, alias, pattern, FTS의 SQL 조회, route별 score 계산,
+semantic rerank, answer-type validation, threshold 판정, audit log 기록을 한 제어 흐름에서 처리했습니다.
+메서드를 읽을 때 candidate를 “어떻게 찾는지”와 “왜 수락하거나 거절하는지”를 동시에 추적해야 했습니다.
 
-이번 변경은 candidate 수집을 `RetrievalStrategy`로 분리하고, route·row·initial score를
-`RetrievalCandidate` Value Object로 전달하게 했습니다. semantic rerank와 최종 수락/거절은
-`UpdateDb`가 계속 단일 책임으로 처리합니다.
+가독성 측면에서는 네 route의 SQL 분기가 공통 selection 흐름을 가려 각 route의 차이를 파악하기
+어려웠습니다. 유지보수성 측면에서는 조회 route 하나를 추가하거나 FTS 예외 정책을 바꿀 때 threshold,
+answer-type gate, log schema까지 실수로 변경할 가능성이 있었습니다. 조회 확장과 최종 안전 정책을
+독립적으로 검토할 수 있는 구조가 필요했습니다.
 
 ## 2. Commit 및 PR 경계
 
@@ -23,13 +24,21 @@ rerank, answer-type validation, threshold 선택, retrieval audit log를 모두 
 FTS fallback 및 audit contract 보존을 검토했습니다. 코드 결함은 발견되지 않아 Change Request나
 후속 commit은 만들지 않았습니다.
 
-## 3. TDD 및 동작 보존 검증
+## 3. 활동 내용
 
-Red 테스트는 존재하지 않는 retrieval Strategy import에서 실패했습니다. default route order, 빈
-Strategy 목록의 lookup disable, injected Strategy의 raw/normalized query, abstract contract를 먼저
-명세로 고정했습니다.
+구현 의도는 route별 candidate 수집만 Strategy로 추출하고, semantic rerank와 최종 수락·거절 정책은
+하나의 공통 경로에 유지하는 것이었습니다. 먼저 존재하지 않는 retrieval Strategy를 사용하는 Red
+테스트를 작성해 default route 순서, 빈 Strategy 목록의 lookup disable, injected Strategy의
+raw/normalized query, abstract contract를 명세로 고정했습니다.
 
-구현 후 아래 검증을 완료했습니다.
+`RetrievalStrategy`와 exact·alias·pattern·FTS 구현체는 각자의 SQL prefilter와 initial score만
+반환합니다. route·row·score는 `RetrievalCandidate`로 전달되며, `UpdateDb.retrieve_memory_edit()`는
+first non-empty route의 candidate를 semantic rerank한 뒤 priority, threshold, answer type으로 최종
+선택합니다. audit trace와 retrieval log도 selection 이후 한 곳에서 기록합니다.
+
+또한 constructor 설정에서 `None`은 default order, 빈 tuple은 explicit disable로 구분했습니다.
+이 명시적 계약은 설정값의 의미를 호출부만 읽어도 이해할 수 있게 하고 custom Strategy가 공통 safety
+gate를 우회하지 못하게 합니다. 구현 후 다음 검증을 완료했습니다.
 
 ```bash
 python3 -m unittest tests.test_update_db -q
@@ -44,19 +53,16 @@ python3 -m unittest discover -s tests -q
 
 전체 suite는 기존 sqlite connection `ResourceWarning` 2건을 출력했으나 test 실패는 없었습니다.
 
-## 4. 구조 개선
+## 4. 기대 효과
 
-`RetrievalStrategy`는 DB connection, raw prompt, normalized prompt를 받아 한 route의
-`RetrievalCandidate` 목록을 반환하는 Strategy 인터페이스입니다. exact, alias, pattern, FTS 구현체는
-각 SQL prefilter와 초기 score만 소유합니다.
+새 retrieval route는 Strategy 구현과 route 단위 테스트로 범위를 제한할 수 있습니다. 반대로 threshold,
+answer-type, semantic rerank, audit 형식을 변경할 때는 `UpdateDb`의 공통 selection 경로만 검토하면 됩니다.
+route별 SQL과 공통 정책의 변경 이유가 분리되어 코드 탐색 시간과 회귀 테스트 범위가 줄어듭니다.
 
-`UpdateDb`는 first non-empty route의 후보를 semantic rerank한 뒤 priority, threshold, answer-type으로
-최종 선택합니다. audit trace와 retrieval log도 이 공통 경로에서 한 번만 기록합니다. 따라서 route를
-추가해도 final policy와 log schema가 route별 분기로 복제되지 않습니다.
-
-`None` Strategy 설정은 default order를, 빈 tuple은 explicit disable을 뜻합니다. custom Strategy는
-raw와 normalized query 모두를 받으므로 SQL key lookup 외의 확장도 가능하지만, final selection은 여전히
-공통 contract를 따릅니다.
+리뷰 과정에서는 retrieval을 “candidate collection”과 “final selection”으로 구분해 인식을 맞췄습니다.
+팀원은 새로운 backend를 논의할 때 SQL·score 생성과 수락 정책을 별도 결정으로 다룰 수 있고,
+`RetrievalCandidate`를 공통 교환 형식으로 사용할 수 있습니다. 그 결과 route 추가 자체가 audit와 safety
+정책 변경으로 확대되는 것을 방지하고, 리뷰에서도 공통 계약이 유지되는지 빠르게 확인할 수 있습니다.
 
 ## 5. 변경 규모와 범위
 

@@ -1,14 +1,15 @@
 # I-A9 개발 활동 보고서 — memory match Strategy 분리
 
-## 1. 배경
+## 1. 현황 및 이슈
 
-`MemoryEditStore.evaluate_trigger()`는 edit 후보 탐색과 safety policy를 한 loop에서 처리했습니다.
-exact/paraphrase, subject-aware token overlap, best score 선택, threshold, answer-type validation이
-결합돼 있어 새로운 match 방식 추가 시 strict fallback 경계까지 함께 변경해야 했습니다.
+`MemoryEditStore.evaluate_trigger()`는 exact/paraphrase 비교, subject-aware token overlap, best score 선택,
+threshold 판정, answer-type validation을 한 loop에서 처리했습니다. 후보를 찾는 규칙과 correction을
+실제로 적용해도 되는지 판단하는 safety policy가 같은 제어 흐름에 있었습니다.
 
-이번 변경에서는 match evidence 생성을 `MemoryMatchStrategy`로, best candidate 선택을
-`MemoryMatchPolicy`로 분리했습니다. `MemoryEditStore`는 threshold·answer-type·verifier·strict fallback을
-계속 한 곳에서 적용합니다.
+가독성 측면에서는 score가 어떤 근거로 만들어졌는지와 어떤 조건 때문에 trigger가 차단됐는지를
+분리해 읽기 어려웠습니다. 유지보수성 측면에서는 semantic matcher 같은 새 탐색 방식을 추가할 때
+verifier와 strict fallback 경계를 함께 수정해 안전 계약을 우회할 위험이 있었습니다. match evidence,
+candidate selection, final safety를 서로 독립적으로 확장하고 검증할 구조가 필요했습니다.
 
 ## 2. Commit 및 PR 경계
 
@@ -23,12 +24,22 @@ exact/paraphrase, subject-aware token overlap, best score 선택, threshold, ans
 custom Strategy와 empty disable의 verifier 보존을 검토했습니다. 코드 결함은 발견되지 않아
 Change Request나 후속 commit은 만들지 않았습니다.
 
-## 3. TDD 및 동작 보존 검증
+## 3. 활동 내용
 
-Red 테스트는 존재하지 않는 match Strategy import에서 실패했습니다. default Strategy order, empty
-disable, injected matcher input, abstract contract를 먼저 명세로 고정했습니다.
+구현 의도는 exact/paraphrase와 token overlap을 candidate 생성 Strategy로 분리하면서 기존 threshold,
+answer-type, verifier, strict fallback은 `MemoryEditStore`에 공통 안전 경계로 남기는 것이었습니다.
+먼저 존재하지 않는 match Strategy를 사용하는 Red 테스트로 default order, empty disable, injected
+matcher input, abstract contract를 고정했습니다.
 
-구현 후 아래 검증을 완료했습니다.
+`ExactMemoryMatchStrategy`와 `SubjectTokenOverlapStrategy`는 edit·근거 prompt·score·matched-by route를
+`MemoryMatchCandidate`로 반환합니다. `MemoryMatchPolicy`는 Strategy 순서를 적용해 best candidate를
+선택하며, strictly greater score에서만 교체해 기존 input-order tie behavior를 보존합니다.
+`MemoryEditStore`는 선택된 candidate에 공통 threshold와 answer-type gate를 적용한 뒤 verifier와 strict
+fallback을 수행합니다.
+
+constructor에서 `None`은 default exact → overlap, 빈 tuple은 explicit disable로 구분했습니다. custom
+Strategy도 candidate만 제공할 수 있어 final correction safety를 직접 우회하지 못합니다. 구현 후 다음
+검증을 완료했습니다.
 
 ```bash
 python3 -m unittest tests.test_memory_edit_runtime -q
@@ -43,19 +54,16 @@ python3 -m unittest discover -s tests -q
 
 전체 suite는 기존 sqlite connection `ResourceWarning` 2건을 출력했으나 test 실패는 없었습니다.
 
-## 4. 구조 개선
+## 4. 기대 효과
 
-`ExactMemoryMatchStrategy`는 canonical prompt와 paraphrase의 exact match를, `SubjectTokenOverlapStrategy`는
-subject token이 있는 query의 lexical overlap을 `MemoryMatchCandidate`로 반환합니다. candidate는 edit,
-근거 prompt, score, matched-by route를 함께 보존합니다.
+match 방식 추가는 Strategy와 candidate 단위 테스트로 제한되고, correction 적용의 safety contract는
+기존 Store 경로에서 계속 보호됩니다. candidate가 route와 근거 prompt를 보존하므로 trigger 결과를
+설명하거나 오탐을 분석할 때 점수 생성 과정을 다시 추측할 필요가 없습니다.
 
-`MemoryMatchPolicy`는 strategy 순서를 edit마다 적용하고, score가 큰 candidate만 선택해 기존 input-order
-tie behavior를 유지합니다. `MemoryEditStore`는 선택된 candidate에 common threshold와 answer-type gate를
-적용하고 verifier·strict fallback을 수행합니다.
-
-`None` Strategy 설정은 default exact → overlap order를 사용하고, 빈 tuple은 explicit trigger disable을
-뜻합니다. custom Strategy는 raw query와 각 edit을 받지만 final correction safety를 직접 우회할 수
-없습니다.
+리뷰 과정에서는 “match evidence를 만드는 일”과 “correction을 적용해도 되는지 판단하는 일”을 다른
+책임으로 인식하게 됐습니다. 팀원은 새로운 matcher의 정확도와 verifier·fallback 안전성을 별도
+검토 항목으로 다룰 수 있고, custom matcher도 공통 Candidate 계약을 통해 연결할 수 있습니다. 이는
+확장 편의 때문에 안전 정책이 route별로 복제되거나 달라지는 문제를 줄입니다.
 
 ## 5. 변경 규모와 범위
 

@@ -1,14 +1,15 @@
 # I-A10 개발 활동 보고서 — memory lifecycle Policy 통합
 
-## 1. 배경
+## 1. 현황 및 이슈
 
-Memory DB의 `active_memory` view는 active status와 validity window를 함께 적용하지만, in-memory
-Memory Ledger는 status만 보고 active record를 선택했습니다. future/expired record가 active snapshot,
-conflict, index, promotion report에 포함될 수 있어 DB와 operational artifact의 의미가 달랐습니다.
+Memory DB의 `active_memory` view는 status와 validity window를 함께 적용했지만, in-memory Memory Ledger는
+status만 보고 active record를 선택했습니다. 같은 record가 DB에서는 future 또는 expired로 제외되면서
+active snapshot, conflict, index, promotion report에는 포함될 수 있었습니다.
 
-이번 변경에서는 status와 time window를 `MemoryLifecyclePolicy`로 통합하고, 결과를
-`MemoryLifecycleDecision`으로 기록했습니다. Ledger는 Policy를 통해 active record를 사용하고
-`memory_lifecycle.jsonl` audit artifact를 추가합니다.
+가독성 측면에서는 “active”라는 동일한 용어가 DB와 Ledger에서 서로 다른 조건을 뜻했고, record가
+제외된 이유도 결과에 남지 않았습니다. 유지보수성 측면에서는 timestamp parsing과 boundary 비교가
+각 consumer로 퍼질 가능성이 있어 start/end semantics가 다시 달라질 수 있었습니다. 시간 기준을 한
+Policy로 통합하고, 판정 결과와 이유를 명시적인 값으로 남길 필요가 있었습니다.
 
 ## 2. Commit 및 PR 경계
 
@@ -23,13 +24,21 @@ conflict, index, promotion report에 포함될 수 있어 DB와 operational arti
 existing ingestion boundary를 검토했습니다. 코드 결함은 발견되지 않아 Change Request나 후속 commit은
 만들지 않았습니다.
 
-## 3. TDD 및 검증
+## 3. 활동 내용
 
-Red 테스트는 존재하지 않는 `MemoryLifecyclePolicy` import에서 실패했습니다. injected `as_of`에서
-active/future/expired/retired decision, invalid timestamp rejection, lifecycle artifact와 active snapshot
-일치를 먼저 명세로 고정했습니다.
+구현 의도는 DB view와 Ledger가 status, valid_from, valid_until에 대해 같은 boundary semantics를
+사용하도록 하고, time-dependent 결과를 재현 가능한 audit 정보로 만드는 것이었습니다. 먼저 존재하지
+않는 `MemoryLifecyclePolicy`를 사용하는 Red 테스트로 injected `as_of`에서 active, future, expired,
+retired, invalid timestamp 판정과 lifecycle artifact·active snapshot 일치를 고정했습니다.
 
-구현 후 아래 검증을 완료했습니다.
+`MemoryLifecyclePolicy`는 start boundary를 inclusive, end boundary를 exclusive로 평가해 DB view와 같은
+조건을 적용합니다. timestamp parsing 실패는 default active로 숨기지 않고 explicit inactive reason으로
+남깁니다. `MemoryLifecycleDecision`은 record ID, active 여부, reason, as-of timestamp를 직렬화합니다.
+
+`MemoryLedger`의 active snapshot, conflicts, exact index, promotion report는 모두 Policy가 만든 active
+record를 사용합니다. optional `as_of`와 constructor-level Policy injection으로 test·backfill·historical
+audit의 clock을 고정하면서도 기본 호출은 UTC now를 사용해 기존 API를 보존했습니다. 구현 후 다음
+검증을 완료했습니다.
 
 ```bash
 python3 -m unittest tests.test_memory_ledger -q
@@ -44,18 +53,16 @@ python3 -m unittest discover -s tests -q
 
 전체 suite는 기존 sqlite connection `ResourceWarning` 2건을 출력했으나 test 실패는 없었습니다.
 
-## 4. 구조 개선
+## 4. 기대 효과
 
-`MemoryLifecyclePolicy`는 status, valid_from, valid_until을 one policy로 평가합니다. start boundary는
-inclusive, end boundary는 exclusive로 DB view와 동일하게 적용하고, invalid timestamp는 explicit inactive
-reason으로 남깁니다.
+DB 조회와 in-memory artifact가 동일한 lifecycle 의미를 사용하므로 future·expired record가 downstream
+결과에 섞이는 drift를 줄일 수 있습니다. inactive reason과 as-of가 남아 운영자가 snapshot 차이를
+재현할 수 있고, timestamp 오류도 원본 record를 다시 추적하기 전에 report에서 식별할 수 있습니다.
 
-`MemoryLifecycleDecision`은 record ID, active 여부, reason, as-of timestamp를 Value Object로
-직렬화합니다. `MemoryLedger`는 Policy의 decision으로 active record를 고르고, active snapshot,
-conflicts, exact index, promotion report와 lifecycle JSONL artifact를 만듭니다.
-
-optional `as_of`와 constructor-level Policy injection은 test·backfill·historical audit에서 deterministic
-결과를 제공하지만 default runtime은 UTC now를 사용하므로 기존 호출 형식은 유지됩니다.
+리뷰 과정에서는 active 여부를 단순 status field가 아니라 “특정 시점에서 Policy가 내린 결정”으로
+인식하게 됐습니다. 팀원은 시간 관련 변경을 start/end boundary, timezone, evaluation clock이라는 공통
+기준으로 검토할 수 있고, 새로운 consumer도 직접 날짜 비교를 구현하지 않고 lifecycle decision을
+재사용할 수 있습니다. 이는 시간 의존 코드의 중복과 환경별 해석 차이를 줄이는 효과가 있습니다.
 
 ## 5. 변경 규모와 범위
 
