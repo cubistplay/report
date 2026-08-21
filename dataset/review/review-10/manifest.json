@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "sample_id": "review-10",
+  "track": "review",
+  "status": "draft",
+  "language": "ko",
+  "synthetic_github_artifacts": true,
+  "repository": {
+    "name": "BrainWash",
+    "base_branch": "main",
+    "base_commit": "85b6b66ea40f83c4861cb32e714b9f76d725e42c",
+    "head_branch": "review/review-10-routing-lanes",
+    "initial_review_head": "933f82361324c944e70bd26bbf480319d22f9afa",
+    "final_head_commit": "6157b887810543e153a3a26b61f205957849268a",
+    "integrated_main_commit": "6157b887810543e153a3a26b61f205957849268a",
+    "commits": [
+      {
+        "role": "initial_review_pr",
+        "sha": "933f82361324c944e70bd26bbf480319d22f9afa",
+        "subject": "feat(review-10): split routing lanes"
+      },
+      {
+        "role": "review_regression_tests",
+        "sha": "6e2a5f9d746d11c4b2fe2e8d24c458106d26b554",
+        "subject": "test(review-10): specify routing lane contracts"
+      },
+      {
+        "role": "review_response",
+        "sha": "6157b887810543e153a3a26b61f205957849268a",
+        "subject": "fix(review-10): preserve routing lane boundaries"
+      }
+    ]
+  },
+  "perspective": {
+    "primary_actor": "reviewer",
+    "counterpart": "author"
+  },
+  "change_budget": {
+    "initial_additions": 59,
+    "initial_deletions": 0,
+    "initial_measured_changed_lines": 59,
+    "counting_rule": "initial review snapshot only; additions plus deletions",
+    "reviewability_note": "mixed correction을 existing RoutingPolicy에 안전하게 분배하는 단일 lane-orchestration 기능입니다."
+  },
+  "paths_changed": {
+    "initial": [
+      "brainwash/router.py"
+    ],
+    "review_response": [
+      "brainwash/router.py",
+      "tests/test_router.py"
+    ]
+  },
+  "verification": {
+    "initial_review_head": "전체 test 128건 통과",
+    "review_response": "routing lane regression test를 추가한 뒤 router test 11건 및 전체 test 130건 통과"
+  },
+  "review": {
+    "thread_count": 5,
+    "change_request_count": 2,
+    "final_state": "approved"
+  },
+  "artifacts": [
+    "00_task.md",
+    "01_prompt_history.md",
+    "02_pr_description.md",
+    "04_pr_conversation.md",
+    "05_final_report.md",
+    "06_capture_list.md",
+    "07_checklist.md"
+  ]
+}
