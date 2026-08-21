@@ -1,4 +1,4 @@
-# R-A7 promotion candidate 리뷰 결과 보고서
+# R-A7 리뷰를 통한 promotion candidate 비결정성 위험 제거
 
 > Synthetic GitHub artifact: true
 

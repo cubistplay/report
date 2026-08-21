@@ -1,4 +1,4 @@
-# R-A10 routing lane 리뷰 결과 보고서
+# R-A10 리뷰를 통한 routing lane 오분류 위험 제거
 
 > Synthetic GitHub artifact: true
 

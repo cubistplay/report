@@ -1,4 +1,4 @@
-# R-A8 memory snapshot export 리뷰 결과 보고서
+# R-A8 리뷰를 통한 snapshot 시간 불일치 위험 제거
 
 > Synthetic GitHub artifact: true
 

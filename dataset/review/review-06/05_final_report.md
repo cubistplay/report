@@ -1,4 +1,4 @@
-# R-A6 lifecycle audit import 리뷰 결과 보고서
+# R-A6 리뷰를 통한 lifecycle artifact 오적재 위험 제거
 
 > Synthetic GitHub artifact: true
 

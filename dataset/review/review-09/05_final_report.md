@@ -1,4 +1,4 @@
-# R-A9 memory trigger batch 리뷰 결과 보고서
+# R-A9 리뷰를 통한 batch result 정합성 손실 위험 제거
 
 > Synthetic GitHub artifact: true
 
