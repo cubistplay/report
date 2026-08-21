@@ -81,6 +81,10 @@ python3 -m unittest discover -s tests -q
 새 routing Policy 테스트 3건, 기존 Router 테스트 6건, Update DB 테스트 8건, 전체 테스트
 113건이 통과했습니다.
 
+## Formatting
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최초 PR snapshot을 포함한 최종 변경 파일은 `black --check`를 통과했으며, 재작성 전후 변경 Python 파일의 AST도 동일하게 확인했습니다.
+
 ## Todos
 
 - [ ] 리뷰 의견 반영

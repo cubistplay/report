@@ -41,7 +41,7 @@ python3 -m unittest tests.test_pipeline -q
 # Ran 5 tests — OK
 ```
 
-Commit: `4fa7b66 test(implement-05): specify preference record strategies`
+Commit: `34b6925 test(implement-05): specify preference record strategies`
 
 ## Prompt 3 — 동작 보존 확인
 
@@ -64,6 +64,6 @@ python3 -m unittest discover -s tests -q
 ```
 
 SimPO·DPO·KTO의 manifest와 JSON/JSONL artifact에서 임시 output 경로만 정규화해
-변경 전 `f3795e2`와 비교했고 `diff` 출력은 없었습니다.
+변경 전 `03c75b2`와 비교했고 `diff` 출력은 없었습니다.
 
-Commit: `3819dbe refactor(implement-05): separate preference export strategies`
+Commit: `660416e refactor(implement-05): separate preference export strategies`

@@ -1,7 +1,7 @@
 # R-A1 게시 전 체크리스트
 
 - [x] task와 review scope를 기록했습니다.
-- [x] 초기 PR은 `brainwash/semantic.py` 한 파일, 67줄 변경입니다.
+- [x] 초기 PR은 `brainwash/semantic.py` 한 파일, 106줄 변경입니다.
 - [x] 초기 PR head에서 기존 전체 test 90건을 통과했습니다.
 - [x] 최초 PR 설명에는 최초 snapshot만 기록했습니다.
 - [x] cache key 문제를 재현 조건·영향·수정 방향과 함께 지적했습니다.

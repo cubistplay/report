@@ -8,20 +8,20 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "1fe0233c8be14d36b847804b5e820d98b9ef2ebf",
+    "base_commit": "cde62d6641f054cb0e7d3195a43ffb86dbea4ece",
     "head_branch": "main",
-    "initial_review_head": "8291841b976624af414c2dfd96d7e2b596115ea8",
-    "final_head_commit": "8291841b976624af414c2dfd96d7e2b596115ea8",
-    "integrated_main_commit": "8291841b976624af414c2dfd96d7e2b596115ea8",
+    "initial_review_head": "a457af432b11a0576764e61c8820faa39a7714ae",
+    "final_head_commit": "a457af432b11a0576764e61c8820faa39a7714ae",
+    "integrated_main_commit": "a457af432b11a0576764e61c8820faa39a7714ae",
     "commits": [
       {
         "role": "red_tests",
-        "sha": "700d61c4516730c30c57d1f0b5a402f2d66b9917",
+        "sha": "cee1f2f65d91bbe1a7e485389181b86474a0dd5d",
         "subject": "test(implement-10): specify memory lifecycle policy"
       },
       {
         "role": "implementation",
-        "sha": "8291841b976624af414c2dfd96d7e2b596115ea8",
+        "sha": "a457af432b11a0576764e61c8820faa39a7714ae",
         "subject": "refactor(implement-10): centralize memory lifecycle policy"
       }
     ]
@@ -33,10 +33,10 @@
   "change_budget": {
     "minimum_changed_lines": 200,
     "preferred_upper_bound": 300,
-    "additions": 206,
-    "deletions": 3,
-    "measured_changed_lines": 209,
-    "counting_rule": "product code and tests; additions plus deletions",
+    "additions": 305,
+    "deletions": 25,
+    "measured_changed_lines": 330,
+    "counting_rule": "actual Git additions plus deletions after Black formatting and comment removal",
     "reviewability_note": "lifecycle Policy, Decision Value Object, active filtering, audit artifact, deterministic temporal test를 함께 완료한 단일 refactor입니다."
   },
   "paths_changed": [
@@ -46,7 +46,8 @@
   "verification": {
     "red": "tests.test_memory_ledger: MemoryLifecyclePolicy import 실패",
     "initial_review_head": "Memory Ledger 테스트 10건, Update DB 테스트 8건, 전체 테스트 120건 통과",
-    "final": "Memory Ledger 테스트 10건, Update DB 테스트 8건, 전체 테스트 120건 통과"
+    "final": "Memory Ledger 테스트 10건, Update DB 테스트 8건, 전체 테스트 120건 통과",
+    "black": "Black 26.5.1 was applied before each code commit; final Black --check passed."
   },
   "review": {
     "thread_count": 3,

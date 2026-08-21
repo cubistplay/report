@@ -11,7 +11,7 @@
 
 ## AI 판단 요약
 
-- 기준 commit은 d99d223, 최초 검토 대상은 5be9d0c입니다.
+- 기준 commit은 581ee00, 최초 검토 대상은 3ba230f입니다.
 - 초기 PR은 active memory를 SQL aggregate로 묶어 threshold를 넘긴 PromotionCandidate를 만듭니다.
 - GROUP_CONCAT(id)와 GROUP_CONCAT(DISTINCT target)에 aggregate 내부 순서가 없어 exported record_ids가 결정적이지 않습니다.
 - raw target의 DISTINCT 비교는 기존 PromotionPolicy의 공백·대소문자 정규화와 다르게 conflict를 만들 수 있습니다.

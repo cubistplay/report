@@ -1,11 +1,11 @@
 # R-A5 PR 대화 — support retrieval trace 검토
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 branch: `review/review-05-support-retrieval-trace` (`581d54e`) · 최종 head: `10a7f02`
+> 최초 검토 branch: `review/review-05-support-retrieval-trace` (`70a1dbf`) · 최종 head: `2c199a9`
 
 ## 스레드 1 — threshold를 confidence로 기록한 semantic trace
 
-**위치** `brainwash/decomposition.py` (`SupportKnowledgeStore.retrieve_with_trace`, 초기 PR 706-710행)  
+**위치** `brainwash/decomposition.py` (`SupportKnowledgeStore.retrieve_with_trace`, 초기 PR 744-753행)  
 **심각도** `blocking` · **Change Request**
 
 **리뷰어 · 댓글 :thinking:**
@@ -50,7 +50,7 @@ return SupportRetrieval.for_query(question, answer, "semantic", score, ...)
 
 **작업자 · 반영 :+1:**
 
-`10a7f02 fix(review-05): preserve support retrieval confidence`에서 semantic helper가
+`2c199a9 fix(review-05): preserve support retrieval confidence`에서 semantic helper가
 `(answer, score)`를 반환하게 하고, trace에는 실제 best score를 넣었습니다. `0.93` 고정 matcher
 test와 기존 `retrieve()` 결과 확인을 추가했습니다.
 
@@ -60,7 +60,7 @@ test와 기존 `retrieve()` 결과 확인을 추가했습니다.
 
 ## 스레드 2 — 새 trace 계약을 보호하는 regression test
 
-**위치** `brainwash/decomposition.py` (`SupportRetrieval`, 초기 PR 124-166행)  
+**위치** `brainwash/decomposition.py` (`SupportRetrieval`, 초기 PR 129-157행)  
 **심각도** `important` · **Change Request**
 
 **리뷰어 · 댓글 :test_tube:**
@@ -85,8 +85,8 @@ drop하지 않는지까지 확인돼 evaluation에서 입력과 결과를 zip할
 
 **작업자 · 반영**
 
-`266a5bf test(review-05): specify support retrieval traces`에 두 regression test를 추가했습니다.
-초기 구현에서는 semantic score assertion이 실패했고, `10a7f02` 반영 뒤 decomposition test 24건이
+`e1c9376 test(review-05): specify support retrieval traces`에 두 regression test를 추가했습니다.
+초기 구현에서는 semantic score assertion이 실패했고, `2c199a9` 반영 뒤 decomposition test 24건이
 통과했습니다.
 
 **리뷰어 · 확인 :white_check_mark:**

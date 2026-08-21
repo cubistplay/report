@@ -6,7 +6,7 @@
 | 캡처명 | 대상 | 근거 |
 | --- | --- | --- |
 | `I-A3-01-red-registry-test.png` | Red 테스트 | `AlgorithmRegistry` import 실패 |
-| `I-A3-02-initial-pr.png` | 최초 PR 설명 | `3cb00d9` 시점 |
+| `I-A3-02-initial-pr.png` | 최초 PR 설명 | `6dfe3a3` 시점 |
 | `I-A3-03-registry-boundary.png` | 책임 분리 | 전후 Mermaid |
 | `I-A3-04-review-threads.png` | 설계 검토 다섯 스레드 | Change Request 1 |
 | `I-A3-05-initial-parity.png` | 최초 계획 동등성 | diff 없음, 5/5·5/5·82/82 |

@@ -1,11 +1,11 @@
 # R-A4 PR 대화 — SFT dataset summary artifact 검토
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 branch: `review/review-04-sft-summary` (`026760f`) · 최종 head: `1b5bba2`
+> 최초 검토 branch: `review/review-04-sft-summary` (`65f2110`) · 최종 head: `29ec5fe`
 
 ## 스레드 1 — data loss를 숨기는 total count
 
-**위치** `brainwash/algorithms/finetune.py` (`QLoRASFTAdapter.prepare`, 초기 PR 178-182행)  
+**위치** `brainwash/algorithms/finetune.py` (`QLoRASFTAdapter.prepare`, 초기 PR 177-185행)  
 **심각도** `blocking` · **Change Request**
 
 **리뷰어 · 댓글 :thinking:**
@@ -40,7 +40,7 @@ SftDatasetSummary(total_requests=len(requests), training_rows=len(rows), ...)
 
 **작업자 · 반영**
 
-`1b5bba2 fix(review-04): publish SFT dataset summary`
+`29ec5fe fix(review-04): publish SFT dataset summary`
 
 summary total은 전체 `requests` 길이를 사용하도록 수정했습니다.
 
@@ -50,7 +50,7 @@ summary total은 전체 `requests` 길이를 사용하도록 수정했습니다.
 
 ## 스레드 2 — 생성했지만 manifest에서 찾을 수 없는 artifact
 
-**위치** `brainwash/algorithms/finetune.py` (`AlgorithmRunResult` 생성, 초기 PR 205-211행)  
+**위치** `brainwash/algorithms/finetune.py` (`AlgorithmRunResult` 생성, 초기 PR 204-211행)  
 **심각도** `important` · **Change Request**
 
 **리뷰어 · 댓글 :warning:**
@@ -91,7 +91,7 @@ config에 summary를 복사하는 것과 artifact path를 공개하는 것은 �
 
 **작업자 · 반영 :+1:**
 
-`1b5bba2`에 `dataset_summary: str(summary_path)`를 추가했습니다.
+`29ec5fe`에 `dataset_summary: str(summary_path)`를 추가했습니다.
 
 **리뷰어 · 확인 :white_check_mark:**
 
@@ -120,9 +120,9 @@ direct helper test보다 pipeline test가 적절합니다. summary path가 `Algo
 
 **작업자 · 반영**
 
-`594baf5 test(review-04): specify SFT dataset summary artifacts`
+`f45a889 test(review-04): specify SFT dataset summary artifacts`
 
-test는 initial implementation에서 Red였고 `1b5bba2` 후 pipeline 6건과 전체 99건이 통과했습니다.
+test는 initial implementation에서 Red였고 `29ec5fe` 후 pipeline 6건과 전체 99건이 통과했습니다.
 
 **리뷰어 · 확인 :white_check_mark:**
 

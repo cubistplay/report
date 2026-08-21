@@ -1,7 +1,7 @@
 # I-A7 PR 대화 — memory retrieval Strategy 분리
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 head: `26174af` · Change Request 없음
+> 최초 검토 head: `3badb6a` · Change Request 없음
 
 ## 스레드 1 — Strategy와 final selection의 경계
 

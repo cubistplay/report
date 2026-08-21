@@ -1,7 +1,7 @@
 # I-A8 PR 대화 — routing Policy 분해
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 head: `ec723b7` · Change Request 없음
+> 최초 검토 head: `2a10a7e` · Change Request 없음
 
 ## 스레드 1 — routing precedence와 Chain of Responsibility
 

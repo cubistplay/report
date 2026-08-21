@@ -9,8 +9,8 @@
 
 - 초기 PR: `brainwash/memory/schema.sql`, `brainwash/memory/update_db.py`
 - 리뷰 반영: `brainwash/memory/update_db.py`, `tests/test_update_db.py`
-- 기준 commit: `8291841`
-- 최초 검토 commit: `8c56c1e`
+- 기준 commit: `a457af4`
+- 최초 검토 commit: `3611312`
 
 ## 기대 산출물
 

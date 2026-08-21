@@ -6,7 +6,7 @@
 | 캡처명 | 대상 | 근거 |
 | --- | --- | --- |
 | `I-A4-01-red-stage-test.png` | Red 테스트 | stage/state import 실패 |
-| `I-A4-02-initial-pr.png` | 최초 PR 설명 | `f3795e2` 시점 |
+| `I-A4-02-initial-pr.png` | 최초 PR 설명 | `03c75b2` 시점 |
 | `I-A4-03-stage-boundary.png` | action loop 책임 분리 | 전후 Mermaid |
 | `I-A4-04-review-threads.png` | 설계 검토 세 스레드 | Change Request 0 |
 | `I-A4-05-parity-and-tests.png` | JSON 동등성·테스트 | diff 없음, 3/3·22/22·86/86 |

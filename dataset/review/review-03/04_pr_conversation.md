@@ -1,11 +1,11 @@
 # R-A3 PR 대화 — benchmark provenance metadata 검토
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 branch: `review/review-03-benchmark-provenance` (`7d612cd`) · 최종 head: `5a6f568`
+> 최초 검토 branch: `review/review-03-benchmark-provenance` (`b82ec0a`) · 최종 head: `4306467`
 
 ## 스레드 1 — provenance ownership이 extra metadata에 밀림
 
-**위치** `brainwash/benchmarks.py` (`BenchmarkRequestFactory.create`, 초기 PR 121-126행)  
+**위치** `brainwash/benchmarks.py` (`BenchmarkRequestFactory.create`, 초기 PR 145-160행)  
 **심각도** `blocking` · **Change Request**
 
 **리뷰어 · 댓글 :thinking:**
@@ -41,7 +41,7 @@ adapter-specific metadata는 보조 정보로 두고 source coordinate는 마지
 
 **작업자 · 반영**
 
-`5a6f568 fix(review-03): preserve benchmark provenance`
+`4306467 fix(review-03): preserve benchmark provenance`
 
 metadata merge 순서를 `extra → subject/relation → provenance`로 변경했습니다.
 
@@ -51,7 +51,7 @@ metadata merge 순서를 `extra → subject/relation → provenance`로 변경�
 
 ## 스레드 2 — MQuAKE의 원본 rewrite 위치가 사라짐
 
-**위치** `brainwash/benchmarks.py` (`load_mquake_requests`, 초기 PR 218행)  
+**위치** `brainwash/benchmarks.py` (`load_mquake_requests`, 초기 PR 271-294행)  
 **심각도** `important` · **Change Request**
 
 **리뷰어 · 댓글 :warning:**
@@ -75,7 +75,7 @@ string으로 정규화하면 `mquake:17#1` format도 안정적입니다.
 
 **작업자 · 반영 :+1:**
 
-같은 `5a6f568`에서 `case_id`를 string으로 정규화했고, MQuAKE provenance에는 `index`를 전달하도록
+같은 `4306467`에서 `case_id`를 string으로 정규화했고, MQuAKE provenance에는 `index`를 전달하도록
 바꿨습니다.
 
 **리뷰어 · 확인 :white_check_mark:**
@@ -105,10 +105,10 @@ reference만 확인하면 index와 case ID 중 하나가 우연히 맞을 수 �
 
 **작업자 · 반영**
 
-`d39e254 test(review-03): specify benchmark provenance contracts`
+`1763aeb test(review-03): specify benchmark provenance contracts`
 
 두 test는 initial implementation에서 Red였고, source field·index·reference를 각각 확인합니다.
-`5a6f568` 적용 후 focused 11건과 전체 98건이 통과했습니다.
+`4306467` 적용 후 focused 11건과 전체 98건이 통과했습니다.
 
 **리뷰어 · 확인 :white_check_mark:**
 

@@ -11,7 +11,7 @@
 
 ## AI 판단 요약
 
-- 기준 commit은 85b6b66, 최초 검토 대상은 933f823입니다.
+- 기준 commit은 5f56dfb, 최초 검토 대상은 175520e입니다.
 - 초기 lane 분류는 behavior와 memory 두 가지뿐입니다.
 - domain 또는 broad request가 memory lane에 섞이면 BroadScopeRoutingPolicy가 lane 전체를 QLoRA SFT로 route해 factual correction까지 Memory Store를 쓰지 못할 수 있습니다.
 - lane 결과는 grouping 순서로 반환되지만 original input position을 남기지 않아 caller가 input-order report를 복원할 수 없습니다.

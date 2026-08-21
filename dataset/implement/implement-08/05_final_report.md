@@ -12,12 +12,12 @@ batch facts와 common plan construction을 맡게 했습니다. Router는 preced
 
 ## 2. Commit 및 PR 경계
 
-- base: `main` / `26174af19d247a57a1876e023bd4727142c307fb`
-- Red 테스트: `43a7afc7c2c4e38d53f7b2156a0d0c4fec449e63`
+- base: `main` / `3badb6aebb1b1659da5f9bcb880ec94d1ae95a1e`
+- Red 테스트: `2c973825e848a2d58ffbfdf39b4eed62e0a29247`
   `test(implement-08): specify routing policy precedence`
-- 최초 PR 및 최종 head: `ec723b789b0df00ee92ccf3dff053650442f9a96`
+- 최초 PR 및 최종 head: `2a10a7e273a6906d72af9afb58fd942532904c53`
   `refactor(implement-08): decompose routing policies`
-- 최종 `main`: `ec723b789b0df00ee92ccf3dff053650442f9a96`
+- 최종 `main`: `2a10a7e273a6906d72af9afb58fd942532904c53`
 
 최초 head에서 Policy precedence, common `AlgorithmPlan` field 책임, custom sequence의 invalid
 configuration 보호를 검토했습니다. 코드 결함은 발견되지 않아 Change Request나 후속 commit은 만들지
@@ -61,9 +61,9 @@ scale·control mode처럼 lane-specific 값만 결정하며, serialization contr
 
 | 항목 | 결과 |
 | --- | ---: |
-| 추가 | 267줄 |
-| 삭제 | 138줄 |
-| 합계 | 405줄 |
+| 추가 | 286줄 |
+| 삭제 | 142줄 |
+| 합계 | 428줄 |
 | 파일 | 2개 |
 | 허용 목록 외 변경 | 없음 |
 
@@ -76,3 +76,16 @@ Chain of Responsibility, common plan Factory, custom Policy injection, precedenc
 리뷰에서는 behavior → broad/domain → fact → mixed precedence, context가 common plan field를 만드는
 경계, custom Policy와 missing terminal fallback의 책임을 확인했습니다. 세 material thread와 Router·
 Update DB·전체 suite 검증을 근거로 승인했습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+

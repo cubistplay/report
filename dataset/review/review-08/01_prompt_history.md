@@ -11,7 +11,7 @@
 
 ## AI 판단 요약
 
-- 기준 commit은 9aae539, 최초 검토 대상은 852b497입니다.
+- 기준 commit은 9605168, 최초 검토 대상은 1d6cd78입니다.
 - active_memory와 memory_lifecycle은 as_of를 받지만 conflicts, index, promotion report는 현재 시각으로 계산합니다.
 - 따라서 하나의 export directory 안에서 manifest는 과거 시점을 말하는데 index와 promotion 결과는 현재 state가 될 수 있습니다.
 - naive datetime은 시스템 timezone에 따라 의미가 달라지는 boundary인데 snapshot API가 이를 허용합니다.

@@ -1,7 +1,7 @@
 # I-A4 PR 대화 — dynamic evidence action 단계 분리
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 head: `f3795e2` · Change Request 없음
+> 최초 검토 head: `03c75b2` · Change Request 없음
 
 ## 스레드 1 — action 종류와 실행 책임
 

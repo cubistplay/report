@@ -4,7 +4,7 @@
 
 ## 1. 검토 대상
 
-feat(review-07): list promotion candidates는 Update DB의 active memory를 key별로 묶어 promotion threshold를 충족한 후보를 PromotionCandidate로 반환합니다. 최초 PR 5be9d0c은 brainwash/memory/update_db.py에 61줄을 추가했고, 기존 전체 test 122건을 통과했습니다.
+feat(review-07): list promotion candidates는 Update DB의 active memory를 key별로 묶어 promotion threshold를 충족한 후보를 PromotionCandidate로 반환합니다. 최초 PR 3ba230f은 brainwash/memory/update_db.py에 61줄을 추가했고, 기존 전체 test 122건을 통과했습니다.
 
 ## 2. 주요 검토 및 반영
 
@@ -24,12 +24,25 @@ feat(review-07): list promotion candidates는 Update DB의 active memory를 key�
 
 | 단계 | Commit | 내용 | 검증 |
 | --- | --- | --- | --- |
-| 최초 PR | 5be9d0c | promotion candidate Value Object 및 조회 | 전체 122건 통과 |
-| 리뷰 명세 | b9db88c | stable record order·normalized target test | 초기 구현에서 2 failures 확인 |
-| 리뷰 반영 | 9aae539 | 정렬 기반 grouping 및 target canonicalization | update DB 12건, 전체 124건 통과 |
+| 최초 PR | 3ba230f | promotion candidate Value Object 및 조회 | 전체 122건 통과 |
+| 리뷰 명세 | 510e110 | stable record order·normalized target test | 초기 구현에서 2 failures 확인 |
+| 리뷰 반영 | 9605168 | 정렬 기반 grouping 및 target canonicalization | update DB 12건, 전체 124건 통과 |
 
 최초 PR 이후에는 test commit과 fix commit을 순서대로 누적했으며, rebase나 force push를 사용하지 않았습니다.
 
 ## 4. 결론
 
 후보 조회를 training 실행과 분리한 Value Object 구조는 유지했습니다. 다만 audit·export consumer가 의존하는 output의 결정성과 policy의 target 의미가 보완되어, 같은 active memory snapshot이 일관된 promotion candidate를 반환하게 됐습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+

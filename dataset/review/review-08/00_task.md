@@ -8,8 +8,8 @@ review/review-08-memory-snapshots 브랜치의 memory snapshot export PR을 검�
 
 - 초기 PR: brainwash/memory/ledger.py
 - 리뷰 반영: brainwash/memory/ledger.py, tests/test_memory_ledger.py
-- 기준 commit: 9aae539
-- 최초 검토 commit: 852b497
+- 기준 commit: 9605168
+- 최초 검토 commit: 1d6cd78
 
 ## 기대 산출물
 

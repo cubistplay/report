@@ -1,7 +1,7 @@
 # I-A5 PR 대화 — preference export 전략 분리
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 head: `3819dbe` · Change Request 없음
+> 최초 검토 head: `660416e` · Change Request 없음
 
 ## 스레드 1 — pair와 binary 행의 의미
 

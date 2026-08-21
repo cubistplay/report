@@ -14,14 +14,14 @@ adapter별 artifact 생성 방식은 유지하되, RAG adapter가 상속받은 �
 
 ## 2. Commit 및 PR 경계
 
-- base: `main` / `29bb11e491889c22f93e01e1f9a344669d860aae`
-- Red 테스트: `5655dde4cdca26cf542bb74b96c3cd1e4410fd7d`
+- base: `main` / `44c2cb1596b0370d5170e072f1a04f395719d245`
+- Red 테스트: `7dfa47ab4c7a944c62094fcc01b61362ed5ada9a`
   `test(implement-03): specify algorithm registry contracts`
-- 최초 PR head: `3cb00d9d558281c241fdd0ed387df5c71fe86bc1`
+- 최초 PR head: `6dfe3a3782b62b10dc6d4bbc7ea2402ac16c5872`
   `refactor(implement-03): encapsulate algorithm registry`
-- 리뷰 반영: `3c11c0234491b57001cd620ba284071c4ad4957b`
+- 리뷰 반영: `fdfd1a42d819a554acdd6f88fc8d30f94f450337`
   `test(implement-03): cover rag adapter registration`
-- 최종 `main`: `3c11c0234491b57001cd620ba284071c4ad4957b`
+- 최종 `main`: `fdfd1a42d819a554acdd6f88fc8d30f94f450337`
 
 최초 head에서 다섯 가지 설계·동작 경계를 검토했습니다. RAG adapter 이름이 상속
 기본값으로 다시 어긋나지 않도록 회귀 테스트가 필요하다는 Change Request 1건을 받고,
@@ -71,14 +71,14 @@ adapter 추가는 `register()`로만 수행하므로 중복 등록은 기본적�
 
 | 항목 | 결과 |
 | --- | ---: |
-| 추가 | 203줄 |
-| 삭제 | 39줄 |
-| 합계 | 242줄 |
+| 추가 | 224줄 |
+| 삭제 | 42줄 |
+| 합계 | 266줄 |
 | 파일 | 3개 |
 | 허용 목록 외 변경 | 없음 |
 
 변경 파일은 `brainwash/algorithms/registry.py`, `brainwash/pipeline.py`,
-`tests/test_pipeline_registry.py`입니다. 242줄 안에서 Registry 패턴 도입,
+`tests/test_pipeline_registry.py`입니다. 266줄 안에서 Registry 패턴 도입,
 수동 plan 복사 제거, RAG identity regression 테스트, 변경 전후 출력 비교를 하나의
 검토 단위로 완결했습니다.
 
@@ -87,3 +87,16 @@ adapter 추가는 `register()`로만 수행하므로 중복 등록은 기본적�
 리뷰에서는 빈 registry와 기본값의 구분, `replace()`가 보존하는 plan 필드의 범위,
 중복 등록 정책, mapping 이름 계약, 읽기·변경 API 경계를 확인했습니다. RAG identity
 회귀 테스트를 Change Request로 추가한 뒤 전체 테스트를 다시 통과했고 최종 승인되었습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+

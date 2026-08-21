@@ -8,25 +8,25 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "d99d2237975ffa3586eeb73bf2962f366746c487",
+    "base_commit": "581ee005e4504be21d73447d6801162a9d3572d7",
     "head_branch": "review/review-07-promotion-candidates",
-    "initial_review_head": "5be9d0c06a8ef4f835250ed32ae68dba2a51fe9b",
-    "final_head_commit": "9aae5395f2cb59007f1b88dcbc0e67d1b4692c94",
-    "integrated_main_commit": "9aae5395f2cb59007f1b88dcbc0e67d1b4692c94",
+    "initial_review_head": "3ba230fcf640b043174ada22f92ac4ac51a5721c",
+    "final_head_commit": "960516829a7ff885319784726a6de352c9f2b607",
+    "integrated_main_commit": "960516829a7ff885319784726a6de352c9f2b607",
     "commits": [
       {
         "role": "initial_review_pr",
-        "sha": "5be9d0c06a8ef4f835250ed32ae68dba2a51fe9b",
+        "sha": "3ba230fcf640b043174ada22f92ac4ac51a5721c",
         "subject": "feat(review-07): list promotion candidates"
       },
       {
         "role": "review_regression_tests",
-        "sha": "b9db88cda0c23946018b9267867e0f755fab8dc8",
+        "sha": "510e110940bbd9e8584135400dc814f4b627c046",
         "subject": "test(review-07): specify promotion candidate contracts"
       },
       {
         "role": "review_response",
-        "sha": "9aae5395f2cb59007f1b88dcbc0e67d1b4692c94",
+        "sha": "960516829a7ff885319784726a6de352c9f2b607",
         "subject": "fix(review-07): stabilize promotion candidates"
       }
     ]
@@ -39,7 +39,7 @@
     "initial_additions": 61,
     "initial_deletions": 0,
     "initial_measured_changed_lines": 61,
-    "counting_rule": "initial review snapshot only; additions plus deletions",
+    "counting_rule": "actual Git additions plus deletions after Black formatting and comment removal",
     "reviewability_note": "promotion candidate 결과의 결정성과 기존 policy의 target 의미를 다루는 단일 read-model 기능입니다."
   },
   "paths_changed": {
@@ -53,7 +53,8 @@
   },
   "verification": {
     "initial_review_head": "전체 test 122건 통과",
-    "review_response": "promotion candidate regression test를 추가한 뒤 update DB test 12건 및 전체 test 124건 통과"
+    "review_response": "promotion candidate regression test를 추가한 뒤 update DB test 12건 및 전체 test 124건 통과",
+    "black": "Black 26.5.1 was applied before each code commit; final Black --check passed."
   },
   "review": {
     "thread_count": 5,

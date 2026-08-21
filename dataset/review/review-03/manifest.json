@@ -8,25 +8,25 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "ef03ac98e2baed67d4bbf21dd7fcbf6eba224239",
+    "base_commit": "9ed3dea463f66d7bfb0a61c65fac329e90fb1a89",
     "head_branch": "review/review-03-benchmark-provenance",
-    "initial_review_head": "7d612cd5bcc8874116887c444c8f25df0bee31bd",
-    "final_head_commit": "5a6f568472c4f95ba5eb1d12105a17c5c0a888da",
-    "integrated_main_commit": "5a6f568472c4f95ba5eb1d12105a17c5c0a888da",
+    "initial_review_head": "b82ec0aaaeea827fedf4be1306af786e8a3a5763",
+    "final_head_commit": "43064678c1ccf8126493b12908b586fb5b780910",
+    "integrated_main_commit": "43064678c1ccf8126493b12908b586fb5b780910",
     "commits": [
       {
         "role": "initial_review_pr",
-        "sha": "7d612cd5bcc8874116887c444c8f25df0bee31bd",
+        "sha": "b82ec0aaaeea827fedf4be1306af786e8a3a5763",
         "subject": "feat(review-03): record benchmark request provenance"
       },
       {
         "role": "review_regression_tests",
-        "sha": "d39e2548e1629c5d44f18cd5e48eef88807341f1",
+        "sha": "1763aeb9cc30b58fc8299fb3bacc381c809f17c7",
         "subject": "test(review-03): specify benchmark provenance contracts"
       },
       {
         "role": "review_response",
-        "sha": "5a6f568472c4f95ba5eb1d12105a17c5c0a888da",
+        "sha": "43064678c1ccf8126493b12908b586fb5b780910",
         "subject": "fix(review-03): preserve benchmark provenance"
       }
     ]
@@ -36,10 +36,10 @@
     "counterpart": "author"
   },
   "change_budget": {
-    "initial_additions": 49,
-    "initial_deletions": 1,
-    "initial_measured_changed_lines": 50,
-    "counting_rule": "initial review snapshot only; additions plus deletions",
+    "initial_additions": 52,
+    "initial_deletions": 0,
+    "initial_measured_changed_lines": 52,
+    "counting_rule": "actual Git additions plus deletions after Black formatting and comment removal",
     "reviewability_note": "benchmark source coordinate Value Object와 Factory metadata ownership을 다루는 단일 기능입니다."
   },
   "paths_changed": {
@@ -53,7 +53,8 @@
   },
   "verification": {
     "initial_review_head": "전체 test 96건 통과",
-    "review_response": "provenance regression test를 추가한 뒤 benchmark adapter 11건 및 전체 98건 통과"
+    "review_response": "provenance regression test를 추가한 뒤 benchmark adapter 11건 및 전체 98건 통과",
+    "black": "Black 26.5.1 was applied before each code commit; final Black --check passed."
   },
   "review": {
     "thread_count": 5,

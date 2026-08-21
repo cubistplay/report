@@ -12,12 +12,12 @@ conflict, index, promotion report에 포함될 수 있어 DB와 operational arti
 
 ## 2. Commit 및 PR 경계
 
-- base: `main` / `1fe0233c8be14d36b847804b5e820d98b9ef2ebf`
-- Red 테스트: `700d61c4516730c30c57d1f0b5a402f2d66b9917`
+- base: `main` / `cde62d6641f054cb0e7d3195a43ffb86dbea4ece`
+- Red 테스트: `cee1f2f65d91bbe1a7e485389181b86474a0dd5d`
   `test(implement-10): specify memory lifecycle policy`
-- 최초 PR 및 최종 head: `8291841b976624af414c2dfd96d7e2b596115ea8`
+- 최초 PR 및 최종 head: `a457af432b11a0576764e61c8820faa39a7714ae`
   `refactor(implement-10): centralize memory lifecycle policy`
-- 최종 `main`: `8291841b976624af414c2dfd96d7e2b596115ea8`
+- 최종 `main`: `a457af432b11a0576764e61c8820faa39a7714ae`
 
 최초 head에서 DB/in-memory window semantics, invalid timestamp의 안전한 처리, lifecycle audit과
 existing ingestion boundary를 검토했습니다. 코드 결함은 발견되지 않아 Change Request나 후속 commit은
@@ -61,13 +61,13 @@ optional `as_of`와 constructor-level Policy injection은 test·backfill·histor
 
 | 항목 | 결과 |
 | --- | ---: |
-| 추가 | 206줄 |
-| 삭제 | 3줄 |
-| 합계 | 209줄 |
+| 추가 | 305줄 |
+| 삭제 | 25줄 |
+| 합계 | 330줄 |
 | 파일 | 2개 |
 | 허용 목록 외 변경 | 없음 |
 
-변경 파일은 `brainwash/memory/ledger.py`, `tests/test_memory_ledger.py`입니다. 209줄 안에서 lifecycle
+변경 파일은 `brainwash/memory/ledger.py`, `tests/test_memory_ledger.py`입니다. 330줄 안에서 lifecycle
 Policy, Decision Value Object, active filtering, audit artifact, deterministic temporal test를 하나의
 coherent refactor로 완료했습니다.
 
@@ -76,3 +76,16 @@ coherent refactor로 완료했습니다.
 리뷰에서는 DB view와 in-memory active window semantics, inactive reason/audit 책임, injected time과
 existing Update DB ingestion 보존을 확인했습니다. 세 material thread와 ledger·Update DB·전체 suite
 검증을 근거로 승인했습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+

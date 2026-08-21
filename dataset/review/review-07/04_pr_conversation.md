@@ -1,11 +1,11 @@
 # R-A7 PR 대화 — promotion candidate 검토
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 branch: review/review-07-promotion-candidates (5be9d0c) · 최종 head: 9aae539
+> 최초 검토 branch: review/review-07-promotion-candidates (3ba230f) · 최종 head: 9605168
 
 ## 스레드 1 — aggregate 결과의 record ID 순서가 보장되지 않음
 
-**위치** brainwash/memory/update_db.py (promotion_candidates, 초기 PR 448-449행)  
+**위치** brainwash/memory/update_db.py (promotion_candidates, 초기 PR 460-469행)  
 **심각도** blocking · **Change Request**
 
 **리뷰어 · 댓글 :thinking:**
@@ -32,7 +32,7 @@ GROUP_CONCAT(id)를 그대로 API의 record_ids로 내보내고 있습니다. ca
 
 **작업자 · 반영 :white_check_mark:**
 
-9aae539 fix(review-07): stabilize promotion candidates에서 active rows를 key와 ID로 정렬해 읽고, grouping 후 record_ids를 그 순서로 구성했습니다. memory-b를 먼저 insert해도 output은 (memory-a, memory-b)인지 검증하는 regression test를 추가했습니다.
+9605168 fix(review-07): stabilize promotion candidates에서 active rows를 key와 ID로 정렬해 읽고, grouping 후 record_ids를 그 순서로 구성했습니다. memory-b를 먼저 insert해도 output은 (memory-a, memory-b)인지 검증하는 regression test를 추가했습니다.
 
 **리뷰어 · 확인 :tada:**
 
@@ -40,7 +40,7 @@ GROUP_CONCAT(id)를 그대로 API의 record_ids로 내보내고 있습니다. ca
 
 ## 스레드 2 — candidate target 비교가 promotion policy와 다름
 
-**위치** brainwash/memory/update_db.py (GROUP_CONCAT(DISTINCT target), 초기 PR 449행)  
+**위치** brainwash/memory/update_db.py (GROUP_CONCAT(DISTINCT target), 초기 PR 469행)  
 **심각도** important · **Change Request**
 
 **리뷰어 · 댓글 :eyes:**
@@ -62,7 +62,7 @@ GROUP_CONCAT(id)를 그대로 API의 record_ids로 내보내고 있습니다. ca
 
 **작업자 · 반영 :+1:**
 
-같은 9aae539에서 targets_by_key를 normalized target으로 만들었습니다. "Seoul"과 " seoul "을 넣은 cluster가 targets == ("Seoul",)이고 ready_for_training인지를 test로 고정했습니다.
+같은 9605168에서 targets_by_key를 normalized target으로 만들었습니다. "Seoul"과 " seoul "을 넣은 cluster가 targets == ("Seoul",)이고 ready_for_training인지를 test로 고정했습니다.
 
 **리뷰어 · 확인 :white_check_mark:**
 

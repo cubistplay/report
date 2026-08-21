@@ -8,25 +8,25 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "8291841b976624af414c2dfd96d7e2b596115ea8",
+    "base_commit": "a457af432b11a0576764e61c8820faa39a7714ae",
     "head_branch": "review/review-06-lifecycle-audit",
-    "initial_review_head": "8c56c1e1ede80fc856da17e742f1a7a2aeb69683",
-    "final_head_commit": "d99d2237975ffa3586eeb73bf2962f366746c487",
-    "integrated_main_commit": "d99d2237975ffa3586eeb73bf2962f366746c487",
+    "initial_review_head": "3611312be829e482374584b034f55117f39ec257",
+    "final_head_commit": "581ee005e4504be21d73447d6801162a9d3572d7",
+    "integrated_main_commit": "581ee005e4504be21d73447d6801162a9d3572d7",
     "commits": [
       {
         "role": "initial_review_pr",
-        "sha": "8c56c1e1ede80fc856da17e742f1a7a2aeb69683",
+        "sha": "3611312be829e482374584b034f55117f39ec257",
         "subject": "feat(review-06): import memory lifecycle audits"
       },
       {
         "role": "review_regression_tests",
-        "sha": "3369f647c0c5a548e9badc7aa33a89bf8253c8b6",
+        "sha": "b1c13ac86991762ad4dd53f5d58174b8aa512b24",
         "subject": "test(review-06): specify lifecycle audit import contracts"
       },
       {
         "role": "review_response",
-        "sha": "d99d2237975ffa3586eeb73bf2962f366746c487",
+        "sha": "581ee005e4504be21d73447d6801162a9d3572d7",
         "subject": "fix(review-06): normalize lifecycle audit imports"
       }
     ]
@@ -39,7 +39,7 @@
     "initial_additions": 57,
     "initial_deletions": 0,
     "initial_measured_changed_lines": 57,
-    "counting_rule": "initial review snapshot only; additions plus deletions",
+    "counting_rule": "actual Git additions plus deletions after Black formatting and comment removal",
     "reviewability_note": "외부 lifecycle artifact import의 타입 계약과 결과 report를 다루는 단일 기능입니다."
   },
   "paths_changed": {
@@ -54,7 +54,8 @@
   },
   "verification": {
     "initial_review_head": "전체 test 120건 통과",
-    "review_response": "lifecycle regression test를 추가한 뒤 update DB test 10건 및 전체 test 122건 통과"
+    "review_response": "lifecycle regression test를 추가한 뒤 update DB test 10건 및 전체 test 122건 통과",
+    "black": "Black 26.5.1 was applied before each code commit; final Black --check passed."
   },
   "review": {
     "thread_count": 5,

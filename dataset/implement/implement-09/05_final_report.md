@@ -12,12 +12,12 @@ exact/paraphrase, subject-aware token overlap, best score 선택, threshold, ans
 
 ## 2. Commit 및 PR 경계
 
-- base: `main` / `ec723b789b0df00ee92ccf3dff053650442f9a96`
-- Red 테스트: `975afcab3e9a5380595d906f3d077f3c9a58da63`
+- base: `main` / `2a10a7e273a6906d72af9afb58fd942532904c53`
+- Red 테스트: `6cb04e81e628bccc3aebc9abc2d71d4c90a292ee`
   `test(implement-09): specify memory match strategies`
-- 최초 PR 및 최종 head: `1fe0233c8be14d36b847804b5e820d98b9ef2ebf`
+- 최초 PR 및 최종 head: `cde62d6641f054cb0e7d3195a43ffb86dbea4ece`
   `refactor(implement-09): separate memory match strategies`
-- 최종 `main`: `1fe0233c8be14d36b847804b5e820d98b9ef2ebf`
+- 최종 `main`: `cde62d6641f054cb0e7d3195a43ffb86dbea4ece`
 
 최초 head에서 Strategy와 final safety gate의 경계, exact 우선/subject guard/tie behavior,
 custom Strategy와 empty disable의 verifier 보존을 검토했습니다. 코드 결함은 발견되지 않아
@@ -61,13 +61,13 @@ tie behavior를 유지합니다. `MemoryEditStore`는 선택된 candidate에 com
 
 | 항목 | 결과 |
 | --- | ---: |
-| 추가 | 176줄 |
-| 삭제 | 33줄 |
-| 합계 | 209줄 |
+| 추가 | 263줄 |
+| 삭제 | 52줄 |
+| 합계 | 315줄 |
 | 파일 | 2개 |
 | 허용 목록 외 변경 | 없음 |
 
-변경 파일은 `brainwash/algorithms/memory_edit.py`, `tests/test_memory_edit_runtime.py`입니다. 209줄 안에서
+변경 파일은 `brainwash/algorithms/memory_edit.py`, `tests/test_memory_edit_runtime.py`입니다. 315줄 안에서
 match Strategy, Selection Policy, Candidate Value Object, safety gate delegation, extension contract test를
 하나의 coherent refactor로 완료했습니다.
 
@@ -76,3 +76,16 @@ match Strategy, Selection Policy, Candidate Value Object, safety gate delegation
 리뷰에서는 match evidence와 final safety policy의 분리, exact 우선/subject guard/tie behavior,
 custom/empty Strategy가 verifier와 strict fallback에 미치는 경계를 확인했습니다. 세 material thread와
 runtime·Update DB·전체 suite 검증을 근거로 승인했습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+

@@ -8,25 +8,25 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "5a6f568472c4f95ba5eb1d12105a17c5c0a888da",
+    "base_commit": "43064678c1ccf8126493b12908b586fb5b780910",
     "head_branch": "review/review-04-sft-summary",
-    "initial_review_head": "026760f9531bc3cce6abad36ef91c1bd73f8a86a",
-    "final_head_commit": "1b5bba293d92d665d6bfdd750e57b0b85a807ee6",
-    "integrated_main_commit": "1b5bba293d92d665d6bfdd750e57b0b85a807ee6",
+    "initial_review_head": "65f2110647de0e1d16f8759b2b4c03e0d7f53f4d",
+    "final_head_commit": "29ec5fe6068970e75797126079e849ff1ce49253",
+    "integrated_main_commit": "29ec5fe6068970e75797126079e849ff1ce49253",
     "commits": [
       {
         "role": "initial_review_pr",
-        "sha": "026760f9531bc3cce6abad36ef91c1bd73f8a86a",
+        "sha": "65f2110647de0e1d16f8759b2b4c03e0d7f53f4d",
         "subject": "feat(review-04): report SFT dataset preparation"
       },
       {
         "role": "review_regression_tests",
-        "sha": "594baf5435bf7a689a7c90836f31de6fad6f9421",
+        "sha": "f45a88958fe7a9f97cfb00d51bfd04d8be1cc0a2",
         "subject": "test(review-04): specify SFT dataset summary artifacts"
       },
       {
         "role": "review_response",
-        "sha": "1b5bba293d92d665d6bfdd750e57b0b85a807ee6",
+        "sha": "29ec5fe6068970e75797126079e849ff1ce49253",
         "subject": "fix(review-04): publish SFT dataset summary"
       }
     ]
@@ -36,10 +36,10 @@
     "counterpart": "author"
   },
   "change_budget": {
-    "initial_additions": 53,
-    "initial_deletions": 2,
-    "initial_measured_changed_lines": 55,
-    "counting_rule": "initial review snapshot only; additions plus deletions",
+    "initial_additions": 62,
+    "initial_deletions": 6,
+    "initial_measured_changed_lines": 68,
+    "counting_rule": "actual Git additions plus deletions after Black formatting and comment removal",
     "reviewability_note": "SFT data preparation summary의 count와 manifest artifact ownership을 다루는 단일 기능입니다."
   },
   "paths_changed": {
@@ -53,7 +53,8 @@
   },
   "verification": {
     "initial_review_head": "전체 test 98건 통과",
-    "review_response": "summary regression test를 추가한 뒤 pipeline 6건 및 전체 99건 통과"
+    "review_response": "summary regression test를 추가한 뒤 pipeline 6건 및 전체 99건 통과",
+    "black": "Black 26.5.1 was applied before each code commit; final Black --check passed."
   },
   "review": {
     "thread_count": 5,

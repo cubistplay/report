@@ -5,9 +5,9 @@
 
 | 캡처명 | 대상 | 근거 |
 | --- | --- | --- |
-| `R-A5-01-initial-pr.png` | 최초 PR 설명 | `581d54e` 시점, trace contract test 없음 |
+| `R-A5-01-initial-pr.png` | 최초 PR 설명 | `70a1dbf` 시점, trace contract test 없음 |
 | `R-A5-02-score-review.png` | semantic score Change Request | threshold `0.6`과 observed `0.93` 구분 코드 |
 | `R-A5-03-trace-test-review.png` | trace contract Change Request | fixed-score 및 batch alignment test |
-| `R-A5-04-response-commits.png` | test → fix 리뷰 반영 이력 | `266a5bf` → `10a7f02` |
+| `R-A5-04-response-commits.png` | test → fix 리뷰 반영 이력 | `e1c9376` → `2c199a9` |
 | `R-A5-05-final-verification.png` | focused·전체 test | 24/24, 101/101 통과 |
 | `R-A5-06-mainline-log.png` | 선형 Git 이력 | Review-04 → initial PR → review response |
