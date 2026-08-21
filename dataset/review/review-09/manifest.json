@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "sample_id": "review-09",
+  "track": "review",
+  "status": "draft",
+  "language": "ko",
+  "synthetic_github_artifacts": true,
+  "repository": {
+    "name": "BrainWash",
+    "base_branch": "main",
+    "base_commit": "f8993d9e60d8c5f207f37c18ca3587c6e6a559ee",
+    "head_branch": "review/review-09-memory-trigger-batch",
+    "initial_review_head": "9a9d26d92a617e1f2b9dc986766bcd8e070c3560",
+    "final_head_commit": "85b6b66ea40f83c4861cb32e714b9f76d725e42c",
+    "integrated_main_commit": "85b6b66ea40f83c4861cb32e714b9f76d725e42c",
+    "commits": [
+      {
+        "role": "initial_review_pr",
+        "sha": "9a9d26d92a617e1f2b9dc986766bcd8e070c3560",
+        "subject": "feat(review-09): batch memory trigger decisions"
+      },
+      {
+        "role": "review_regression_tests",
+        "sha": "0258b131c413b8ba87189790c3bc2b368c420031",
+        "subject": "test(review-09): specify batch trigger results"
+      },
+      {
+        "role": "review_response",
+        "sha": "85b6b66ea40f83c4861cb32e714b9f76d725e42c",
+        "subject": "fix(review-09): preserve batch trigger results"
+      }
+    ]
+  },
+  "perspective": {
+    "primary_actor": "reviewer",
+    "counterpart": "author"
+  },
+  "change_budget": {
+    "initial_additions": 50,
+    "initial_deletions": 0,
+    "initial_measured_changed_lines": 50,
+    "counting_rule": "initial review snapshot only; additions plus deletions",
+    "reviewability_note": "evaluation input과 memory trigger 결과의 positional alignment를 다루는 단일 batch API 기능입니다."
+  },
+  "paths_changed": {
+    "initial": [
+      "brainwash/algorithms/memory_edit.py"
+    ],
+    "review_response": [
+      "brainwash/algorithms/memory_edit.py",
+      "tests/test_memory_edit_runtime.py"
+    ]
+  },
+  "verification": {
+    "initial_review_head": "전체 test 126건 통과",
+    "review_response": "batch trigger regression test를 추가한 뒤 runtime test 15건 및 전체 test 128건 통과"
+  },
+  "review": {
+    "thread_count": 5,
+    "change_request_count": 2,
+    "final_state": "approved"
+  },
+  "artifacts": [
+    "00_task.md",
+    "01_prompt_history.md",
+    "02_pr_description.md",
+    "04_pr_conversation.md",
+    "05_final_report.md",
+    "06_capture_list.md",
+    "07_checklist.md"
+  ]
+}
