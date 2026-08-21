@@ -1,7 +1,7 @@
 # I-A10 PR 대화 — memory lifecycle Policy 통합
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 head: `8291841` · Change Request 없음
+> 최초 검토 head: `f026c98` · Change Request 없음
 
 ## 스레드 1 — DB view와 in-memory lifecycle 계약
 

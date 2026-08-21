@@ -1,11 +1,11 @@
 # R-A1 PR 대화 — semantic matcher 설정 경계 검토
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 head: `c5797e4` · 최종 head: `63f8afb`
+> 최초 검토 head: `3b4e44d` · 최종 head: `16f63f7`
 
 ## 스레드 1 — 설정을 잃는 cache key
 
-**위치** `brainwash/semantic.py` (`MatcherSettings.resolve`, 초기 PR 279-294행)  
+**위치** `brainwash/semantic.py` (`MatcherSettings.resolve`, 초기 PR 274-289행)  
 **심각도** `blocking` · **Change Request**
 
 **리뷰어 · 댓글 :thinking:**
@@ -36,7 +36,7 @@ model이면 공유하고, model이나 provider가 다르면 반드시 새 인스
 
 **작업자 · 반영**
 
-`63f8afb fix(review-01): isolate matcher setting cache`
+`16f63f7 fix(review-01): isolate matcher setting cache`
 
 - embedding key: `("embedding", embedding_model)`
 - LLM key: `("llm", llm_provider)`
@@ -51,7 +51,7 @@ Change Request를 해결한 것으로 보입니다.
 
 ## 스레드 2 — 새 환경 경계의 회귀 테스트
 
-**위치** `brainwash/semantic.py` (`MatcherSettings.from_environment`, 초기 PR 267-275행)  
+**위치** `brainwash/semantic.py` (`MatcherSettings.from_environment`, 초기 PR 264-270행)  
 **심각도** `important` · **Change Request**
 
 **리뷰어 · 댓글 :test_tube:**
@@ -89,10 +89,10 @@ LLM은 factory 호출 목록이 `claude`, `openai` 순서인지 확인합니다.
 
 **작업자 · 반영**
 
-`743003b test(review-01): cover matcher setting isolation`
+`4878321 test(review-01): cover matcher setting isolation`
 
 세 regression test를 추가했습니다. 이 commit은 아직 shared default와 cache key 수정 전이라
-Red 상태였고, 다음 `63f8afb`에서 함께 Green으로 만들었습니다.
+Red 상태였고, 다음 `16f63f7`에서 함께 Green으로 만들었습니다.
 
 **리뷰어 · 확인 :white_check_mark:**
 
@@ -122,7 +122,7 @@ Red 상태였고, 다음 `63f8afb`에서 함께 Green으로 만들었습니다.
 
 **작업자 · 반영**
 
-`63f8afb fix(review-01): isolate matcher setting cache`
+`16f63f7 fix(review-01): isolate matcher setting cache`
 
 `DEFAULT_EMBEDDING_MODEL`을 추가해 constructor와 `MatcherSettings`가 공유하도록 했습니다.
 
@@ -132,7 +132,7 @@ Red 상태였고, 다음 `63f8afb`에서 함께 Green으로 만들었습니다.
 
 ## 스레드 4 — 알 수 없는 선택값의 호환성
 
-**위치** `brainwash/semantic.py` (`MatcherSettings.resolve`, 초기 PR 279-300행)  
+**위치** `brainwash/semantic.py` (`MatcherSettings.resolve`, 초기 PR 274-295행)  
 **심각도** `question`
 
 **리뷰어 · 질문 :question:**

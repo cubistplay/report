@@ -8,25 +8,25 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "1b5bba293d92d665d6bfdd750e57b0b85a807ee6",
+    "base_commit": "f9ab4b6a553ab86850fa50bbb639a4800cfb5e30",
     "head_branch": "review/review-05-support-retrieval-trace",
-    "initial_review_head": "581d54ecea1bcb4ba84dd051c75412faef75d5c4",
-    "final_head_commit": "10a7f021c24f860fe599ed9d2040965aaf64bd02",
-    "integrated_main_commit": "10a7f021c24f860fe599ed9d2040965aaf64bd02",
+    "initial_review_head": "6c82b76571c8d018afc249f91e0825cfda998e92",
+    "final_head_commit": "52b7d93fd18947ec1e4d45f98a1341c7bb9d7827",
+    "integrated_main_commit": "52b7d93fd18947ec1e4d45f98a1341c7bb9d7827",
     "commits": [
       {
         "role": "initial_review_pr",
-        "sha": "581d54ecea1bcb4ba84dd051c75412faef75d5c4",
+        "sha": "6c82b76571c8d018afc249f91e0825cfda998e92",
         "subject": "feat(review-05): trace support retrieval results"
       },
       {
         "role": "review_regression_tests",
-        "sha": "266a5bf5496a0e73ff6ac491c2810c512efe81ae",
+        "sha": "5882ddd2bff501d113e21fa05640aa3a0f9bf7dd",
         "subject": "test(review-05): specify support retrieval traces"
       },
       {
         "role": "review_response",
-        "sha": "10a7f021c24f860fe599ed9d2040965aaf64bd02",
+        "sha": "52b7d93fd18947ec1e4d45f98a1341c7bb9d7827",
         "subject": "fix(review-05): preserve support retrieval confidence"
       }
     ]
@@ -36,10 +36,10 @@
     "counterpart": "author"
   },
   "change_budget": {
-    "initial_additions": 54,
+    "initial_additions": 62,
     "initial_deletions": 4,
-    "initial_measured_changed_lines": 58,
-    "counting_rule": "initial review snapshot only; additions plus deletions",
+    "initial_measured_changed_lines": 66,
+    "counting_rule": "actual Git additions plus deletions after Black formatting and comment removal",
     "reviewability_note": "support retrieval trace의 confidence 의미와 batch 결과 계약을 다루는 단일 기능입니다."
   },
   "paths_changed": {
@@ -53,7 +53,8 @@
   },
   "verification": {
     "initial_review_head": "전체 test 99건 통과",
-    "review_response": "trace regression test를 추가한 뒤 decomposition test 24건 및 전체 test 101건 통과"
+    "review_response": "trace regression test를 추가한 뒤 decomposition test 24건 및 전체 test 101건 통과",
+    "black": "Black 26.5.1 was applied before each code commit; final Black --check passed."
   },
   "review": {
     "thread_count": 5,

@@ -23,5 +23,5 @@ snapshot과 artifact에 포함되지 않도록 lifecycle 판단을 한 정책으
 ## 작업 단위
 
 이번 작업은 DB와 in-memory ledger 사이의 active-record lifecycle 계약을 `MemoryLifecyclePolicy`로
-공유하는 구조 개선입니다. 209줄 안에서 lifecycle Decision Value Object, deterministic clock,
+공유하는 구조 개선입니다. 231줄 안에서 lifecycle Decision Value Object, deterministic clock,
 active filtering, audit artifact, temporal regression test를 하나의 reviewable 단위로 완료합니다.

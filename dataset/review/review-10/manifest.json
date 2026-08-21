@@ -8,25 +8,25 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "85b6b66ea40f83c4861cb32e714b9f76d725e42c",
+    "base_commit": "cd5e0db52cf4f64abc70d894ff844af66fac6636",
     "head_branch": "review/review-10-routing-lanes",
-    "initial_review_head": "933f82361324c944e70bd26bbf480319d22f9afa",
-    "final_head_commit": "6157b887810543e153a3a26b61f205957849268a",
-    "integrated_main_commit": "6157b887810543e153a3a26b61f205957849268a",
+    "initial_review_head": "f0b3a832c72bf379cd208f980f80f5f8b8e8f190",
+    "final_head_commit": "efdbab33d99ad2e903e201a1acfc2e61232ff39e",
+    "integrated_main_commit": "efdbab33d99ad2e903e201a1acfc2e61232ff39e",
     "commits": [
       {
         "role": "initial_review_pr",
-        "sha": "933f82361324c944e70bd26bbf480319d22f9afa",
+        "sha": "f0b3a832c72bf379cd208f980f80f5f8b8e8f190",
         "subject": "feat(review-10): split routing lanes"
       },
       {
         "role": "review_regression_tests",
-        "sha": "6e2a5f9d746d11c4b2fe2e8d24c458106d26b554",
+        "sha": "fafde2d1d66758892cb30025114024654c42a1d0",
         "subject": "test(review-10): specify routing lane contracts"
       },
       {
         "role": "review_response",
-        "sha": "6157b887810543e153a3a26b61f205957849268a",
+        "sha": "efdbab33d99ad2e903e201a1acfc2e61232ff39e",
         "subject": "fix(review-10): preserve routing lane boundaries"
       }
     ]
@@ -39,7 +39,7 @@
     "initial_additions": 59,
     "initial_deletions": 0,
     "initial_measured_changed_lines": 59,
-    "counting_rule": "initial review snapshot only; additions plus deletions",
+    "counting_rule": "actual Git additions plus deletions after Black formatting and comment removal",
     "reviewability_note": "mixed correction을 existing RoutingPolicy에 안전하게 분배하는 단일 lane-orchestration 기능입니다."
   },
   "paths_changed": {
@@ -53,7 +53,8 @@
   },
   "verification": {
     "initial_review_head": "전체 test 128건 통과",
-    "review_response": "routing lane regression test를 추가한 뒤 router test 11건 및 전체 test 130건 통과"
+    "review_response": "routing lane regression test를 추가한 뒤 router test 11건 및 전체 test 130건 통과",
+    "black": "Black 26.5.1 was applied before each code commit; final Black --check passed."
   },
   "review": {
     "thread_count": 5,

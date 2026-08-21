@@ -37,7 +37,7 @@ python3 -m unittest tests.test_memory_ledger -q
 # ModuleNotFoundError: brainwash.memory.promotion
 ```
 
-Commit: `706b6e8 test(implement-06): specify memory promotion policy`
+Commit: `c080187 test(implement-06): specify memory promotion policy`
 
 ## Prompt 3 — 구조와 회귀 검증
 
@@ -62,4 +62,4 @@ python3 -m unittest discover -s tests -q
 `PromotionPolicy`가 cluster를 size와 key 기준으로 안정적으로 정렬하고, 기존 convenience API는
 default Policy로 위임하도록 구현했습니다.
 
-Commit: `af2dcc0 refactor(implement-06): separate memory promotion policy`
+Commit: `39dbc7a refactor(implement-06): separate memory promotion policy`

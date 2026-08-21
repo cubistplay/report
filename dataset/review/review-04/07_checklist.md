@@ -1,7 +1,7 @@
 # R-A4 게시 전 체크리스트
 
 - [x] task와 review scope를 기록했습니다.
-- [x] 초기 PR은 `brainwash/algorithms/finetune.py` 한 파일, 55줄 변경입니다.
+- [x] 초기 PR은 `brainwash/algorithms/finetune.py` 한 파일, 68줄 변경입니다.
 - [x] 초기 PR head에서 기존 전체 test 98건을 통과했습니다.
 - [x] 최초 PR 설명에는 최초 snapshot만 기록했습니다.
 - [x] input count·emitted row count와 file write·artifact publication의 차이를 코드 예시와 JSON Schema 자료로 정보 제공했습니다.

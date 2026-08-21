@@ -7,7 +7,7 @@
 `feat(review-06): import memory lifecycle audits`는 run directory의 `memory_lifecycle.jsonl`을
 `memory_lifecycle_events`에 적재하고 memory별 audit event를 조회하는 기능입니다.
 
-최초 PR은 `8c56c1e`이며, `brainwash/memory/schema.sql`과 `brainwash/memory/update_db.py`에
+최초 PR은 `fbf1836`이며, `brainwash/memory/schema.sql`과 `brainwash/memory/update_db.py`에
 57줄을 추가했습니다. 이 시점의 전체 test 120건은 통과했습니다.
 
 ## 2. 주요 검토 및 반영
@@ -36,9 +36,9 @@ bool("false")  # True
 
 | 단계 | Commit | 내용 | 검증 |
 | --- | --- | --- | --- |
-| 최초 PR | `8c56c1e` | lifecycle audit table 및 import | 전체 120건 통과 |
-| 리뷰 명세 | `3369f64` | 문자열 boolean과 report count 회귀 test | 초기 구현에서 1 error, 1 failure 확인 |
-| 리뷰 반영 | `d99d223` | 값 정규화와 report count | update DB 10건, 전체 122건 통과 |
+| 최초 PR | `fbf1836` | lifecycle audit table 및 import | 전체 120건 통과 |
+| 리뷰 명세 | `74ea421` | 문자열 boolean과 report count 회귀 test | 초기 구현에서 1 error, 1 failure 확인 |
+| 리뷰 반영 | `d64c26c` | 값 정규화와 report count | update DB 10건, 전체 122건 통과 |
 
 최초 PR 이후에는 rebase나 force push 없이 test commit과 fix commit을 순서대로 누적했습니다.
 
@@ -47,3 +47,8 @@ bool("false")  # True
 lifecycle event를 current memory record와 분리한 Event Log 구조는 유지하면서, 외부 artifact의 타입 계약과
 실행 결과 report를 보완했습니다. 재실행 시의 unique identity와 foreign key 선행 조건도 대화에서 확인해
 운영 데이터의 중복 및 orphan event 위험을 명확히 했습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+

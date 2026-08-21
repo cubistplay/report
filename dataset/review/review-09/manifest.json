@@ -8,25 +8,25 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "f8993d9e60d8c5f207f37c18ca3587c6e6a559ee",
+    "base_commit": "6950e7adefb6f5cf2d6cbbf0c76e77bfbc0d8626",
     "head_branch": "review/review-09-memory-trigger-batch",
-    "initial_review_head": "9a9d26d92a617e1f2b9dc986766bcd8e070c3560",
-    "final_head_commit": "85b6b66ea40f83c4861cb32e714b9f76d725e42c",
-    "integrated_main_commit": "85b6b66ea40f83c4861cb32e714b9f76d725e42c",
+    "initial_review_head": "a53d706f8b716831ad1f71ffbbbdefa66a18197f",
+    "final_head_commit": "cd5e0db52cf4f64abc70d894ff844af66fac6636",
+    "integrated_main_commit": "cd5e0db52cf4f64abc70d894ff844af66fac6636",
     "commits": [
       {
         "role": "initial_review_pr",
-        "sha": "9a9d26d92a617e1f2b9dc986766bcd8e070c3560",
+        "sha": "a53d706f8b716831ad1f71ffbbbdefa66a18197f",
         "subject": "feat(review-09): batch memory trigger decisions"
       },
       {
         "role": "review_regression_tests",
-        "sha": "0258b131c413b8ba87189790c3bc2b368c420031",
+        "sha": "cfdf1df9d1d4e05334c96bbe057cc6ca30fdb4b6",
         "subject": "test(review-09): specify batch trigger results"
       },
       {
         "role": "review_response",
-        "sha": "85b6b66ea40f83c4861cb32e714b9f76d725e42c",
+        "sha": "cd5e0db52cf4f64abc70d894ff844af66fac6636",
         "subject": "fix(review-09): preserve batch trigger results"
       }
     ]
@@ -36,10 +36,10 @@
     "counterpart": "author"
   },
   "change_budget": {
-    "initial_additions": 50,
+    "initial_additions": 52,
     "initial_deletions": 0,
-    "initial_measured_changed_lines": 50,
-    "counting_rule": "initial review snapshot only; additions plus deletions",
+    "initial_measured_changed_lines": 52,
+    "counting_rule": "actual Git additions plus deletions after Black formatting and comment removal",
     "reviewability_note": "evaluation input과 memory trigger 결과의 positional alignment를 다루는 단일 batch API 기능입니다."
   },
   "paths_changed": {
@@ -53,7 +53,8 @@
   },
   "verification": {
     "initial_review_head": "전체 test 126건 통과",
-    "review_response": "batch trigger regression test를 추가한 뒤 runtime test 15건 및 전체 test 128건 통과"
+    "review_response": "batch trigger regression test를 추가한 뒤 runtime test 15건 및 전체 test 128건 통과",
+    "black": "Black 26.5.1 was applied before each code commit; final Black --check passed."
   },
   "review": {
     "thread_count": 5,

@@ -23,5 +23,5 @@ match 규칙과 최종 memory safety gate를 분리해 주세요.
 ## 작업 단위
 
 이번 작업은 in-memory Memory Store의 후보 탐색을 Strategy와 `MemoryMatchPolicy`로 분리하는
-behavior-preserving refactor입니다. 209줄 안에서 candidate evidence, two match routes, common
+behavior-preserving refactor입니다. 340줄 안에서 candidate evidence, two match routes, common
 safety gate, extension contract test를 하나의 reviewable 단위로 완료합니다.

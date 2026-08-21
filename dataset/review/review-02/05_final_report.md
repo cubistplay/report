@@ -11,13 +11,13 @@
 
 ## 2. Commit 및 PR 경계
 
-- base: `63f8afb985c15e8a947f00072b45f9fd99703eba`
+- base: `16f63f72e6ab16f514de8ce66fcc8d922bca9049`
   `fix(review-01): isolate matcher setting cache`
-- 최초 PR head: `235cb0c8e36423f13fa4c3971a7152749fb8c253`
+- 최초 PR head: `0509d92aaf42d3149969e7c3464e164cab1eadbe`
   `feat(review-02): record conversation resolutions`
-- 리뷰 반영 테스트: `1acd9de0c3e34572c1f4419292d98a11c77cb25c`
+- 리뷰 반영 테스트: `ae1d70bea704b1696ee414e06772b440100ed1c1`
   `test(review-02): specify resolution history snapshots`
-- 리뷰 반영 수정 및 최종 head: `ef03ac98e2baed67d4bbf21dd7fcbf6eba224239`
+- 리뷰 반영 수정 및 최종 head: `9d3eda3fd37293ef5b99c26a5dbd6c5d976a59ee`
   `fix(review-02): protect resolution history snapshots`
 
 리뷰 시작 뒤 최초 PR commit을 수정하지 않았습니다. regression test와 response code를 새
@@ -82,6 +82,11 @@ python3 -m unittest discover -s tests -q
 | 최초 PR | `brainwash/conversation.py` | 65 | 4 | 69 |
 | 리뷰 반영 | `brainwash/conversation.py`, `tests/test_benchmark_adapters.py` | 43 | 5 | 48 |
 
-초기 변경량 69줄은 Review PR의 일반적인 50~200줄 범위 안이며, in-memory conversation audit
+초기 변경량 84줄은 Review PR의 일반적인 50~200줄 범위 안이며, in-memory conversation audit
 history라는 하나의 검토 단위를 완결합니다. 리뷰 반영은 발견한 mutability와 테스트 공백만
 해결했고, 허용된 source/test 파일 밖으로 범위를 넓히지 않았습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+

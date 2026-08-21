@@ -1,7 +1,7 @@
 # I-A2 PR 대화 — benchmark request Factory 분리
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 head: `29bb11e` · Change Request 없음
+> 최초 검토 head: `1ba3260` · Change Request 없음
 
 ## 스레드 1 — Factory의 metadata 우선순위
 

@@ -11,7 +11,7 @@
 
 ## AI 판단 요약
 
-- 기준 commit은 `8291841`, 최초 검토 대상은 `8c56c1e`입니다.
+- 기준 commit은 `f026c98`, 최초 검토 대상은 `fbf1836`입니다.
 - 변경은 lifecycle event table 추가와 `memory_lifecycle.jsonl` import 경로입니다.
 - `active` 값은 외부 JSON에서 들어오지만 현재 truthiness로 SQLite 정수로 바뀝니다. 문자열 `"false"`도 참으로 처리될 수 있습니다.
 - `ingest_run_artifacts()`가 lifecycle row를 적재하지만 `UpdateDbIngestReport`에는 개수가 남지 않습니다.

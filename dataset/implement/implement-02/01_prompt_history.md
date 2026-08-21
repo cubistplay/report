@@ -41,7 +41,7 @@ python3 -m unittest tests.test_benchmark_adapters -q
 # Ran 6 tests — OK
 ```
 
-Commit: `ae1de36 test(implement-02): specify benchmark request factory`
+Commit: `5f3a5fb test(implement-02): specify benchmark request factory`
 
 ## Prompt 3 — 책임 경계
 
@@ -77,7 +77,7 @@ python3 -m unittest discover -s tests -q
 # Ran 77 tests — OK
 ```
 
-CounterFact, KnowEdit, MQuAKE, RippleEdits의 동일 입력 JSON을 변경 전 `dcd46fd`와
+CounterFact, KnowEdit, MQuAKE, RippleEdits의 동일 입력 JSON을 변경 전 `ebec589`와
 비교했고 `diff` 출력은 없었습니다.
 
-Commit: `29bb11e refactor(implement-02): centralize benchmark request construction`
+Commit: `1ba3260 refactor(implement-02): centralize benchmark request construction`

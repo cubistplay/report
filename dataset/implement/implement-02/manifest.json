@@ -8,20 +8,20 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "dcd46fd68822ac3041daa94afe53c80043e2a903",
+    "base_commit": "ebec589e5acf7357ccbbbcc8dcd0b4f6c5b89765",
     "head_branch": "main",
-    "initial_review_head": "29bb11e491889c22f93e01e1f9a344669d860aae",
-    "final_head_commit": "29bb11e491889c22f93e01e1f9a344669d860aae",
-    "integrated_main_commit": "29bb11e491889c22f93e01e1f9a344669d860aae",
+    "initial_review_head": "1ba32609326e28bf672c47152f8d7943716eefaa",
+    "final_head_commit": "1ba32609326e28bf672c47152f8d7943716eefaa",
+    "integrated_main_commit": "1ba32609326e28bf672c47152f8d7943716eefaa",
     "commits": [
       {
         "role": "red_tests",
-        "sha": "ae1de36f9993076bcefd278a09063740e22c8419",
+        "sha": "5f3a5fb84c0c7c8fae4d5d2733c8baef6b93cbd0",
         "subject": "test(implement-02): specify benchmark request factory"
       },
       {
         "role": "implementation",
-        "sha": "29bb11e491889c22f93e01e1f9a344669d860aae",
+        "sha": "1ba32609326e28bf672c47152f8d7943716eefaa",
         "subject": "refactor(implement-02): centralize benchmark request construction"
       }
     ]
@@ -33,10 +33,10 @@
   "change_budget": {
     "minimum_changed_lines": 200,
     "preferred_upper_bound": 300,
-    "additions": 186,
-    "deletions": 43,
-    "measured_changed_lines": 229,
-    "counting_rule": "product code and tests; additions plus deletions",
+    "additions": 276,
+    "deletions": 69,
+    "measured_changed_lines": 345,
+    "counting_rule": "actual Git additions plus deletions after Black formatting and comment removal",
     "reviewability_note": "공통 request 생성 규칙을 Factory로 모으고 네 adapter의 입력 해석은 유지한 단일 refactor입니다."
   },
   "paths_changed": [
@@ -46,7 +46,8 @@
   "verification": {
     "red": "tests.test_benchmark_adapters_factory: Factory import 실패",
     "initial_review_head": "Factory 테스트 3건 통과; adapter 테스트 6건 통과; 전체 테스트 77건 통과; JSON diff 없음",
-    "final": "Factory 테스트 3건 통과; adapter 테스트 6건 통과; 전체 테스트 77건 통과; JSON diff 없음"
+    "final": "Factory 테스트 3건 통과; adapter 테스트 6건 통과; 전체 테스트 77건 통과; JSON diff 없음",
+    "black": "Black 26.5.1 was applied before each code commit; final Black --check passed."
   },
   "review": {
     "thread_count": 4,

@@ -37,7 +37,7 @@ python3 -m unittest tests.test_update_db -q
 # ImportError: AliasRetrievalStrategy 등이 아직 없습니다.
 ```
 
-Commit: `a52d254 test(implement-07): specify memory retrieval strategies`
+Commit: `1c97df1 test(implement-07): specify memory retrieval strategies`
 
 ## Prompt 3 — 기존 결과 보존
 
@@ -63,4 +63,4 @@ python3 -m unittest discover -s tests -q
 정책은 `UpdateDb`에 남기고 candidate 수집만 Strategy로 옮겼습니다. full suite는 기존 sqlite
 connection `ResourceWarning` 2건을 출력했으나 실패는 없었습니다.
 
-Commit: `26174af refactor(implement-07): extract memory retrieval strategies`
+Commit: `5923603 refactor(implement-07): extract memory retrieval strategies`

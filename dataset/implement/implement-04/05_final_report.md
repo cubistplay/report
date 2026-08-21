@@ -13,12 +13,12 @@ dependency 추적, step 실행, recovery, 성공·실패 결과 생성을 모두
 
 ## 2. Commit 및 PR 경계
 
-- base: `main` / `3c11c0234491b57001cd620ba284071c4ad4957b`
-- Red 테스트: `5e08fba28c3a741e1901c3c9c5b2b7945f8367cf`
+- base: `main` / `9f0ceb98954f0feb19e29496d0476005f87831e1`
+- Red 테스트: `8be0fd91d41a6f8c8e1dce53920ce14a43fa77dc`
   `test(implement-04): specify dynamic evidence stages`
-- 최초 PR 및 최종 head: `f3795e270ace457f28a5a04caf9a1d47a4e989b7`
+- 최초 PR 및 최종 head: `509a333f379b5b4783198ded5bd692917eb47429`
   `refactor(implement-04): decompose dynamic evidence actions`
-- 최종 `main`: `f3795e270ace457f28a5a04caf9a1d47a4e989b7`
+- 최종 `main`: `509a333f379b5b4783198ded5bd692917eb47429`
 
 최초 head에서 action 전환, state 일관성, 결과 보존의 세 가지 경계를 검토했습니다.
 코드 결함은 발견되지 않아 Change Request나 후속 commit은 만들지 않았습니다.
@@ -60,14 +60,14 @@ memory dependency, memory 사용 상태를 한 실행 단위로 관리합니다.
 
 | 항목 | 결과 |
 | --- | ---: |
-| 추가 | 329줄 |
-| 삭제 | 162줄 |
-| 합계 | 491줄 |
+| 추가 | 489줄 |
+| 삭제 | 212줄 |
+| 합계 | 701줄 |
 | 파일 | 2개 |
 | 허용 목록 외 변경 | 없음 |
 
 변경 파일은 `brainwash/decomposition.py`와 `tests/test_decomposition_stages.py`입니다.
-491줄은 action Strategy 도입, state object 분리, 기존 loop 제거, 회귀 테스트, 결과
+701줄은 action Strategy 도입, state object 분리, 기존 loop 제거, 회귀 테스트, 결과
 동등성 검증을 한 단위로 완결하는 데 필요한 범위입니다.
 
 ## 6. 리뷰 결과
@@ -75,3 +75,8 @@ memory dependency, memory 사용 상태를 한 실행 단위로 관리합니다.
 리뷰에서는 action 전환 책임, state가 소유하는 함께 변하는 기록, memory recovery와
 조기 종료를 포함한 결과 보존 범위를 검토했습니다. stage/state 테스트, 기존 decomposition
 테스트, 변경 전후 JSON 비교로 확인했고 추가 코드 변경 없이 승인되었습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+

@@ -1,11 +1,11 @@
 # R-A6 PR 대화 — lifecycle audit import 검토
 
-> Synthetic GitHub artifact: true  
-> 최초 검토 branch: `review/review-06-lifecycle-audit` (`8c56c1e`) · 최종 head: `d99d223`
+> Synthetic GitHub artifact: true
+> 최초 검토 branch: `review/review-06-lifecycle-audit` (`fbf1836`) · 최종 head: `d64c26c`
 
 ## 스레드 1 — 문자열 `"false"`가 active event가 되는 문제
 
-**위치** `brainwash/memory/update_db.py` (`ingest_memory_lifecycle_rows`, 초기 PR 367행)  
+**위치** `brainwash/memory/update_db.py` (`ingest_memory_lifecycle_rows`, 초기 PR 368행)
 **심각도** `blocking` · **Change Request**
 
 **리뷰어 · 댓글 :thinking:**
@@ -37,7 +37,7 @@ import 실패 원인을 찾기 쉽습니다. 숫자는 SQLite 입력과 맞춰 `
 
 **작업자 · 반영 :white_check_mark:**
 
-`d99d223 fix(review-06): normalize lifecycle audit imports`에서 boolean, 정수 `0/1`, 대소문자와 공백을
+`d64c26c fix(review-06): normalize lifecycle audit imports`에서 boolean, 정수 `0/1`, 대소문자와 공백을
 정리한 `"true"/"false"`만 받도록 했습니다. `"false"` artifact가 0으로 저장되는 test와 알 수 없는 문자열이 `ValueError`가 되는 test를 추가했습니다.
 
 **리뷰어 · 확인 :tada:**
@@ -46,7 +46,7 @@ import 실패 원인을 찾기 쉽습니다. 숫자는 SQLite 입력과 맞춰 `
 
 ## 스레드 2 — lifecycle import 결과가 report에 남지 않음
 
-**위치** `brainwash/memory/update_db.py` (`ingest_run_artifacts`, 초기 PR 323-325행)  
+**위치** `brainwash/memory/update_db.py` (`ingest_run_artifacts`, 초기 PR 302-304행)
 **심각도** `important` · **Change Request**
 
 **리뷰어 · 댓글 :eyes:**
@@ -70,7 +70,7 @@ import test에서 count와 저장 event를 같이 확인하면 좋겠습니다. 
 
 **작업자 · 반영 :+1:**
 
-같은 `d99d223`에서 `lifecycle_events: int = 0`을 report에 추가했습니다. run artifact test는 report가 1이고,
+같은 `d64c26c`에서 `lifecycle_events: int = 0`을 report에 추가했습니다. run artifact test는 report가 1이고,
 `lifecycle_events(memory_id)`의 첫 event가 inactive인지 함께 확인합니다.
 
 **리뷰어 · 확인 :white_check_mark:**
@@ -79,7 +79,7 @@ import test에서 count와 저장 event를 같이 확인하면 좋겠습니다. 
 
 ## 스레드 3 — ledger와 event의 foreign key 순서
 
-**위치** `brainwash/memory/update_db.py` (`ingest_run_artifacts`)  
+**위치** `brainwash/memory/update_db.py` (`ingest_run_artifacts`)
 **심각도** `question`
 
 **리뷰어 · 질문 :thinking:**
@@ -99,7 +99,7 @@ record 없이 event만 있는 artifact는 데이터 불완전으로 보고 DB �
 
 ## 스레드 4 — 같은 artifact 재실행의 의미
 
-**위치** `brainwash/memory/schema.sql` (`memory_lifecycle_events` unique key)  
+**위치** `brainwash/memory/schema.sql` (`memory_lifecycle_events` unique key)
 **심각도** `question`
 
 **리뷰어 · 질문 :repeat:**
@@ -119,7 +119,7 @@ unique key가 재실행 단위와 맞고, timestamp가 새 평가의 identity라
 
 ## 스레드 5 — 최신 event 정렬의 입력 형식
 
-**위치** `brainwash/memory/update_db.py` (`lifecycle_events`)  
+**위치** `brainwash/memory/update_db.py` (`lifecycle_events`)
 **심각도** `question`
 
 **리뷰어 · 질문 :clock1:**

@@ -53,6 +53,10 @@ flowchart LR
 
 기존 전체 test 128건이 통과했습니다. 최초 PR에는 domain/fact mixed lane의 plan 분리와 original request position을 직접 검증하는 test는 포함하지 않았습니다.
 
+## Formatting
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최초 PR snapshot을 포함한 최종 변경 파일은 `black --check`를 통과했으며, 재작성 전후 변경 Python 파일의 AST도 동일하게 확인했습니다.
+
 ## Todos
 
 - [ ] 리뷰 의견 반영

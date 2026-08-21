@@ -1,7 +1,7 @@
 # I-A1 PR 대화 — locality 평가 구조 분리
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 head: `dcd46fd` · Change Request 없음
+> 최초 검토 head: `ebec589` · Change Request 없음
 
 ## 스레드 1 — locality 비교에서 정규화하는 범위
 

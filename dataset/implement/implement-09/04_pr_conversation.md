@@ -1,7 +1,7 @@
 # I-A9 PR 대화 — memory match Strategy 분리
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 head: `1fe0233` · Change Request 없음
+> 최초 검토 head: `2796423` · Change Request 없음
 
 ## 스레드 1 — match evidence와 final safety policy
 

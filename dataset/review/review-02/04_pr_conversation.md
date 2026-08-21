@@ -1,11 +1,11 @@
 # R-A2 PR 대화 — conversation resolution history 검토
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 head: `235cb0c` · 최종 head: `ef03ac9`
+> 최초 검토 head: `0509d92` · 최종 head: `9d3eda3`
 
 ## 스레드 1 — internal history list 노출
 
-**위치** `brainwash/conversation.py` (`ConversationResolver.history`, 초기 PR 69-72행)  
+**위치** `brainwash/conversation.py` (`ConversationResolver.history`, 초기 PR 71-75행)  
 **심각도** `blocking` · **Change Request**
 
 **리뷰어 · 댓글 :thinking:**
@@ -34,7 +34,7 @@ public API는 `tuple(self._history)`를 반환하고, clear는 명시적인 `cle
 
 **작업자 · 반영**
 
-`ef03ac9 fix(review-02): protect resolution history snapshots`
+`9d3eda3 fix(review-02): protect resolution history snapshots`
 
 `history` 반환형을 `tuple[ConversationResolutionRecord, ...]`로 바꿨습니다.
 
@@ -44,7 +44,7 @@ public API는 `tuple(self._history)`를 반환하고, clear는 명시적인 `cle
 
 ## 스레드 2 — frozen record 안의 mutable subject list
 
-**위치** `brainwash/conversation.py` (`ConversationResolutionRecord.known_subjects`, 초기 PR 31행)  
+**위치** `brainwash/conversation.py` (`ConversationResolutionRecord.known_subjects`, 초기 PR 25-33행)  
 **심각도** `important`
 
 **리뷰어 · 댓글 :warning:**
@@ -106,10 +106,10 @@ integration test가 같은 파일에 있으므로, 새 test도 그 경로에 두
 
 **작업자 · 반영**
 
-`1acd9de test(review-02): specify resolution history snapshots`
+`ae1d70b test(review-02): specify resolution history snapshots`
 
 세 test를 추가했습니다. 이 test commit은 initial implementation에서 history list와 nested list를
-노출하므로 Red 상태였고, 다음 `ef03ac9`에서 Green으로 만들었습니다.
+노출하므로 Red 상태였고, 다음 `9d3eda3`에서 Green으로 만들었습니다.
 
 `python3 -m unittest tests.test_benchmark_adapters -q` 9건과 전체 96건을 통과했습니다.
 

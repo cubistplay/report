@@ -12,12 +12,12 @@ rerank, answer-type validation, threshold 선택, retrieval audit log를 모두 
 
 ## 2. Commit 및 PR 경계
 
-- base: `main` / `af2dcc0413e9fc7eff020052c6aaacd112e659d5`
-- Red 테스트: `a52d254ecec32c251ea005b8c46232c34bce7b1e`
+- base: `main` / `39dbc7a6db3580d255a596592503e63ee680d89d`
+- Red 테스트: `1c97df1c3ec5390682125073249d6e68944c8f04`
   `test(implement-07): specify memory retrieval strategies`
-- 최초 PR 및 최종 head: `26174af19d247a57a1876e023bd4727142c307fb`
+- 최초 PR 및 최종 head: `5923603fd750994e5bb8f662cb428f2f4fc8602b`
   `refactor(implement-07): extract memory retrieval strategies`
-- 최종 `main`: `26174af19d247a57a1876e023bd4727142c307fb`
+- 최종 `main`: `5923603fd750994e5bb8f662cb428f2f4fc8602b`
 
 최초 head에서 Strategy와 final selection의 경계, default/empty/custom strategy 설정 의미,
 FTS fallback 및 audit contract 보존을 검토했습니다. 코드 결함은 발견되지 않아 Change Request나
@@ -62,9 +62,9 @@ raw와 normalized query 모두를 받으므로 SQL key lookup 외의 확장도 �
 
 | 항목 | 결과 |
 | --- | ---: |
-| 추가 | 276줄 |
-| 삭제 | 95줄 |
-| 합계 | 371줄 |
+| 추가 | 397줄 |
+| 삭제 | 133줄 |
+| 합계 | 530줄 |
 | 파일 | 2개 |
 | 허용 목록 외 변경 | 없음 |
 
@@ -77,3 +77,8 @@ rerank delegation·네 계약 test를 함께 완료한 하나의 coherent refact
 리뷰에서는 candidate collection과 final selection의 책임 경계, default/empty/custom Strategy의 설정
 의미, FTS fallback과 audit log 공통 경로 보존을 확인했습니다. 세 스레드의 설계 검토와 Update DB·
 Memory Ledger·전체 suite 검증을 근거로 승인했습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+

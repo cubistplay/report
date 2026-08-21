@@ -6,7 +6,7 @@
 | 캡처명 | 대상 | 근거 |
 | --- | --- | --- |
 | `I-A1-01-red-contract-test.png` | Red 테스트 | `CaseVerdict` import 실패 |
-| `I-A1-02-initial-pr.png` | 최초 PR 설명 | `dcd46fd` 시점 |
+| `I-A1-02-initial-pr.png` | 최초 PR 설명 | `ebec589` 시점 |
 | `I-A1-03-evaluation-boundaries.png` | Strategy/Registry/Builder 구조 | 책임 분리 Mermaid |
 | `I-A1-04-review-threads.png` | 설계 검토 다섯 스레드 | Change Request 0 |
 | `I-A1-05-green-tests.png` | 대상/전체 테스트 검증 | 6/6, 5/5, 74/74 |

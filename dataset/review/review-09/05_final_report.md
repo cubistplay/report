@@ -4,7 +4,7 @@
 
 ## 1. 검토 대상
 
-feat(review-09): batch memory trigger decisions는 여러 prompt의 MemoryTrigger와 batch summary를 반환하는 API입니다. 최초 PR 9a9d26d은 brainwash/algorithms/memory_edit.py에 50줄을 추가했고, 기존 전체 test 126건을 통과했습니다.
+feat(review-09): batch memory trigger decisions는 여러 prompt의 MemoryTrigger와 batch summary를 반환하는 API입니다. 최초 PR a53d706은 brainwash/algorithms/memory_edit.py에 52줄을 추가했고, 기존 전체 test 126건을 통과했습니다.
 
 ## 2. 주요 검토 및 반영
 
@@ -25,12 +25,17 @@ feat(review-09): batch memory trigger decisions는 여러 prompt의 MemoryTrigge
 
 | 단계 | Commit | 내용 | 검증 |
 | --- | --- | --- | --- |
-| 최초 PR | 9a9d26d | batch trigger Value Object와 API | 전체 126건 통과 |
-| 리뷰 명세 | 0258b13 | duplicate order·triggered count test | 초기 구현에서 2 failures 확인 |
-| 리뷰 반영 | 85b6b66 | positional result와 count semantics | runtime 15건, 전체 128건 통과 |
+| 최초 PR | a53d706 | batch trigger Value Object와 API | 전체 126건 통과 |
+| 리뷰 명세 | cfdf1df | duplicate order·triggered count test | 초기 구현에서 2 failures 확인 |
+| 리뷰 반영 | cd5e0db | positional result와 count semantics | runtime 15건, 전체 128건 통과 |
 
 최초 PR 이후에는 test commit과 fix commit을 순서대로 누적했고, rebase나 force push를 사용하지 않았습니다.
 
 ## 4. 결론
 
 Batch Result Value Object 구조를 유지하면서 input/result alignment와 monitoring metric의 의미를 보완했습니다. duplicate query cache는 public result contract와 분리해야 하므로 이번 변경 범위에는 포함하지 않았습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+

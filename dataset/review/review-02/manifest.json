@@ -8,25 +8,25 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "63f8afb985c15e8a947f00072b45f9fd99703eba",
+    "base_commit": "16f63f72e6ab16f514de8ce66fcc8d922bca9049",
     "head_branch": "review/review-02-conversation-history",
-    "initial_review_head": "235cb0c8e36423f13fa4c3971a7152749fb8c253",
-    "final_head_commit": "ef03ac98e2baed67d4bbf21dd7fcbf6eba224239",
-    "integrated_main_commit": "ef03ac98e2baed67d4bbf21dd7fcbf6eba224239",
+    "initial_review_head": "0509d92aaf42d3149969e7c3464e164cab1eadbe",
+    "final_head_commit": "9d3eda3fd37293ef5b99c26a5dbd6c5d976a59ee",
+    "integrated_main_commit": "9d3eda3fd37293ef5b99c26a5dbd6c5d976a59ee",
     "commits": [
       {
         "role": "initial_review_pr",
-        "sha": "235cb0c8e36423f13fa4c3971a7152749fb8c253",
+        "sha": "0509d92aaf42d3149969e7c3464e164cab1eadbe",
         "subject": "feat(review-02): record conversation resolutions"
       },
       {
         "role": "review_regression_tests",
-        "sha": "1acd9de0c3e34572c1f4419292d98a11c77cb25c",
+        "sha": "ae1d70bea704b1696ee414e06772b440100ed1c1",
         "subject": "test(review-02): specify resolution history snapshots"
       },
       {
         "role": "review_response",
-        "sha": "ef03ac98e2baed67d4bbf21dd7fcbf6eba224239",
+        "sha": "9d3eda3fd37293ef5b99c26a5dbd6c5d976a59ee",
         "subject": "fix(review-02): protect resolution history snapshots"
       }
     ]
@@ -36,10 +36,10 @@
     "counterpart": "author"
   },
   "change_budget": {
-    "initial_additions": 65,
-    "initial_deletions": 4,
-    "initial_measured_changed_lines": 69,
-    "counting_rule": "initial review snapshot only; additions plus deletions",
+    "initial_additions": 79,
+    "initial_deletions": 5,
+    "initial_measured_changed_lines": 84,
+    "counting_rule": "actual Git additions plus deletions after Black formatting and comment removal",
     "reviewability_note": "conversation resolution audit history의 ownership과 snapshot 계약을 다루는 단일 기능입니다."
   },
   "paths_changed": {
@@ -53,7 +53,8 @@
   },
   "verification": {
     "initial_review_head": "전체 test 93건 통과",
-    "review_response": "history snapshot regression test를 추가한 뒤 benchmark adapter 9건 및 전체 96건 통과"
+    "review_response": "history snapshot regression test를 추가한 뒤 benchmark adapter 9건 및 전체 96건 통과",
+    "black": "Black 26.5.1 was applied before each code commit; final Black --check passed."
   },
   "review": {
     "thread_count": 5,

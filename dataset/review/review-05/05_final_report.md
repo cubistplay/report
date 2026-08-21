@@ -11,12 +11,12 @@ answer 조회를 바꾸지 않는지 검토했습니다.
 
 ## 2. Commit 및 PR 경계
 
-- base: `1b5bba293d92d665d6bfdd750e57b0b85a807ee6`
+- base: `f9ab4b6a553ab86850fa50bbb639a4800cfb5e30`
 - 최초 PR branch/head: `review/review-05-support-retrieval-trace` /
-  `581d54ecea1bcb4ba84dd051c75412faef75d5c4`
-- 리뷰 반영 테스트: `266a5bf5496a0e73ff6ac491c2810c512efe81ae`
+  `6c82b76571c8d018afc249f91e0825cfda998e92`
+- 리뷰 반영 테스트: `5882ddd2bff501d113e21fa05640aa3a0f9bf7dd`
   `test(review-05): specify support retrieval traces`
-- 리뷰 반영 수정 및 최종 head: `10a7f021c24f860fe599ed9d2040965aaf64bd02`
+- 리뷰 반영 수정 및 최종 head: `52b7d93fd18947ec1e4d45f98a1341c7bb9d7827`
   `fix(review-05): preserve support retrieval confidence`
 
 리뷰 뒤 최초 PR commit은 변경하지 않았습니다. regression test와 response code를 새 commit으로 누적해
@@ -81,5 +81,10 @@ python3 -m unittest discover -s tests -q
 | 최초 PR | `brainwash/decomposition.py` | 54 | 4 | 58 |
 | 리뷰 반영 | `brainwash/decomposition.py`, `tests/test_decomposition.py` | 50 | 6 | 56 |
 
-초기 변경량 58줄은 Review PR의 일반적인 50~200줄 범위 안입니다. support retrieval trace라는 하나의
+초기 변경량 66줄은 Review PR의 일반적인 50~200줄 범위 안입니다. support retrieval trace라는 하나의
 기능을 검토했고, 반영 범위도 confidence·API compatibility·batch contract에 한정했습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+

@@ -8,20 +8,20 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "af2dcc0413e9fc7eff020052c6aaacd112e659d5",
+    "base_commit": "39dbc7a6db3580d255a596592503e63ee680d89d",
     "head_branch": "main",
-    "initial_review_head": "26174af19d247a57a1876e023bd4727142c307fb",
-    "final_head_commit": "26174af19d247a57a1876e023bd4727142c307fb",
-    "integrated_main_commit": "26174af19d247a57a1876e023bd4727142c307fb",
+    "initial_review_head": "5923603fd750994e5bb8f662cb428f2f4fc8602b",
+    "final_head_commit": "5923603fd750994e5bb8f662cb428f2f4fc8602b",
+    "integrated_main_commit": "5923603fd750994e5bb8f662cb428f2f4fc8602b",
     "commits": [
       {
         "role": "red_tests",
-        "sha": "a52d254ecec32c251ea005b8c46232c34bce7b1e",
+        "sha": "1c97df1c3ec5390682125073249d6e68944c8f04",
         "subject": "test(implement-07): specify memory retrieval strategies"
       },
       {
         "role": "implementation",
-        "sha": "26174af19d247a57a1876e023bd4727142c307fb",
+        "sha": "5923603fd750994e5bb8f662cb428f2f4fc8602b",
         "subject": "refactor(implement-07): extract memory retrieval strategies"
       }
     ]
@@ -33,10 +33,10 @@
   "change_budget": {
     "minimum_changed_lines": 200,
     "preferred_upper_bound": 300,
-    "additions": 276,
-    "deletions": 95,
-    "measured_changed_lines": 371,
-    "counting_rule": "product code and tests; additions plus deletions",
+    "additions": 397,
+    "deletions": 133,
+    "measured_changed_lines": 530,
+    "counting_rule": "actual Git additions plus deletions after Black formatting and comment removal",
     "reviewability_note": "네 retrieval route의 Strategy 추출, Candidate Value Object, constructor injection, rerank delegation, contract test를 함께 완료한 단일 refactor입니다."
   },
   "paths_changed": [
@@ -46,7 +46,8 @@
   "verification": {
     "red": "tests.test_update_db: retrieval Strategy import 실패",
     "initial_review_head": "Update DB 테스트 8건, Memory Ledger 테스트 7건, 전체 테스트 110건 통과",
-    "final": "Update DB 테스트 8건, Memory Ledger 테스트 7건, 전체 테스트 110건 통과"
+    "final": "Update DB 테스트 8건, Memory Ledger 테스트 7건, 전체 테스트 110건 통과",
+    "black": "Black 26.5.1 was applied before each code commit; final Black --check passed."
   },
   "review": {
     "thread_count": 3,

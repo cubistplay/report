@@ -11,12 +11,12 @@ file이 manifest에서 발견되는지는 검증하지 않았습니다.
 
 ## 2. Commit 및 PR 경계
 
-- base: `5a6f568472c4f95ba5eb1d12105a17c5c0a888da`
+- base: `26be3f1b5dba3b5f8a58297b5800420633b5ced4`
 - 최초 PR branch/head: `review/review-04-sft-summary` /
-  `026760f9531bc3cce6abad36ef91c1bd73f8a86a`
-- 리뷰 반영 테스트: `594baf5435bf7a689a7c90836f31de6fad6f9421`
+  `42ed95b7c68f7e1c29e9b49310d8e514f2cc9624`
+- 리뷰 반영 테스트: `193256bb8c488424c00fc4877435a90e81db490a`
   `test(review-04): specify SFT dataset summary artifacts`
-- 리뷰 반영 수정 및 최종 head: `1b5bba293d92d665d6bfdd750e57b0b85a807ee6`
+- 리뷰 반영 수정 및 최종 head: `f9ab4b6a553ab86850fa50bbb639a4800cfb5e30`
   `fix(review-04): publish SFT dataset summary`
 
 리뷰 뒤 최초 PR commit은 변경하지 않았습니다. regression test와 response code를 새 commit으로
@@ -80,5 +80,10 @@ python3 -m unittest discover -s tests -q
 | 최초 PR | `brainwash/algorithms/finetune.py` | 53 | 2 | 55 |
 | 리뷰 반영 | `brainwash/algorithms/finetune.py`, `tests/test_pipeline.py` | 29 | 2 | 31 |
 
-초기 변경량 55줄은 Review PR의 일반적인 50~200줄 범위 안입니다. SFT data summary라는 하나의
+초기 변경량 68줄은 Review PR의 일반적인 50~200줄 범위 안입니다. SFT data summary라는 하나의
 기능을 검토했고, 반영 범위도 count·artifact·test 계약에 한정했습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+

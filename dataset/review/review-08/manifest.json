@@ -8,25 +8,25 @@
   "repository": {
     "name": "BrainWash",
     "base_branch": "main",
-    "base_commit": "9aae5395f2cb59007f1b88dcbc0e67d1b4692c94",
+    "base_commit": "92344426fca96b2a3bbe272dfe79ab399715f31d",
     "head_branch": "review/review-08-memory-snapshots",
-    "initial_review_head": "852b49704f15093dcac0cb80be50b01b2c8914b9",
-    "final_head_commit": "f8993d9e60d8c5f207f37c18ca3587c6e6a559ee",
-    "integrated_main_commit": "f8993d9e60d8c5f207f37c18ca3587c6e6a559ee",
+    "initial_review_head": "7b91748b23465178a34f98868b1a2ec7aebf5cee",
+    "final_head_commit": "6950e7adefb6f5cf2d6cbbf0c76e77bfbc0d8626",
+    "integrated_main_commit": "6950e7adefb6f5cf2d6cbbf0c76e77bfbc0d8626",
     "commits": [
       {
         "role": "initial_review_pr",
-        "sha": "852b49704f15093dcac0cb80be50b01b2c8914b9",
+        "sha": "7b91748b23465178a34f98868b1a2ec7aebf5cee",
         "subject": "feat(review-08): export memory snapshots"
       },
       {
         "role": "review_regression_tests",
-        "sha": "5fc50aefe7c08acb8ee0a8158d7725aa0082d0dc",
+        "sha": "6b31cc5ddcb90c370fa17597e7874db51d246f95",
         "subject": "test(review-08): specify snapshot export contracts"
       },
       {
         "role": "review_response",
-        "sha": "f8993d9e60d8c5f207f37c18ca3587c6e6a559ee",
+        "sha": "6950e7adefb6f5cf2d6cbbf0c76e77bfbc0d8626",
         "subject": "fix(review-08): align snapshot artifact boundaries"
       }
     ]
@@ -36,10 +36,10 @@
     "counterpart": "author"
   },
   "change_budget": {
-    "initial_additions": 52,
+    "initial_additions": 53,
     "initial_deletions": 5,
-    "initial_measured_changed_lines": 57,
-    "counting_rule": "initial review snapshot only; additions plus deletions",
+    "initial_measured_changed_lines": 58,
+    "counting_rule": "actual Git additions plus deletions after Black formatting and comment removal",
     "reviewability_note": "memory artifact bundle의 as_of boundary와 manifest를 다루는 단일 export 기능입니다."
   },
   "paths_changed": {
@@ -53,7 +53,8 @@
   },
   "verification": {
     "initial_review_head": "전체 test 124건 통과",
-    "review_response": "snapshot regression test를 추가한 뒤 memory ledger test 12건 및 전체 test 126건 통과"
+    "review_response": "snapshot regression test를 추가한 뒤 memory ledger test 12건 및 전체 test 126건 통과",
+    "black": "Black 26.5.1 was applied before each code commit; final Black --check passed."
   },
   "review": {
     "thread_count": 5,

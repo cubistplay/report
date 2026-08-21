@@ -13,12 +13,12 @@ adapter로 모았습니다. SimPO/DPO가 공유하던 paired asset 생성도 별
 
 ## 2. Commit 및 PR 경계
 
-- base: `main` / `f3795e270ace457f28a5a04caf9a1d47a4e989b7`
-- Red 테스트: `4fa7b66016cf0ced1697fc649d1cf299d4ae7c25`
+- base: `main` / `509a333f379b5b4783198ded5bd692917eb47429`
+- Red 테스트: `f8f8ec53d2318df86c6aeb104f9d25cb87755a2a`
   `test(implement-05): specify preference record strategies`
-- 최초 PR 및 최종 head: `3819dbe96debb7d32d11c87ab92c0ba215dea5cf`
+- 최초 PR 및 최종 head: `f7256bc58a7ea9bb7423bfc0de715e952468eadf`
   `refactor(implement-05): separate preference export strategies`
-- 최종 `main`: `3819dbe96debb7d32d11c87ab92c0ba215dea5cf`
+- 최종 `main`: `f7256bc58a7ea9bb7423bfc0de715e952468eadf`
 
 최초 head에서 record 전략의 의미, shared paired asset 범위, 공통 export의 artifact
 보존을 검토했습니다. 코드 결함은 발견되지 않아 Change Request나 후속 commit은 만들지
@@ -62,14 +62,14 @@ artifact를 만들고, 임시 output 경로만 정규화해 변경 전 commit과
 
 | 항목 | 결과 |
 | --- | ---: |
-| 추가 | 239줄 |
-| 삭제 | 43줄 |
-| 합계 | 282줄 |
+| 추가 | 277줄 |
+| 삭제 | 47줄 |
+| 합계 | 324줄 |
 | 파일 | 2개 |
 | 허용 목록 외 변경 | 없음 |
 
 변경 파일은 `brainwash/algorithms/preference.py`와
-`tests/test_pipeline_preference_export.py`입니다. 282줄 안에서 Strategy·Template Method
+`tests/test_pipeline_preference_export.py`입니다. 324줄 안에서 Strategy·Template Method
 도입, 중복 export 제거, adapter별 회귀 테스트, artifact 동등성 검증을 하나의 검토 단위로
 완결했습니다.
 
@@ -78,3 +78,8 @@ artifact를 만들고, 임시 output 경로만 정규화해 변경 전 commit과
 리뷰에서는 paired/binary 행의 의미, DPO가 공유하는 asset과 실행 책임의 경계, KTO가
 공통 export를 쓰면서 paired asset을 만들지 않는지를 확인했습니다. strategy 테스트,
 adapter 통합 테스트, 변경 전후 artifact 비교로 검증했고 추가 코드 변경 없이 승인되었습니다.
+
+## Black 포맷 검증
+
+각 코드 커밋 직전에 Black 26.5.1을 적용했습니다. 최종 변경 파일은 `black --check`를 통과했고, 재작성 전후 변경 Python 파일의 AST가 동일함을 확인했습니다. `#` 주석과 inline comment는 코드에서 제거했으며, 새 docstring은 추가하지 않았습니다.
+

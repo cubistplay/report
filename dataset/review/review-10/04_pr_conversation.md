@@ -1,11 +1,11 @@
 # R-A10 PR 대화 — routing lane 검토
 
 > Synthetic GitHub artifact: true  
-> 최초 검토 branch: review/review-10-routing-lanes (933f823) · 최종 head: 6157b88
+> 최초 검토 branch: review/review-10-routing-lanes (f0b3a83) · 최종 head: efdbab3
 
 ## 스레드 1 — broad/domain correction이 factual memory lane을 training으로 바꿈
 
-**위치** brainwash/router.py (route_lanes, 초기 PR 296-299행)  
+**위치** brainwash/router.py (route_lanes, 초기 PR 327-340행)  
 **심각도** blocking · **Change Request**
 
 **리뷰어 · 댓글 :thinking:**
@@ -28,7 +28,7 @@ domain kind나 broad/domain/global scope를 별도 broad lane으로 분리해 �
 
 **작업자 · 반영 :white_check_mark:**
 
-6157b88 fix(review-10): preserve routing lane boundaries에서 behavior, broad, memory 세 lane으로 분리했습니다. fact와 broad domain을 같이 넣어도 memory plan은 MEMORY_STORE, broad plan은 QLORA_SFT인지 regression test로 고정했습니다.
+efdbab3 fix(review-10): preserve routing lane boundaries에서 behavior, broad, memory 세 lane으로 분리했습니다. fact와 broad domain을 같이 넣어도 memory plan은 MEMORY_STORE, broad plan은 QLORA_SFT인지 regression test로 고정했습니다.
 
 **리뷰어 · 확인 :tada:**
 
@@ -36,7 +36,7 @@ domain kind나 broad/domain/global scope를 별도 broad lane으로 분리해 �
 
 ## 스레드 2 — lane split 뒤 original input position을 잃음
 
-**위치** brainwash/router.py (RoutingLane, 초기 PR 95-108행)  
+**위치** brainwash/router.py (RoutingLane, 초기 PR 105-122행)  
 **심각도** important · **Change Request**
 
 **리뷰어 · 댓글 :eyes:**
@@ -60,7 +60,7 @@ RoutingLane에 request_positions를 추가하고, fact가 0번·behavior가 1번
 
 **작업자 · 반영 :+1:**
 
-같은 6157b88에서 request_positions를 RoutingLane과 JSON output에 추가했습니다. fact 0번, behavior 1번 input test가 각각 memory=(0,), behavior=(1,)을 확인합니다.
+같은 efdbab3에서 request_positions를 RoutingLane과 JSON output에 추가했습니다. fact 0번, behavior 1번 input test가 각각 memory=(0,), behavior=(1,)을 확인합니다.
 
 **리뷰어 · 확인 :white_check_mark:**
 
